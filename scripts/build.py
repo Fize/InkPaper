@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kami build & check
+"""inkpaper build & check
 
 Usage:
     python3 scripts/build.py                      # build all examples (HTML + diagrams + PPTX)
@@ -74,7 +74,7 @@ def infer_author() -> str:
     Priority:
     1. git config user.name
     2. KAMI_AUTHOR env var
-    3. fallback to "Kami"
+    3. fallback to "InkPaper"
     """
     try:
         result = subprocess.run(
@@ -91,7 +91,7 @@ def infer_author() -> str:
     if env_author := os.environ.get("KAMI_AUTHOR"):
         return env_author
 
-    return "Kami"
+    return "InkPaper"
 
 
 def set_pdf_metadata(pdf_path: Path, author: str | None = None) -> None:
@@ -120,12 +120,12 @@ def set_pdf_metadata(pdf_path: Path, author: str | None = None) -> None:
             metadata["/Author"] = author
             needs_update = True
 
-    # Always set Producer and Creator to Kami
-    if metadata.get("/Producer") != "Kami":
-        metadata["/Producer"] = "Kami"
+    # Always set Producer and Creator to InkPaper
+    if metadata.get("/Producer") != "InkPaper":
+        metadata["/Producer"] = "InkPaper"
         needs_update = True
-    if metadata.get("/Creator") != "Kami":
-        metadata["/Creator"] = "Kami"
+    if metadata.get("/Creator") != "InkPaper":
+        metadata["/Creator"] = "InkPaper"
         needs_update = True
 
     if not needs_update:

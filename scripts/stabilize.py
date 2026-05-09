@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""kami stabilize
+"""inkpaper stabilize
 
 Stabilize HTML templates with deterministic normalization and optional overflow solving.
 
 Usage:
     python3 scripts/stabilize.py all
-    python3 scripts/stabilize.py one-pager resume-en --out-dir /tmp/kami-stabilized --report
+    python3 scripts/stabilize.py one-pager resume-en --out-dir /tmp/inkpaper-stabilized --report
     python3 scripts/stabilize.py one-pager --write --strict --report
 """
 
@@ -401,7 +401,7 @@ def count_pages(html: str, base_dir: Path) -> int:
 
     tmp_pdf: Path | None = None
     try:
-        with tempfile.NamedTemporaryFile(prefix="kami-stabilize-", suffix=".pdf", delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(prefix="inkpaper-stabilize-", suffix=".pdf", delete=False) as tmp:
             tmp_pdf = Path(tmp.name)
         HTML(string=html, base_url=str(base_dir)).write_pdf(str(tmp_pdf))
         return len(PdfReader(str(tmp_pdf)).pages)
@@ -679,7 +679,7 @@ def run_for_target(
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Stabilize Kami HTML templates.")
+    parser = argparse.ArgumentParser(description="Stabilize InkPaper HTML templates.")
     parser.add_argument("targets", nargs="*", default=["all"], help="Target names or 'all'")
     parser.add_argument(
         "--write",

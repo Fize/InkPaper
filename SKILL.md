@@ -1,19 +1,19 @@
 ---
-name: kami
+name: inkpaper
 description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, cinnabar accent, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
 ---
 
-# kami · 紙
+# inkpaper · 紙
 
 **紙** - the paper your deliverables land on.
 
 Good content deserves good paper. One design language across eight document types: warm parchment canvas, cinnabar accent, serif-led hierarchy, tight editorial rhythm.
 
-Part of `Kaku · Waza · Kami` - Kaku writes code, Waza drills habits, **Kami delivers documents**.
+Part of `Kaku · Waza · InkPaper` - Kaku writes code, Waza drills habits, **InkPaper delivers documents**.
 
 ## Step 0 · Load brand profile (if exists)
 
-Check `~/.config/kami/brand.md` (preferred) or `~/.kami/brand.md` (legacy fallback). If found, read `references/brand-profile.md` for the full four-layer application spec (placeholder substitution, session defaults, visual customization, habit notes) and its six guardrails. If no profile exists, continue without interruption.
+Check `~/.config/inkpaper/brand.md` (preferred) or `~/.inkpaper/brand.md` (legacy fallback). If found, read `references/brand-profile.md` for the full four-layer application spec (placeholder substitution, session defaults, visual customization, habit notes) and its six guardrails. If no profile exists, continue without interruption.
 
 Key rule: explicit prompt > editorial judgment > habit notes > frontmatter defaults > built-in defaults. Profile fills gaps silently; it never overrides the current conversation.
 
@@ -96,7 +96,7 @@ When the user asks for **a diagram inside** a long-doc / portfolio / slide (not 
 | "K 线 / candlestick / OHLC / 股价走势 / price history" | Candlestick | `assets/diagrams/candlestick.html` |
 | "瀑布图 / waterfall / 收入桥 / revenue bridge / decomposition" | Waterfall | `assets/diagrams/waterfall.html` |
 
-Read `references/diagrams.md` before drawing - it has the selection guide, kami token map, and the AI-slop anti-pattern table. Extract the `<svg>` block from the template and drop it into a `<figure>` inside long-doc / portfolio.
+Read `references/diagrams.md` before drawing - it has the selection guide, inkpaper token map, and the AI-slop anti-pattern table. Extract the `<svg>` block from the template and drop it into a `<figure>` inside long-doc / portfolio.
 
 Before drawing, always ask: **would a well-written paragraph teach the reader less than this diagram?** If no, don't draw.
 
@@ -144,8 +144,8 @@ Confirm the materials that make the subject recognizable before layout:
 | Logo | Any branded document | User file or official SVG/PNG |
 | Product image | Physical product / venue / object | Official image, user image, or marked gap |
 | UI screenshot | App / SaaS / website / tool | Current screenshot, official product image, or user capture |
-| Brand colors | Branded one-pager / portfolio / deck | Official value, extracted asset value, or keep kami cinnabar |
-| Fonts | Only if brand typography matters | Official font, close system fallback, or kami default |
+| Brand colors | Branded one-pager / portfolio / deck | Official value, extracted asset value, or keep inkpaper cinnabar |
+| Fonts | Only if brand typography matters | Official font, close system fallback, or inkpaper default |
 
 If a required item is missing, use a compact gap table and ask once. Do not replace missing material with generic imagery, approximate logo drawings, or invented values.
 
@@ -157,7 +157,7 @@ After the material check, output a structured status block before continuing. Th
 Materials status:
 - Logo: OK assets/client-logo.svg
 - Brand colors: OK #B33A3A mapped to --cinnabar
-- Product screenshot: MISSING (proceeding with kami default placeholder)
+- Product screenshot: MISSING (proceeding with inkpaper default placeholder)
 - UI screenshot: not required for this doc type
 ```
 
@@ -309,12 +309,12 @@ Every template has meta placeholders in `<head>`. Fill all four before building:
 | `{{关键词}}` | `{{KEYWORDS}}` | 3-5 keywords from the title + section headings, comma-separated |
 | `{{文档标题}}` / `{{信件主题}}` etc. | `{{DOC_TITLE}}` / `{{LETTER_SUBJECT}}` etc. | Infer from the H1 or `.header .title` text |
 
-`<meta name="generator" content="Kami">` is already fixed in the template; do not change it.
+`<meta name="generator" content="InkPaper">` is already fixed in the template; do not change it.
 
 **Author inference**: `build.py` automatically sets PDF `/Author` metadata from:
 1. `git config user.name` (primary)
 2. `KAMI_AUTHOR` environment variable (fallback)
-3. `"Kami"` (final fallback)
+3. `"InkPaper"` (final fallback)
 
 For personal documents (resume/letter/portfolio), the HTML `<meta name="author">` should match the person's name in the content. For non-personal documents (one-pager/long-doc), leave the placeholder as-is and let the build script infer it.
 

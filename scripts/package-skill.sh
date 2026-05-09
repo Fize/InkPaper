@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUT="${1:-"$ROOT/dist/kami.zip"}"
+OUT="${1:-"$ROOT/dist/inkpaper.zip"}"
 
 mkdir -p "$(dirname "$OUT")"
 rm -f "$OUT"

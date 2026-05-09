@@ -1,20 +1,20 @@
 <div align="center">
   <img src="https://gw.alipayobjects.com/zos/k/vl/logo.svg" width="120" />
-  <h1>Kami</h1>
+  <h1>InkPaper</h1>
   <p><b>Good content deserves good paper.</b></p>
-  <a href="https://github.com/Fize/kami/stargazers"><img src="https://img.shields.io/github/stars/tw93/kami?style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/Fize/kami/releases"><img src="https://img.shields.io/github/v/tag/tw93/kami?label=version&style=flat-square" alt="Version"></a>
+  <a href="https://github.com/Fize/inkpaper/stargazers"><img src="https://img.shields.io/github/stars/Fize/InkPaper?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/Fize/inkpaper/releases"><img src="https://img.shields.io/github/v/tag/Fize/InkPaper?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
 </div>
 
 ## Why
 
-Kami (紙) means paper in Chinese: the surface where a finished idea lands. AI can produce documents better than most humans do manually. The missing piece is not capability but constraint: without a design system, every session drifts into generic gray and inconsistent layouts.
+InkPaper (紙) means paper in Chinese: the surface where a finished idea lands. AI can produce documents better than most humans do manually. The missing piece is not capability but constraint: without a design system, every session drifts into generic gray and inconsistent layouts.
 
-Kami fills that gap: one constraint language, eight templates, simple enough for agents to run reliably, strict enough that every output is something you actually want to ship. English and Chinese are first-class supported languages.
+InkPaper fills that gap: one constraint language, eight templates, simple enough for agents to run reliably, strict enough that every output is something you actually want to ship. English and Chinese are first-class supported languages.
 
-Part of a trilogy: [Kaku](https://github.com/Fize/Kaku) writes code, [Waza](https://github.com/Fize/Waza) (技) drills habits, [Kami](https://github.com/Fize/Kami) (紙) delivers documents.
+Part of a trilogy: [Kaku](https://github.com/Fize/Kaku) writes code, [Waza](https://github.com/Fize/Waza) (技) drills habits, [InkPaper](https://github.com/Fize/InkPaper) (紙) delivers documents.
 
 ## See it
 
@@ -43,25 +43,25 @@ Part of a trilogy: [Kaku](https://github.com/Fize/Kaku) writes code, [Waza](http
 **Claude Code**
 
 ```bash
-npx skills add tw93/kami -a claude-code -g -y
+npx skills add Fize/InkPaper -a claude-code -g -y
 ```
 
 Or via the Claude Code plugin marketplace:
 
 ```bash
-/plugin marketplace add Fize/Kami
-/plugin install kami@kami
+/plugin marketplace add Fize/InkPaper
+/plugin install inkpaper@inkpaper
 ```
 
 **Generic agents** (Codex, OpenCode, Pi, and other tools that read from `~/.agents/`)
 
 ```bash
-npx skills add tw93/kami -a '*' -g -y
+npx skills add Fize/InkPaper -a '*' -g -y
 ```
 
 **Claude Desktop**
 
-Download [kami.zip](https://github.com/Fize/kami/releases/latest/download/kami.zip), open Customize > Skills > "+" > Create skill, and upload the ZIP directly (no need to unzip).
+Download [inkpaper.zip](https://github.com/Fize/inkpaper/releases/latest/download/inkpaper.zip), open Customize > Skills > "+" > Create skill, and upload the ZIP directly (no need to unzip).
 
 The ZIP is lightweight: Chinese fonts load from local checkout first, then jsDelivr CDN. If rendering is off, Claude downloads them on the next run. To update: download the same URL, click "..." on the skill card, choose Replace, upload.
 
@@ -74,15 +74,15 @@ Example prompts by language:
 
 **Optional: brand profile**
 
-Create `~/.config/kami/brand.md` to persist identity, brand, defaults, and writing habits. See [brand.example.md](references/brand.example.md) for a full template.
+Create `~/.config/inkpaper/brand.md` to persist identity, brand, defaults, and writing habits. See [brand.example.md](references/brand.example.md) for a full template.
 
-The file has YAML frontmatter (structured fields: name, role, email, website, GitHub, brand color, language, page size, currency locale, tone, and more) plus a Markdown body for freeform notes. Kami treats it as the lowest-resolution context: applied only when the current request is ambiguous, and always overridable by what the specific document needs. The goal is to feel familiar across your work without making every output look the same.
+The file has YAML frontmatter (structured fields: name, role, email, website, GitHub, brand color, language, page size, currency locale, tone, and more) plus a Markdown body for freeform notes. InkPaper treats it as the lowest-resolution context: applied only when the current request is ambiguous, and always overridable by what the specific document needs. The goal is to feel familiar across your work without making every output look the same.
 
 ## Design
 
 Warm paper canvas, ink blue as the sole accent, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
 
-Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Equity Report, Changelog) with dedicated EN/CN templates. Fourteen inline SVG diagram types included. Kami picks the right variant based on the language you write in.
+Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Equity Report, Changelog) with dedicated EN/CN templates. Fourteen inline SVG diagram types included. InkPaper picks the right variant based on the language you write in.
 
 | Element | Rule |
 |---|---|
@@ -102,7 +102,7 @@ Full spec: [design.md](references/design.md). Cheatsheet: [CHEATSHEET.md](CHEATS
 
 The same constraint system doubles as a brief you can hand to any drawing tool. Point it at the [references folder](references/) and the output inherits warm paper, cinnabar restraint, single-line geometric icons, and editorial typography.
 
-> Apply the Kami design system from github.com/tw93/kami/tree/main/references
+> Apply the InkPaper design system from github.com/Fize/InkPaper/tree/main/references
 
 <table>
 <tr>
@@ -124,16 +124,16 @@ The same constraint system doubles as a brief you can hand to any drawing tool. 
 </tr>
 </table>
 
-<sub>Rendered by ChatGPT Images 2.0 in a single pass with no manual touch-up. Kami specifies, the renderer draws.</sub>
+<sub>Rendered by ChatGPT Images 2.0 in a single pass with no manual touch-up. InkPaper specifies, the renderer draws.</sub>
 
 ## Background
 
 I like investing in US equities and ask Claude to write research reports all the time. Every output landed in the same default-doc look: gray, flat, a different layout each session. The structure was hard to scan, the formatting felt dated, and nothing about the page made me want to keep reading. So I started fixing the typography, the palette, the spacing, one rule at a time, until the report became a page I actually enjoyed.
 
-Later I needed to present "The Agent You Don't Know: Principles, Architecture and Engineering Practice." I already had the document and didn't want to build slides from scratch, so I used Claude Design to lay it out in my own style, tweaked it round after round, and eventually got it to a place I was happy with. That process added inline SVG charts, a unified warm palette, and a tighter editorial rhythm. It kept growing until it covered every document I regularly ship, so I kept abstracting the process, and it became kami: one quiet design system I can hand to any agent and trust the output.
+Later I needed to present "The Agent You Don't Know: Principles, Architecture and Engineering Practice." I already had the document and didn't want to build slides from scratch, so I used Claude Design to lay it out in my own style, tweaked it round after round, and eventually got it to a place I was happy with. That process added inline SVG charts, a unified warm palette, and a tighter editorial rhythm. It kept growing until it covered every document I regularly ship, so I kept abstracting the process, and it became inkpaper: one quiet design system I can hand to any agent and trust the output.
 
 ## License
 
-MIT License for kami code and templates. Feel free to use and contribute.
+MIT License for inkpaper code and templates. Feel free to use and contribute.
 
 **Fonts**: TsangerJinKai02 (Chinese) is free for personal use only; commercial use requires a license from [tsanger.cn](https://tsanger.cn). Charter (English), and CJK fallbacks are system-bundled or open-licensed.

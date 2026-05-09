@@ -12,7 +12,7 @@
 <meta name="author" content="{{NAME}}">
 <meta name="description" content="{{DESCRIPTION}}">
 <meta name="keywords" content="{{KEYWORDS}}">
-<meta name="generator" content="Kami">
+<meta name="generator" content="InkPaper">
 <style>
   @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 400; font-style: normal; }
   @font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 500; font-style: normal; }
@@ -414,15 +414,15 @@
     text-decoration: none;
   }
 
-  /* TABLE (kami-table) */
-  table, .kami-table {
+  /* TABLE (inkpaper-table) */
+  table, .inkpaper-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 9.5pt;
     margin: 10pt 0;
     break-inside: avoid;
   }
-  table th, .kami-table th {
+  table th, .inkpaper-table th {
     text-align: left;
     font-weight: 500;
     color: var(--ink-mid);
@@ -430,21 +430,21 @@
     border-bottom: 1pt solid var(--border-ink);
     background: transparent;
   }
-  table td, .kami-table td {
+  table td, .inkpaper-table td {
     padding: 4pt 8pt;
     border-bottom: 0.3pt solid var(--border-ink-soft);
     vertical-align: top;
   }
-  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
-  table.compact td, .kami-table.compact td { padding: 2pt 6pt; font-size: 8pt; line-height: 1.4; }
-  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+  table.compact th, .inkpaper-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .inkpaper-table.compact td { padding: 2pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .inkpaper-table.financial td:not(:first-child) {
     text-align: right; font-variant-numeric: tabular-nums;
   }
-  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
-  table.striped tbody tr:nth-child(even) td, .kami-table.striped tbody tr:nth-child(even) td {
+  table.financial th:not(:first-child), .inkpaper-table.financial th:not(:first-child) { text-align: right; }
+  table.striped tbody tr:nth-child(even) td, .inkpaper-table.striped tbody tr:nth-child(even) td {
     background: var(--paper-card);
   }
-  table .total td, .kami-table .total td {
+  table .total td, .inkpaper-table .total td {
     font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
   }
 </style>

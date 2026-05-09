@@ -1,10 +1,10 @@
 # Brand Profile (Optional)
 #
-# Kami treats this as the lowest-resolution context: a fallback when the current
+# InkPaper treats this as the lowest-resolution context: a fallback when the current
 # request is ambiguous. The current document's needs always come first. Leave
 # fields blank when you don't have a strong preference — silence is fine.
 #
-# To activate: cp references/brand.example.md ~/.config/kami/brand.md
+# To activate: cp references/brand.example.md ~/.config/inkpaper/brand.md
 # Then edit the values below.
 
 ---
@@ -41,9 +41,9 @@ tone: balanced              # formal / balanced / casual
 
 # Habits
 
-Freeform notes Kami should respect. Write in plain prose or bullets. Be specific
+Freeform notes InkPaper should respect. Write in plain prose or bullets. Be specific
 about document types when a preference only applies to one ("equity reports: ...").
-These are advisory: Kami applies them when they fit the content, not mechanically.
+These are advisory: InkPaper applies them when they fit the content, not mechanically.
 
 Examples to replace with your own:
 

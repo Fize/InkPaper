@@ -1,4 +1,4 @@
-"""Shared constants and helpers for kami build and stabilize scripts."""
+"""Shared constants and helpers for inkpaper build and stabilize scripts."""
 from __future__ import annotations
 
 import os
@@ -22,11 +22,11 @@ _HOMEBREW_PREFIXES = (Path("/opt/homebrew"), Path("/usr/local"))
 def _default_cache_dir() -> Path:
     """Return a sensible per-platform fontconfig cache directory."""
     if sys.platform == "darwin":
-        return Path("/private/tmp/kami-fontconfig-cache")
+        return Path("/private/tmp/inkpaper-fontconfig-cache")
     xdg = os.environ.get("XDG_CACHE_HOME")
     if xdg:
-        return Path(xdg) / "kami"
-    return Path.home() / ".cache" / "kami"
+        return Path(xdg) / "inkpaper"
+    return Path.home() / ".cache" / "inkpaper"
 
 
 def configure_weasyprint_runtime() -> None:

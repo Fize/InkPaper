@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Draft the next Kami release notes from git log.
+"""Draft the next InkPaper release notes from git log.
 
 Pulls commit subjects in a rev range and pours them into the V1.4.0-style
 template (centered logo + bilingual changelog). The output is a starting
@@ -27,14 +27,14 @@ from textwrap import dedent
 
 _HEADER = dedent("""\
     <div align="center">
-      <img src="https://gw.alipayobjects.com/zos/k/vl/logo.svg" alt="Kami Logo" width="120" />
-      <h1 style="margin: 12px 0 6px;">Kami {version}</h1>
+      <img src="https://gw.alipayobjects.com/zos/k/vl/logo.svg" alt="InkPaper Logo" width="120" />
+      <h1 style="margin: 12px 0 6px;">InkPaper {version}</h1>
       <p><em>{subtitle_en}</em></p>
     </div>
 """)
 
 _FOOTER = dedent("""\
-    > Kami is a quiet design system for professional documents, one constraint set that any agent can trust. https://github.com/Fize/Kami
+    > InkPaper is a quiet design system for professional documents, one constraint set that any agent can trust. https://github.com/Fize/InkPaper
 """)
 
 # Conventional-commit prefix to a short product label, used as a hint when

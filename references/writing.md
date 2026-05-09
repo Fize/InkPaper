@@ -48,7 +48,7 @@ Branded documents should first make the subject recognizable, then use decoratio
 - Company / product / project docs should confirm logo, product image, UI screenshot, and brand color before layout
 - If a key material is missing, mark the gap or ask the user. Do not fill the page with unrelated imagery
 - Physical products prefer official product images; digital products prefer real UI screenshots
-- If brand color is unknown, keep kami cinnabar rather than inventing a new color
+- If brand color is unknown, keep inkpaper cinnabar rather than inventing a new color
 - **Third-party figures**: when redrawing a paper figure, patent illustration, or official architecture diagram for visual consistency, mark the redraw as `Schematic redrawn` /「示意重绘」in the caption. Do not style a redrawn version to look like the original screenshot. If the figure carries primary evidentiary value (patent, official spec), embed the original with attribution rather than redrawing it
 
 ---
@@ -184,7 +184,7 @@ The pattern is "story before grid": the reader leaves the timeline section knowi
 
 ### Resume
 
-The most constrained document type in kami.
+The most constrained document type in inkpaper.
 
 **Hard constraints**:
 - Strictly 2 A4 pages
@@ -344,7 +344,7 @@ Structure is necessary but not sufficient. These bars define what separates comp
 
 ## Diagrams and infographics
 
-Words inside a diagram or infographic (title, eyebrow, node label, summary line) follow tighter rules than body prose. Readers process them in seconds, so rhetorical flourish reads as noise. This applies whether the figure is a Kami SVG embedded in a long-doc or an external image rendered elsewhere.
+Words inside a diagram or infographic (title, eyebrow, node label, summary line) follow tighter rules than body prose. Readers process them in seconds, so rhetorical flourish reads as noise. This applies whether the figure is a InkPaper SVG embedded in a long-doc or an external image rendered elsewhere.
 
 ### Avoid colloquial slogan-words
 

@@ -1,6 +1,6 @@
 # Resume Writing Guide
 
-Content strategy for kami resume templates (CN and EN). Covers bullet structure, emphasis density, timeline narrative, and open source entries. For general writing quality bars, see `references/writing.md`.
+Content strategy for inkpaper resume templates (CN and EN). Covers bullet structure, emphasis density, timeline narrative, and open source entries. For general writing quality bars, see `references/writing.md`.
 
 ---
 

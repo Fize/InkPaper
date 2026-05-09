@@ -1,6 +1,6 @@
 # Production (Build · Verify · Troubleshoot)
 
-The engineering runbook for kami: from HTML / Python templates to PDF / PPTX deliverables. Four parts: **HTML -> PDF** · **Python -> PPTX** · **Verify & Debug** · **16 known pitfalls**.
+The engineering runbook for inkpaper: from HTML / Python templates to PDF / PPTX deliverables. Four parts: **HTML -> PDF** · **Python -> PPTX** · **Verify & Debug** · **16 known pitfalls**.
 
 ---
 
@@ -126,7 +126,7 @@ WeasyPrint reads standard meta tags in `<head>` and writes them into the PDF (Ti
   <meta name="author"      content="{{AUTHOR}}">
   <meta name="description" content="{{DESCRIPTION}}">
   <meta name="keywords"    content="{{KEYWORDS}}">
-  <meta name="generator"   content="Kami">
+  <meta name="generator"   content="InkPaper">
 </head>
 ```
 
@@ -135,10 +135,10 @@ WeasyPrint reads standard meta tags in `<head>` and writes them into the PDF (Ti
 | Field | Source |
 |---|---|
 | `<title>` | H1 heading or `.header .title` text |
-| `author` | Resume / letter / portfolio: person's name from the document; everything else: `"Kami"` |
+| `author` | Resume / letter / portfolio: person's name from the document; everything else: `"InkPaper"` |
 | `description` | One sentence extracted from the first 2 paragraphs, ≤150 characters |
 | `keywords` | 3-5 keywords from title + section headings, comma-separated |
-| `generator` | Fixed `"Kami"`, already set in template, do not change |
+| `generator` | Fixed `"InkPaper"`, already set in template, do not change |
 
 **Verify**:
 
@@ -661,13 +661,13 @@ col 3:  88 chars (3 lines)   <- breaks rhythm
 col 3': 66 chars (2 lines)   <- fixed by trimming "general intelligence" -> "AGI"
 ```
 
-### 20. (P0) Demo / template HTML must reference assets inside the kami repo
+### 20. (P0) Demo / template HTML must reference assets inside the inkpaper repo
 
 **Symptom**: Image slot renders as a missing-image placeholder in the PDF; rendered demo PNG looks empty where a screenshot should be.
 
-**Root cause**: An `<img src="../../../sibling-project/asset.jpg">` reaches outside the kami repo. The path resolves on the maintainer's laptop where the sibling project happens to be checked out, but breaks for every other user, breaks the packaged skill ZIP, and breaks any CI that doesn't recreate the maintainer's working tree.
+**Root cause**: An `<img src="../../../sibling-project/asset.jpg">` reaches outside the inkpaper repo. The path resolves on the maintainer's laptop where the sibling project happens to be checked out, but breaks for every other user, breaks the packaged skill ZIP, and breaks any CI that doesn't recreate the maintainer's working tree.
 
-**Fix**: Every image referenced by a demo or template must live under `assets/demos/images/` or `assets/illustrations/`. Copy the source into the kami repo, then reference it with a relative path inside the repo.
+**Fix**: Every image referenced by a demo or template must live under `assets/demos/images/` or `assets/illustrations/`. Copy the source into the inkpaper repo, then reference it with a relative path inside the repo.
 
 ```html
 <!-- avoid -->

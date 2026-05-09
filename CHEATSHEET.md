@@ -1,4 +1,4 @@
-# kami · Cheatsheet
+# inkpaper · Cheatsheet
 
 One-page quick reference. Scan before filling a template or tweaking a detail. Full spec in `references/design.md`.
 
@@ -183,13 +183,13 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 }
 ```
 
-### Table (kami-table)
+### Table (inkpaper-table)
 
-Base class works on bare `<table>` or `.kami-table`. Add variant classes for density/alignment:
+Base class works on bare `<table>` or `.inkpaper-table`. Add variant classes for density/alignment:
 
 ```css
 /* Base */
-table, .kami-table {
+table, .inkpaper-table {
   width: 100%; border-collapse: collapse;
   font-size: 9.5pt; margin: 12pt 0; break-inside: avoid;
 }
@@ -208,7 +208,7 @@ table td { padding: 5pt 8pt; border-bottom: 0.3pt solid var(--border-soft);
 | Total row | `.total` on `<tr>` | Bold, brand top border, no bottom border             |
 
 
-Combine freely: `<table class="kami-table financial striped">`.
+Combine freely: `<table class="inkpaper-table financial striped">`.
 
 ### Metric (data card)
 

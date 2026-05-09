@@ -17,8 +17,8 @@ LOCAL_NAMES=("TsangerJinKai02-W04.ttf" "TsangerJinKai02-W05.ttf")
 # China where jsdmirror is reachable and faster than jsdelivr; templates run
 # anywhere and prioritize jsdelivr's broader global coverage.
 MIRROR_SOURCES=(
-  "https://cdn.jsdmirror.com/gh/Fize/Kami@main/assets/fonts"
-  "https://cdn.jsdelivr.net/gh/Fize/Kami@main/assets/fonts"
+  "https://cdn.jsdmirror.com/gh/Fize/InkPaper@main/assets/fonts"
+  "https://cdn.jsdelivr.net/gh/Fize/InkPaper@main/assets/fonts"
 )
 
 check_size() {

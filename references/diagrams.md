@@ -1,6 +1,6 @@
 # Diagrams
 
-kami's drawing capability. **14 diagram types** covering structural, process, and data chart scenarios. All wear kami's skin (parchment + ink-blue + warm grays). No second design system.
+inkpaper's drawing capability. **14 diagram types** covering structural, process, and data chart scenarios. All wear inkpaper's skin (parchment + ink-blue + warm grays). No second design system.
 
 Every diagram is a **self-contained HTML + inline SVG**. No Mermaid, no JS, no build step. Browse them as standalone pages, or copy the `<svg>...</svg>` block into a long-doc `<figure>` to embed.
 
@@ -56,7 +56,7 @@ If "no", don't draw. Diagrams add signal to hierarchy, direction, and magnitude.
 
 Open `assets/diagrams/architecture.html` (or `flowchart.html`, `quadrant.html`) directly. Each file is a complete HTML page with title, SVG, and caption.
 
-### Embed in a kami document
+### Embed in a inkpaper document
 
 Extract **only the `<svg>...</svg>` block** from the template (leave the frame / h1 / eyebrow behind). Drop it into a long-doc `<figure>`:
 
@@ -83,13 +83,13 @@ Edit the `<text>` and `<rect>` values directly. Rules:
 - **SVG top padding**: the `y` in `<text y="…">` is the baseline. `y` must be ≥ font-size × 1.2, otherwise the tops of capital letters extend above the viewBox and get clipped (classic symptom: "TOOLS" renders as "TOULS"). Either pad the viewBox at the top or move `y` into the safe zone.
 - **Loop arc control points**: for a four-cardinal-node ring, each arc is a Q-curve whose control point sits at the **outer intersection of the two adjacent tangent axes**, not at a node corner. Example for PLAN (top) → ACT (right): start = PLAN's right-edge midpoint, end = ACT's top-edge midpoint, control = `(ACT.x + ACT.w/2, PLAN.y + PLAN.h/2)`. This gives a pure horizontal tangent at departure and pure vertical at arrival, reading as a clean quarter-circle. Control at the node corner produces a squashed arc.
 - **Closed loops need a dashed framing ring**: four directed arcs alone force the reader to mentally connect them into a loop. A dashed circle centered on the visual center (radius slightly larger than center-to-inner-edge distance) makes the loop immediately readable. Draw the ring below the nodes; solid node fills mask where the ring crosses each node; the ring shows only between nodes.
-- **Chevron arrows, not filled triangles**: use `<path d="M2 1 L8 5 L2 9" fill="none" stroke=... stroke-width="1.5" stroke-linecap="round"/>`. A filled triangle reads as technical UI; an open two-stroke chevron reads as editorial schematic. kami defaults to chevron. **WeasyPrint does not support `<marker orient="auto">`**: all markers render at 0° (pointing right). The fix is to skip `<marker>` and draw each arrowhead as a manual chevron `<path>` with hardcoded direction (see production.md #15).
+- **Chevron arrows, not filled triangles**: use `<path d="M2 1 L8 5 L2 9" fill="none" stroke=... stroke-width="1.5" stroke-linecap="round"/>`. A filled triangle reads as technical UI; an open two-stroke chevron reads as editorial schematic. inkpaper defaults to chevron. **WeasyPrint does not support `<marker orient="auto">`**: all markers render at 0° (pointing right). The fix is to skip `<marker>` and draw each arrowhead as a manual chevron `<path>` with hardcoded direction (see production.md #15).
 
 ### Color token map
 
-Shared tokens across kami's diagram set, mapping directly to the design system. All fills are solid hex values pre-blended on parchment; never use `rgba()` in SVG fills or strokes (it disagrees with the warm-tone palette and complicates WeasyPrint output).
+Shared tokens across inkpaper's diagram set, mapping directly to the design system. All fills are solid hex values pre-blended on parchment; never use `rgba()` in SVG fills or strokes (it disagrees with the warm-tone palette and complicates WeasyPrint output).
 
-| SVG role | kami token | Value |
+| SVG role | inkpaper token | Value |
 |---|---|---|
 | Canvas | `--paper` | `#F8F4EB` |
 | Standard node fill | `--ivory` | `#faf9f5` |
@@ -108,7 +108,7 @@ Shared tokens across kami's diagram set, mapping directly to the design system. 
 | Secondary text | `--ink-light` | `#9B8B7A` |
 | Tertiary text / small mono label | `--stone` | `#6b6a64` |
 
-Don't add a fourth state ("warning amber", "success green"). kami has one accent.
+Don't add a fourth state ("warning amber", "success green"). inkpaper has one accent.
 
 ### Shared `<defs>` fragment
 
@@ -213,17 +213,17 @@ Scan for these when drawing or reviewing:
 | Arrow labels without a masking rect | Line bleeds through the text |
 | Vertical `writing-mode` text on arrows | Unreadable |
 | Three equal-width summary cards as a default | Template feel. Vary widths. |
-| `box-shadow` on anything | kami only permits ring / whisper |
+| `box-shadow` on anything | inkpaper only permits ring / whisper |
 | `rounded-2xl` / border-radius above 10px | Max 6-10px. Beyond, it starts to look like App Store chrome. |
 | Ink Blue on every "important" node | Focal rule is 1-2, not a signaling system |
 | Decorative icons | Disaster |
-| Gradient backgrounds | kami forbids them |
+| Gradient backgrounds | inkpaper forbids them |
 | Focal color contradicts the caption's claim | Caption says "Simple **core**", but the ACT node is painted ink-blue - two focals competing. Focal color must match the word emphasized (`<span class="hl">`) in the caption |
 | Cycle diagram with a dashed ring AND four directed arcs | Same loop drawn twice; reader thinks there are two flows |
 | SVG text clipped at the viewBox top | `text` y is the baseline; cap letters extend above y=0. Pad the top by font-size × 1.2 or adjust the viewBox |
 | 5-10px gap between arrow endpoint and node edge | Reads as "arrow floating in space". Anchor endpoints to exact `box.x / box.x+w / box.y / box.y+h` |
 | Per-node custom widths within one diagram | Four steps at widths 60 / 76 / 80 / 100 feel hand-patched. Small diagram: 2 tiers. Large: 3 tiers. That's the full budget |
-| Porting an external diagram with one accent color per node type (purple/amber/green/red) | kami has one accent. When adapting external diagrams, migrate the focal to whichever element the caption's `<span class="hl">` emphasizes; concentrate color there, keep all other nodes neutral |
+| Porting an external diagram with one accent color per node type (purple/amber/green/red) | inkpaper has one accent. When adapting external diagrams, migrate the focal to whichever element the caption's `<span class="hl">` emphasizes; concentrate color there, keep all other nodes neutral |
 | Ring diagram: every node is a single word, center is empty | Four labeled boxes looping with no anchor. Either add a subtitle to each node or place one line of text at the center (exit condition, LOC count, etc.). Pick one. |
 
 ---
@@ -252,9 +252,9 @@ Scan for these when drawing or reviewing:
 
 ## 7. Data charts (bar / line / donut)
 
-Five data-driven chart types for investment reports, financial comparisons, and market-share breakdowns. Like the first three diagram types, all are self-contained HTML + inline SVG, embeddable in any kami document.
+Five data-driven chart types for investment reports, financial comparisons, and market-share breakdowns. Like the first three diagram types, all are self-contained HTML + inline SVG, embeddable in any inkpaper document.
 
-### Color palette (derived from kami warm palette)
+### Color palette (derived from inkpaper warm palette)
 
 | Role | Value | Use |
 |---|---|---|
@@ -350,4 +350,4 @@ Or just open `assets/diagrams/*.html` in a browser.
 
 ## 9. Credit
 
-This capability is inspired by Cathryn Lavery's [diagram-design](https://github.com/cathrynlavery/diagram-design) (a Claude Code skill with 13 editorial diagram types). kami borrowed the **approach** (inline SVG, semantic tokens, complexity budget, anti-slop table). Not the full catalog.
+This capability is inspired by Cathryn Lavery's [diagram-design](https://github.com/cathrynlavery/diagram-design) (a Claude Code skill with 13 editorial diagram types). inkpaper borrowed the **approach** (inline SVG, semantic tokens, complexity budget, anti-slop table). Not the full catalog.
