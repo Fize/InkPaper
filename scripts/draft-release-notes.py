@@ -34,7 +34,7 @@ _HEADER = dedent("""\
 """)
 
 _FOOTER = dedent("""\
-    > Kami is a quiet design system for professional documents, one constraint set that any agent can trust. https://github.com/tw93/Kami
+    > Kami is a quiet design system for professional documents, one constraint set that any agent can trust. https://github.com/Fize/Kami
 """)
 
 # Conventional-commit prefix to a short product label, used as a hint when

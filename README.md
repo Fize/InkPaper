@@ -2,8 +2,8 @@
   <img src="https://gw.alipayobjects.com/zos/k/vl/logo.svg" width="120" />
   <h1>Kami</h1>
   <p><b>Good content deserves good paper.</b></p>
-  <a href="https://github.com/tw93/kami/stargazers"><img src="https://img.shields.io/github/stars/tw93/kami?style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/tw93/kami/releases"><img src="https://img.shields.io/github/v/tag/tw93/kami?label=version&style=flat-square" alt="Version"></a>
+  <a href="https://github.com/Fize/kami/stargazers"><img src="https://img.shields.io/github/stars/tw93/kami?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/Fize/kami/releases"><img src="https://img.shields.io/github/v/tag/tw93/kami?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
 </div>
@@ -14,7 +14,7 @@ Kami (紙) means paper in Chinese: the surface where a finished idea lands. AI c
 
 Kami fills that gap: one constraint language, eight templates, simple enough for agents to run reliably, strict enough that every output is something you actually want to ship. English and Chinese are first-class supported languages.
 
-Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) writes code, [Waza](https://github.com/tw93/Waza) (技) drills habits, [Kami](https://github.com/tw93/Kami) (紙) delivers documents.
+Part of a trilogy: [Kaku](https://github.com/Fize/Kaku) writes code, [Waza](https://github.com/Fize/Waza) (技) drills habits, [Kami](https://github.com/Fize/Kami) (紙) delivers documents.
 
 ## See it
 
@@ -49,7 +49,7 @@ npx skills add tw93/kami -a claude-code -g -y
 Or via the Claude Code plugin marketplace:
 
 ```bash
-/plugin marketplace add tw93/Kami
+/plugin marketplace add Fize/Kami
 /plugin install kami@kami
 ```
 
@@ -61,7 +61,7 @@ npx skills add tw93/kami -a '*' -g -y
 
 **Claude Desktop**
 
-Download [kami.zip](https://github.com/tw93/kami/releases/latest/download/kami.zip), open Customize > Skills > "+" > Create skill, and upload the ZIP directly (no need to unzip).
+Download [kami.zip](https://github.com/Fize/kami/releases/latest/download/kami.zip), open Customize > Skills > "+" > Create skill, and upload the ZIP directly (no need to unzip).
 
 The ZIP is lightweight: Chinese fonts load from local checkout first, then jsDelivr CDN. If rendering is off, Claude downloads them on the next run. To update: download the same URL, click "..." on the skill card, choose Replace, upload.
 

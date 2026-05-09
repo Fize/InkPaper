@@ -12,11 +12,11 @@ Kami is a layout design system for the AI era. Give Claude (or any LLM) a brief,
 ## Key Pages
 - [English showcase](https://kami.tw93.fun): Design system overview with live demos
 - [Chinese showcase](https://kami.tw93.fun/index-zh.html): Chinese version
-- [GitHub](https://github.com/tw93/kami): Source code and templates
+- [GitHub](https://github.com/Fize/kami): Source code and templates
 
 ## Install
 - Claude Code: `npx skills add tw93/kami -a claude-code -g -y`
-- Claude Code plugin marketplace: `/plugin marketplace add tw93/Kami`, then `/plugin install kami@kami`
+- Claude Code plugin marketplace: `/plugin marketplace add Fize/Kami`, then `/plugin install kami@kami`
 - Generic agents: `npx skills add tw93/kami -a '*' -g -y`
 - Claude Desktop: download `kami.zip` from GitHub Releases and upload it in Skills settings
 
@@ -25,6 +25,6 @@ Kami is a layout design system for the AI era. Give Claude (or any LLM) a brief,
 - 14 diagram types: architecture, flowchart, quadrant, bar chart, line chart, donut chart, state machine, timeline, swimlane, tree, layer stack, venn, candlestick, waterfall
 
 ## Links
-- GitHub: https://github.com/tw93
+- GitHub: https://github.com/Fize
 - Blog: https://tw93.fun
 - AI Profile: https://tw93.fun/llms-full.txt
