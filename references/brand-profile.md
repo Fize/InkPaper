@@ -34,7 +34,7 @@ Apply when the current request is ambiguous. Use profile fields to fill in missi
 
 | Ambiguous signal | Profile field | Behavior |
 |---|---|---|
-| No language stated | `language` | Use `cn` / `en` / `ja` path |
+| No language stated | `language` | Use `cn` / `en` path |
 | No doc type stated | `default_doc_type` | Use as fallback, still ask if truly ambiguous |
 | No output format stated | `output_format` | `pdf` / `pptx` / `both` |
 | No page size stated | `page_size` | `a4` or `letter` |

@@ -1,11 +1,11 @@
 ---
 name: kami
-description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, ink-blue accent, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter, JA uses YuMincho (best-effort). Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
+description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, ink-blue accent, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
 ---
 
 # kami · 紙
 
-**紙 · かみ** - the paper your deliverables land on.
+**紙** - the paper your deliverables land on.
 
 Good content deserves good paper. One design language across eight document types: warm parchment canvas, ink-blue accent, serif-led hierarchy, tight editorial rhythm.
 
@@ -21,7 +21,7 @@ Key rule: explicit prompt > editorial judgment > habit notes > frontmatter defau
 
 ## Step 1 · Decide the language
 
-**Match the user's language.** Chinese -> `*.html` / `slides-weasy.html`. English -> `*-en.html` / `slides-weasy-en.html`. Japanese -> CJK path (`.html` / `slides-weasy.html`) as best-effort, JP Mincho first, visual QA before shipping. Reference docs are shared English specs.
+**Match the user's language.** Chinese -> `*.html` / `slides-weasy.html`. English -> `*-en.html` / `slides-weasy-en.html`. Reference docs are shared English specs.
 
 When ambiguous (e.g. a one-word command like "resume"), ask a one-liner rather than guess.
 
@@ -29,7 +29,6 @@ When ambiguous (e.g. a one-word command like "resume"), ask a one-liner rather t
 |---|---|---|---|
 | Chinese (primary) | `*.html` | `slides-weasy.html` | `slides.py` |
 | English | `*-en.html` | `slides-weasy-en.html` | `slides-en.py` |
-| Japanese (best-effort) | `*.html` | `slides-weasy.html` | `slides.py` |
 | Other languages (best-effort) | choose CJK or EN path by script coverage, then verify manually | choose `slides-weasy.html` or `slides-weasy-en.html`, then verify manually | use `slides.py` / `slides-en.py` only if PPTX is required |
 
 > Default to the WeasyPrint HTML path; fall back to PPTX (`slides*.py`) only when the user explicitly needs an editable deck.
@@ -355,11 +354,6 @@ Visual anomalies (tag double rectangle, font fallback, page break issues) -> `pr
 - Templates use dual @font-face declarations: W04 for body text, W05 for headings
 - Both files are commercial fonts. Keep them available in the repository for local preview and CDN fallback, but do not bundle them inside Claude Desktop skill ZIPs
 - Fallback chain baked into templates: Source Han Serif SC -> Noto Serif CJK SC -> Songti SC -> STSong -> Georgia
-
-**Japanese (best-effort)**
-- Uses CJK template path, no dedicated `-ja` templates yet
-- JP Mincho-first stack: YuMincho -> Hiragino Mincho ProN -> Noto Serif CJK JP -> Source Han Serif JP -> TsangerJinKai02 -> serif
-- Visually verify line breaks, punctuation rhythm, and emphasis weight before shipping
 
 **English**
 - Single serif: Charter (system-bundled, macOS/iOS), used for both headlines and body

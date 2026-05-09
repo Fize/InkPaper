@@ -53,7 +53,7 @@ This system is a fusion of Anthropic's visual language and real Chinese / Englis
 ```css
 --near-black:  #141413;   /* Primary text - deepest but not pure black, warm olive undertone */
 --dark-warm:   #3d3d3a;   /* Secondary text, table headers, links */
---olive:       #504e49;   /* Subtext - descriptions, captions. JA override: #4d4c48 (YuMincho thin strokes need darker text) */
+--olive:       #504e49;   /* Subtext - descriptions, captions */
 --stone:       #6b6a64;   /* Tertiary - dates, metadata */
 ```
 
@@ -101,13 +101,6 @@ font-family: "TsangerJinKai02",
              "Songti SC", "STSong",
              Georgia, serif;
 
-/* Japanese */
-font-family: "YuMincho", "Yu Mincho",
-             "Hiragino Mincho ProN",
-             "Noto Serif CJK JP", "Source Han Serif JP",
-             "TsangerJinKai02",
-             Georgia, serif;
-
 /* Mono, with CJK fallback for comments and labels */
 font-family: "JetBrains Mono", "SF Mono", "Fira Code",
              Consolas, Monaco,
@@ -115,7 +108,7 @@ font-family: "JetBrains Mono", "SF Mono", "Fira Code",
              monospace;
 ```
 
-Any font-family that may render Chinese or Japanese must include a CJK fallback, including `@page` footer text, `pre`, `code`, and SVG labels. A pure mono stack can render missing glyph boxes in WeasyPrint.
+Any font-family that may render Chinese must include a CJK fallback, including `@page` footer text, `pre`, `code`, and SVG labels. A pure mono stack can render missing glyph boxes in WeasyPrint.
 
 ### Size scale (pt for print A4, px for screen)
 
@@ -168,9 +161,9 @@ Print documents are **tighter** than English web body. English web typically run
 ### Letter-spacing
 
 - Body text: **0**
-- Chinese and Japanese body text with TsangerJinKai02: **0.1–0.2pt** to compensate for the font's natural density; section titles and Mincho samples: **0**
+- Chinese body text with TsangerJinKai02: **0.1–0.2pt** to compensate for the font's natural density; section titles: **0**
 - Chinese lede text (14–22pt) with TsangerJinKai02: **0.03–0.06em** to open up large-body paragraphs without breaking density; EN and JA lede: **0** (only TsangerJinKai02 needs density compensation)
-- Chinese and Japanese display text (24pt+): **0.2–1pt** optical spacing for visual breathing room at large sizes; scale with font size
+- Chinese display text (24pt+): **0.2–1pt** optical spacing for visual breathing room at large sizes; scale with font size
 - English headings may use subtle optical tightening when needed; keep it localized, never inherited by body copy
 - Small labels (< 10pt): +0.2 to +0.5pt for readability
 - All-caps overlines: +0.5 to +1pt mandatory

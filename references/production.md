@@ -56,11 +56,6 @@ font-family: Charter, Georgia, Palatino,
 /* Chinese */
 font-family: "TsangerJinKai02", "Source Han Serif SC",
              "Noto Serif CJK SC", "Songti SC", Georgia, serif;
-
-/* Japanese */
-font-family: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN",
-             "Noto Serif CJK JP", "Source Han Serif JP",
-             "TsangerJinKai02", Georgia, serif;
 ```
 
 **Font fallback affects page count**. Any font swap requires re-running the page-count check. If it overflows: lower `font-size` first, then tighten margins, then cut content.
@@ -295,7 +290,7 @@ pdftoppm -png -r 300 out.pdf inspect
 pdffonts output.pdf
 ```
 
-If the output shows `DejaVuSerif` / `Bitstream Vera` - your specified font didn't load, fell through to system ultimate fallback. Expected: `Charter`, `Georgia`, `TsangerJinKai02`, or a Japanese Mincho face such as `YuMincho`, `Hiragino-Mincho`, `Noto-Serif-CJK-JP`, or `Source-Han-Serif-JP`.
+If the output shows `DejaVuSerif` / `Bitstream Vera` - your specified font didn't load, fell through to system ultimate fallback. Expected: `Charter`, `Georgia`, or `TsangerJinKai02`.
 
 ### One-step build + validate
 

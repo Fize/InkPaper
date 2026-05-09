@@ -440,7 +440,7 @@ def verify_target(name: str, source: str, max_pages: int, src_dir: Path) -> list
     embedded = _pdf_font_names(out)
     fallback_present = any(
         kw in font for font in embedded
-        for kw in ("Georgia", "Palatino", "TsangerJinKai", "YuMincho", "Hiragino", "SourceHan", "Noto", "Charter", "Songti")
+        for kw in ("Georgia", "Palatino", "TsangerJinKai", "SourceHan", "Noto", "Charter", "Songti")
     )
 
     # Diagram templates are language-neutral and often rely on fallback stacks,

@@ -25,7 +25,7 @@ logo: ""                    # Absolute path to logo file, e.g. "~/Downloads/logo
 brand_color: ""             # Hex to override --brand, e.g. "#1B365D". Warm palette still applies.
 
 # ─── Document defaults ───
-language: ""                # cn / en / ja. Used when the request language is ambiguous.
+language: ""                # cn / en. Used when the request language is ambiguous.
 default_doc_type: ""        # one-pager / long-doc / letter / portfolio / resume / slides / equity-report / changelog
 output_format: pdf          # pdf / pptx / both
 page_size: a4               # a4 / letter

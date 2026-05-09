@@ -36,12 +36,10 @@ BORDER      = RGBColor(0xe8, 0xe6, 0xdc)
 WHITE       = RGBColor(0xff, 0xff, 0xff)
 
 # Fonts. Single serif per page. PPT falls back on the viewer's system.
-# For Japanese best-effort output, set LANG = "ja" before generating.
 LANG = "zh"
 CN_SERIF = "Source Han Serif SC"
-JA_SERIF = "YuMincho"  # Windows: Yu Mincho; Linux: Noto Serif CJK JP
 
-SERIF = JA_SERIF if LANG == "ja" else CN_SERIF
+SERIF = CN_SERIF
 SANS  = SERIF
 
 # 16:9 宽屏
