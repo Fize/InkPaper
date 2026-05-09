@@ -81,7 +81,7 @@ Remove the `../fonts/` prefix that templates use when fonts are in the project t
 @page {
   size: A4;                     /* or 210mm 297mm / A4 landscape / 13in 10in */
   margin: 20mm 22mm;
-  background: #f5f4ed;          /* extend past margins to avoid white printed edge */
+  background: #F8F4EB;          /* extend past margins to avoid white printed edge */
 }
 ```
 
@@ -198,15 +198,15 @@ English stack on PowerPoint:
 
 ### Nine standard layouts
 
-1. **Cover**: parchment background, centered display title + brand-colored short line + subtitle / author / date
-2. **Contents**: parchment, left-aligned `01  Chapter title` (number serif brand-colored)
-3. **Chapter divider**: full brand ink-blue background, centered white title - the **only** fully chromatic slide in the deck
+1. **Cover**: paper background, centered display title + brand-colored short line + subtitle / author / date
+2. **Contents**: paper, left-aligned `01  Chapter title` (number serif brand-colored)
+3. **Chapter divider**: full brand cinnabar background, centered white title - the **only** fully chromatic slide in the deck
 4. **Content slide**: eyebrow (serif stone) + core claim (serif near-black) + brand line + body (serif dark-warm)
 5. **Data slide**: top takeaway + 2-4 metric cards (big number serif brand + small label serif olive)
 6. **Comparison**: eyebrow + left column (muted, OLIVE/STONE) vs. right column (full-weight, DARK_WARM/NEAR_BLACK), separated by a 1pt BORDER warm-gray vertical divider. Left = "Before/Old/Problem"; right = "After/New/Solution". Use `comparison_slide()`.
 7. **Pipeline**: eyebrow + title + serif numerals 01/02/03 + step title + step description, laid out in equal-width columns. All steps visible at once (no click-reveal). Use `pipeline_slide()`.
-8. **Quote**: parchment, minimal, centered serif quote + `- Source`
-9. **Closing**: parchment, centered "Thank you / Q&A / Contact"
+8. **Quote**: paper, minimal, centered serif quote + `- Source`
+9. **Closing**: paper, centered "Thank you / Q&A / Contact"
 
 ### Script skeleton
 
@@ -240,7 +240,7 @@ def blank_slide():
 ### PPT notes
 
 1. **One idea per slide** - if it runs over three lines, split it
-2. **No default PowerPoint template** - it's cool-blue-gray, clashes with parchment
+2. **No default PowerPoint template** - it's cool-blue-gray, clashes with paper
 3. **Animations**: don't. Parchment is a print aesthetic, not a SaaS demo. At most `fade`
 4. **Export to PDF** for sharing - cross-machine consistency is better than .pptx
  - macOS: Keynote -> Export to PDF
@@ -356,16 +356,16 @@ Severity scale: **(P0)** render-breaking, must fix before delivery. **(P1)** bre
 
 ```css
 /* avoid */ .tag { background: rgba(201, 100, 66, 0.18); }
-/* use   */ .tag { background: #E4ECF5; }
+/* use   */ .tag { background: rgba(245,240,230,0.7); }
 ```
 
-**rgba -> solid conversion** (parchment `#f5f4ed` base + ink-blue `#1B365D`):
+**rgba -> solid conversion** (paper `#F8F4EB` base + cinnabar `#B33A3A`):
 
 | rgba alpha | Solid hex |
 |---|---|
-| 0.08 | `#EEF2F7` |
-| 0.14 | `#E4ECF5` |
-| **0.18** | **`#E4ECF5`** ← default |
+| 0.08 | `rgba(245,240,230,0.7)` |
+| 0.14 | `rgba(245,240,230,0.7)` |
+| **0.18** | **`rgba(245,240,230,0.7)`** ← default |
 | 0.22 | `#D0DCE9` |
 | 0.30 | `#D6E1EE` |
 
@@ -374,10 +374,10 @@ Formula: `solid_channel = base + (foreground - base) × alpha`. Different base c
 **Want "breathing" texture?** Use `linear-gradient` - the whole tag rasterizes as one bitmap, no alpha compositing:
 
 ```css
-.tag { background: linear-gradient(to right, #D6E1EE, #E4ECF5 70%, #EEF2F7); }
+.tag { background: linear-gradient(to right, #D6E1EE, rgba(245,240,230,0.7) 70%, rgba(245,240,230,0.7)); }
 ```
 
-**Aesthetic warning**: gradients work engineering-wise but usually oversell the tag. Priority order: lightest solid (`#EEF2F7`) > standard solid (`#E4ECF5`) > gradient (rarely). If the reader's eye lands on the tag background shape before the text inside - you went too far.
+**Aesthetic warning**: gradients work engineering-wise but usually oversell the tag. Priority order: lightest solid (`rgba(245,240,230,0.7)`) > standard solid (`rgba(245,240,230,0.7)`) > gradient (rarely). If the reader's eye lands on the tag background shape before the text inside - you went too far.
 
 ### 2. (P0) Thin border + radius = double circle
 
@@ -481,7 +481,7 @@ grep -oE '[0-9]{4,}' doc.html | sort -u
 
 ### 8. (P2) Too much / too little emphasis
 
-- Four or five ink-blue runs in one line -> visual fatigue, no focal point
+- Four or five cinnabar runs in one line -> visual fatigue, no focal point
 - Entire section with none -> flat, no scan handles
 
 **Rule**: ≤ 2 emphases per line, ≥ 1 per section, only **quantifiable numbers or distinctive phrases** get highlighted - never adjectives.
@@ -542,7 +542,7 @@ Healthy ratio: one emphasis per 80-150 words.
 ```css
 @page {
   size: A4; margin: 20mm;
-  background: #f5f4ed;    /* extends past margins */
+  background: #F8F4EB;    /* extends past margins */
 }
 ```
 
@@ -614,7 +614,7 @@ Chevron templates (tip at endpoint, 8px arm length):
 
 ### 17. (P1) Figure SVG `max-height` starves width
 
-**Symptom**: An inline `<svg>` inside `<figure>` sits at less than the page content width, leaving a visible parchment gap on the right while the surrounding title and table run full-width.
+**Symptom**: An inline `<svg>` inside `<figure>` sits at less than the page content width, leaving a visible paper gap on the right while the surrounding title and table run full-width.
 
 **Root cause**: When a figure SVG declares `max-height` without an explicit `width: 100%`, browsers and WeasyPrint preserve the viewBox aspect ratio and shrink width to honor the height cap. For wide viewBoxes (aspect > 1.5) the height cap becomes the binding constraint and width starves.
 
@@ -714,7 +714,7 @@ ul.pts { counter-reset: pts; }
 ul.pts li { counter-increment: pts; padding-left: 18pt; }
 ul.pts li::before {
   content: counter(pts) ".";
-  color: var(--brand);
+  color: var(--cinnabar);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }

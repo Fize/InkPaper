@@ -80,14 +80,14 @@ The file has YAML frontmatter (structured fields: name, role, email, website, Gi
 
 ## Design
 
-Warm parchment canvas, ink blue as the sole accent, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
+Warm paper canvas, ink blue as the sole accent, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
 
 Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Equity Report, Changelog) with dedicated EN/CN templates. Fourteen inline SVG diagram types included. Kami picks the right variant based on the language you write in.
 
 | Element | Rule |
 |---|---|
-| Canvas | `#f5f4ed` parchment, never pure white |
-| Accent | Ink blue `#1B365D` only, no second chromatic hue |
+| Canvas | `#F8F4EB` paper, never pure white |
+| Accent | Ink blue `#B33A3A` only, no second chromatic hue |
 | Neutrals | All warm-toned (yellow-brown undertone), no cool blue-grays |
 | Serif | Body 400, headings 500. Avoid synthetic bold |
 | Line-height | Tight titles 1.1-1.3, dense body 1.4-1.45, reading body 1.5-1.55 |
@@ -100,7 +100,7 @@ Full spec: [design.md](references/design.md). Cheatsheet: [CHEATSHEET.md](CHEATS
 
 ## Travel
 
-The same constraint system doubles as a brief you can hand to any drawing tool. Point it at the [references folder](references/) and the output inherits warm parchment, ink-blue restraint, single-line geometric icons, and editorial typography.
+The same constraint system doubles as a brief you can hand to any drawing tool. Point it at the [references folder](references/) and the output inherits warm paper, cinnabar restraint, single-line geometric icons, and editorial typography.
 
 > Apply the Kami design system from github.com/tw93/kami/tree/main/references
 
@@ -131,14 +131,6 @@ The same constraint system doubles as a brief you can hand to any drawing tool. 
 I like investing in US equities and ask Claude to write research reports all the time. Every output landed in the same default-doc look: gray, flat, a different layout each session. The structure was hard to scan, the formatting felt dated, and nothing about the page made me want to keep reading. So I started fixing the typography, the palette, the spacing, one rule at a time, until the report became a page I actually enjoyed.
 
 Later I needed to present "The Agent You Don't Know: Principles, Architecture and Engineering Practice." I already had the document and didn't want to build slides from scratch, so I used Claude Design to lay it out in my own style, tweaked it round after round, and eventually got it to a place I was happy with. That process added inline SVG charts, a unified warm palette, and a tighter editorial rhythm. It kept growing until it covered every document I regularly ship, so I kept abstracting the process, and it became kami: one quiet design system I can hand to any agent and trust the output.
-
-## Support
-
-- If kami helped you, [share it](https://twitter.com/intent/tweet?url=https://github.com/tw93/kami&text=Kami%20-%20A%20quiet%20design%20system%20for%20professional%20documents.) with friends or give it a star.
-- Got ideas or bugs? Open an issue or PR.
-- I have two cats, TangYuan and Coke. If you think kami delights your life, you can feed them <a href="https://cats.tw93.fun?name=Kami" target="_blank">canned food 🥩</a>.
-
-<a href="https://cats.tw93.fun?name=Kami"><img src="https://cdn.jsdelivr.net/gh/tw93/sponsors@main/assets/sponsors.svg" width="1000" loading="lazy" /></a>
 
 ## License
 

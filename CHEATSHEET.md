@@ -4,8 +4,8 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 
 ## Ten invariants
 
-1. Page background `#f5f4ed` (parchment), never pure white
-2. Single accent: ink-blue `#1B365D`
+1. Page background `#F8F4EB` (paper), never pure white
+2. Single accent: cinnabar `#B33A3A`
 3. All grays **warm-toned** (yellow-brown undertone), no cool blue-gray
 4. One serif font per page (headings + body). `--sans` is a CSS alias for the same family; introduce a real sans only for genuinely UI-style chrome
 5. Serif weight locked at 500, no bold
@@ -31,12 +31,12 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 
 | Role         | Hex           | Use                                                 |
 | ------------ | ------------- | --------------------------------------------------- |
-| Parchment    | `#f5f4ed`     | Page background                                     |
+| Parchment    | `#F8F4EB`     | Page background                                     |
 | Ivory        | `#faf9f5`     | Card / lifted container                             |
 | Warm Sand    | `#e8e6dc`     | Button / interactive surface                        |
 | Dark Surface | `#30302e`     | Dark container                                      |
 | Deep Dark    | `#141413`     | Dark page background                                |
-| **Brand**    | `**#1B365D`** | **Accent · CTA · title left bar (≤ 5% of surface)** |
+| **Brand**    | `**#B33A3A`** | **Accent · CTA · title left bar (≤ 5% of surface)** |
 | Ink Light    | `#2D5A8A`     | Links on dark surfaces                              |
 | Near Black   | `#141413`     | Primary text                                        |
 | Dark Warm    | `#3d3d3a`     | Secondary text · table headers · links              |
@@ -46,14 +46,14 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 | Border Soft  | `#e5e3d8`     | Secondary border · row separator                    |
 
 
-**rgba -> solid** (parchment base + ink-blue):
+**rgba -> solid** (paper base + cinnabar):
 
 
 | Alpha    | Solid                       |
 | -------- | --------------------------- |
-| 0.08     | `#EEF2F7`                   |
-| 0.14     | `#E4ECF5`                   |
-| **0.18** | `**#E4ECF5`** ← default tag |
+| 0.08     | `rgba(245,240,230,0.7)`                   |
+| 0.14     | `rgba(245,240,230,0.7)`                   |
+| **0.18** | `**rgba(245,240,230,0.7)`** ← default tag |
 | 0.22     | `#D0DCE9`                   |
 | 0.30     | `#D6E1EE`                   |
 
@@ -159,8 +159,8 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 
 ```css
 .tag {
-  background: #EEF2F7;            /* 0.08 equivalent */
-  color: var(--brand);
+  background: rgba(245,240,230,0.7);            /* 0.08 equivalent */
+  color: var(--cinnabar);
   font-size: 9pt; font-weight: 600;
   padding: 1pt 5pt;
   border-radius: 2pt;
@@ -175,9 +175,9 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 .section-title {
   font-family: var(--serif);
   font-size: 14pt; font-weight: 500;
-  color: var(--near-black);
+  color: var(--ink-deep);
   margin: 24pt 0 10pt 0;
-  border-left: 2.5pt solid var(--brand);
+  border-left: 2.5pt solid var(--cinnabar);
   border-radius: 1.5pt;
   padding-left: 8pt;
 }
@@ -193,7 +193,7 @@ table, .kami-table {
   width: 100%; border-collapse: collapse;
   font-size: 9.5pt; margin: 12pt 0; break-inside: avoid;
 }
-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+table th { text-align: left; font-weight: 500; color: var(--ink-mid);
   padding: 6pt 8pt; border-bottom: 1pt solid var(--border); }
 table td { padding: 5pt 8pt; border-bottom: 0.3pt solid var(--border-soft);
   vertical-align: top; }
@@ -216,19 +216,19 @@ Combine freely: `<table class="kami-table financial striped">`.
 .metric { display: flex; align-items: baseline; gap: 6pt; }
 .metric-value {
   font-family: var(--serif); font-size: 16pt; font-weight: 500;
-  color: var(--brand);
+  color: var(--cinnabar);
   font-variant-numeric: tabular-nums;
 }
-.metric-label { font-size: 9pt; color: var(--olive); }
+.metric-label { font-size: 9pt; color: var(--ink-light); }
 ```
 
 ### Quote
 
 ```css
 .quote {
-  border-left: 2pt solid var(--brand);
+  border-left: 2pt solid var(--cinnabar);
   padding: 4pt 0 4pt 14pt;
-  color: var(--olive);
+  color: var(--ink-light);
   line-height: 1.55;
 }
 ```
@@ -258,7 +258,7 @@ Fourteen built-in diagram types. Extract the `<svg>` block and embed in a `<figu
 
 Usage: extract the `<svg>` block from the HTML file and paste into the template's `<figure>` container.
 
-**Data chart colors**: primary series `#1B365D` · secondary `#504e49` → `#6b6a64` → `#b8b7b0` → `#d4d3cd` → `#EEF2F7`.
+**Data chart colors**: primary series `#B33A3A` · secondary `#504e49` → `#6b6a64` → `#b8b7b0` → `#d4d3cd` → `rgba(245,240,230,0.7)`.
 
 **Editing data**: only modify elements between `<!-- DATA START -->` / `<!-- DATA END -->`, leave CSS untouched. All coordinates must be divisible by 4.
 
@@ -334,7 +334,7 @@ Page 2 font sizes stay at template defaults. The density variant only tightens p
 | Headline            | serif 500, line-height 1.10-1.30                               |
 | Reading body (EN)   | serif 400, 9.5-10pt, 1.55                                      |
 | Reading body (CN)   | sans 400, 9.5-10pt, 1.55                                       |
-| Emphasize a number  | `color: var(--brand)`, no bold                                 |
+| Emphasize a number  | `color: var(--cinnabar)`, no bold                                 |
 | Divide two sections | 2.5pt brand left bar, or 0.5pt warm dotted                     |
 | Quote               | 2pt brand left border + olive color                            |
 | Code                | ivory bg + 0.5pt border + 6pt radius + mono                    |
@@ -350,4 +350,4 @@ Page 2 font sizes stay at template defaults. The density variant only tightens p
 | Slide bullets       | Numerals `1. 2. 3.` or `•`; en-dash `–` reads informal at slide scale (production.md #22). Print docs keep en-dash. |
 
 
-Not on the table -> first principles: **serif carries authority, sans carries utility, warm gray carries rhythm, ink-blue carries focus**.
+Not on the table -> first principles: **serif carries authority, sans carries utility, warm gray carries rhythm, cinnabar carries focus**.

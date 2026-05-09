@@ -35,7 +35,7 @@
   @page {
     size: A4;
     margin: 12mm 15mm 12mm 15mm;
-    background: #f5f4ed;
+    background: #F8F4EB;
   }
 
   @page:first {
@@ -45,30 +45,28 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --parchment: #f5f4ed;
-    --ivory:     #faf9f5;
-    --near-black:#141413;
-    --dark-warm: #3d3d3a;
-    --olive:     #504e49;
-    --stone:     #6b6a64;
-    --brand:     #1B365D;
-    --brand-deep:#a64f33;
-    --border:    #e8e6dc;
-    --border-soft:#e5e3d8;
-    --tag-bg:    #E4ECF5;
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
-    --sans: var(--serif);
+    --paper:        #F8F4EB;
+    --paper-card:   rgba(245,240,230,0.7);
+    --ink-deep:     #2B1E14;
+    --ink-mid:      #5E4E3F;
+    --ink-light:    #9B8B7A;
+    --border-ink-ink:   #C5B9A5;
+    --cinnabar:     #B33A3A;
+    --cinnabar-hover: #8E2D2D;
+    --select-bg:    #D9D1BD;
+    --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
   }
 
-  html, body { background: var(--parchment); }
+  html, body { background: var(--paper); }
 
   @media screen {
     body { max-width: 210mm; margin: 0 auto; padding: 12mm 15mm; }
   }
 
   body {
-    color: var(--near-black);
-    font-family: var(--serif);
+    color: var(--ink-deep);
+    font-family: var(--font);
     font-size: 10pt;
     line-height: 1.45;
     letter-spacing: 0.3pt;
@@ -77,7 +75,7 @@
   }
 
   .serif {
-    font-family: var(--serif);
+    font-family: var(--font);
   }
 
   /* ════════════ COVER ════════════ */
@@ -91,9 +89,9 @@
     break-after: page;
   }
   .cover-top {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 10pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 2pt;
     text-transform: uppercase;
   }
@@ -103,24 +101,24 @@
     gap: 14pt;
   }
   .cover-name {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 58pt;
     font-weight: 500;
     line-height: 1.05;
-    color: var(--near-black);
+    color: var(--ink-deep);
     letter-spacing: 1pt;
   }
   .cover-tagline {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 18pt;
-    color: var(--olive);
+    color: var(--ink-light);
     line-height: 1.4;
     max-width: 80%;
   }
   .cover-line {
     width: 80pt;
     height: 2pt;
-    background: var(--brand);
+    background: var(--cinnabar);
     margin: 18pt 0 4pt 0;
   }
   .cover-meta {
@@ -128,10 +126,10 @@
     justify-content: space-between;
     align-items: flex-end;
     font-size: 10pt;
-    color: var(--stone);
+    color: var(--ink-light);
   }
   .cover-meta strong {
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     font-weight: 500;
   }
 
@@ -142,26 +140,26 @@
   }
   .about-eyebrow {
     font-size: 9pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 1pt;
     text-transform: uppercase;
     margin-bottom: 8pt;
   }
   .about-title {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 32pt;
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 20pt;
-    border-left: 2.5pt solid var(--brand);
+    border-left: 2.5pt solid var(--cinnabar);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
   .about-lead {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 15pt;
     line-height: 1.5;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     margin-bottom: 24pt;
     max-width: 90%;
   }
@@ -175,10 +173,10 @@
     margin-bottom: 10pt;
   }
   .about-body h3 {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 13pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
     margin-bottom: 6pt;
   }
 
@@ -193,15 +191,15 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 14pt;
-    border-left: 2.5pt solid var(--brand);
+    border-left: 2.5pt solid var(--cinnabar);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
   .project-num {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 42pt;
     font-weight: 500;
-    color: var(--brand);
+    color: var(--cinnabar);
     line-height: 1;
     margin-right: 18pt;
   }
@@ -211,28 +209,28 @@
   }
   .project-type {
     font-size: 9pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 1pt;
     text-transform: uppercase;
     margin-bottom: 3pt;
   }
   .project-title {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 22pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
     line-height: 1.2;
     margin-bottom: 4pt;
   }
   .project-subtitle {
     font-size: 11pt;
-    color: var(--olive);
+    color: var(--ink-light);
     line-height: 1.4;
   }
   .project-date {
     text-align: right;
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
     min-width: 80pt;
@@ -248,7 +246,7 @@
   }
   .tag {
     background: var(--tag-bg);
-    color: var(--brand);
+    color: var(--cinnabar);
     font-size: 9pt;
     font-weight: 500;
     padding: 2pt 7pt;
@@ -259,14 +257,14 @@
   .project-hero {
     width: 100%;
     height: 110mm;
-    background: var(--ivory);
+    background: var(--paper-card);
     border-radius: 6pt;
     margin-bottom: 14pt;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--stone);
+    color: var(--ink-light);
     font-size: 10pt;
   }
   .project-hero img {
@@ -282,20 +280,20 @@
     gap: 16pt;
   }
   .project-block h3 {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 11pt;
     font-weight: 500;
-    color: var(--brand);
+    color: var(--cinnabar);
     margin-bottom: 4pt;
     letter-spacing: 0.3pt;
   }
   .project-block p {
     font-size: 9.5pt;
     line-height: 1.45;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
   }
   .project-block .hl {
-    color: var(--brand);
+    color: var(--cinnabar);
     font-weight: 500;
   }
 
@@ -305,22 +303,22 @@
     gap: 14pt;
     margin-top: 14pt;
     padding-top: 10pt;
-    border-top: 0.5pt dotted var(--border);
+    border-top: 0.5pt dotted var(--border-ink);
   }
   .result-item {
     flex: 1;
   }
   .result-value {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 18pt;
     font-weight: 500;
-    color: var(--brand);
+    color: var(--cinnabar);
     line-height: 1.1;
     font-variant-numeric: tabular-nums;
   }
   .result-label {
     font-size: 9pt;
-    color: var(--olive);
+    color: var(--ink-light);
     margin-top: 2pt;
     line-height: 1.3;
   }
@@ -343,11 +341,11 @@
     padding-top: 10mm;
   }
   .more-works-title {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 24pt;
     font-weight: 500;
     margin-bottom: 16pt;
-    border-left: 2.5pt solid var(--brand);
+    border-left: 2.5pt solid var(--cinnabar);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
@@ -356,31 +354,31 @@
     grid-template-columns: 40pt 1fr 80pt;
     gap: 12pt;
     padding: 8pt 0;
-    border-bottom: 0.3pt dotted var(--border);
+    border-bottom: 0.3pt dotted var(--border-ink);
     align-items: baseline;
   }
   .work-item:last-of-type { border-bottom: none; }
   .work-year {
-    font-family: var(--serif);
-    color: var(--brand);
+    font-family: var(--font);
+    color: var(--cinnabar);
     font-size: 11pt;
     white-space: nowrap;
   }
   .work-title-block .title {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 11pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
   }
   .work-title-block .desc {
     font-size: 9pt;
-    color: var(--olive);
+    color: var(--ink-light);
     margin-top: 1pt;
   }
   .work-link {
     text-align: right;
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
   }
 
   /* ════════════ CONTACT ════════════ */
@@ -394,32 +392,32 @@
   }
   .contact-eyebrow {
     font-size: 10pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 2pt;
     text-transform: uppercase;
     margin-bottom: 12pt;
   }
   .contact-title {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 48pt;
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 20pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
   }
   .contact-line {
     width: 80pt;
     height: 2pt;
-    background: var(--brand);
+    background: var(--cinnabar);
     margin-bottom: 24pt;
   }
   .contact-list {
     font-size: 12pt;
     line-height: 1.55;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
   }
   .contact-list strong {
-    color: var(--stone);
+    color: var(--ink-light);
     font-weight: 500;
     font-size: 10pt;
     letter-spacing: 0.5pt;
@@ -429,7 +427,7 @@
     text-transform: uppercase;
   }
   .contact-list a {
-    color: var(--brand);
+    color: var(--cinnabar);
     text-decoration: none;
   }
 
@@ -444,14 +442,14 @@
   table th, .kami-table th {
     text-align: left;
     font-weight: 500;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     padding: 5pt 8pt;
-    border-bottom: 1pt solid var(--border);
+    border-bottom: 1pt solid var(--border-ink);
     background: transparent;
   }
   table td, .kami-table td {
     padding: 4pt 8pt;
-    border-bottom: 0.3pt solid var(--border-soft);
+    border-bottom: 0.3pt solid var(--border-ink-soft);
     vertical-align: top;
   }
   table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
@@ -461,10 +459,10 @@
   }
   table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
   table.striped tbody tr:nth-child(even) td, .kami-table.striped tbody tr:nth-child(even) td {
-    background: var(--ivory);
+    background: var(--paper-card);
   }
   table .total td, .kami-table .total td {
-    font-weight: 500; border-top: 1pt solid var(--brand); border-bottom: none; color: var(--near-black);
+    font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
   }
 </style>
 </head>

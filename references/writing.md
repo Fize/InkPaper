@@ -48,7 +48,7 @@ Branded documents should first make the subject recognizable, then use decoratio
 - Company / product / project docs should confirm logo, product image, UI screenshot, and brand color before layout
 - If a key material is missing, mark the gap or ask the user. Do not fill the page with unrelated imagery
 - Physical products prefer official product images; digital products prefer real UI screenshots
-- If brand color is unknown, keep kami ink-blue rather than inventing a new color
+- If brand color is unknown, keep kami cinnabar rather than inventing a new color
 - **Third-party figures**: when redrawing a paper figure, patent illustration, or official architecture diagram for visual consistency, mark the redraw as `Schematic redrawn` /「示意重绘」in the caption. Do not style a redrawn version to look like the original screenshot. If the figure carries primary evidentiary value (patent, official spec), embed the original with attribution rather than redrawing it
 
 ---
@@ -269,7 +269,7 @@ Structure is necessary but not sufficient. These bars define what separates comp
 
 **Eyebrow vs title non-duplication**: the eyebrow is a stable, cross-slide section label ("Growth / Q3 Results"). The title is a page-unique declarative claim ("Revenue grew 23% because enterprise deals closed 2x faster"). They must never say the same thing in different words. If removing the eyebrow would make the title ambiguous, the title is too weak. If reading the title makes the eyebrow redundant, the eyebrow is a topic label masquerading as context.
 
-**Deck rhythm (>=12 slides)**: before writing any slide, sketch a layout-type sequence. Rules: every 4-6 slides must include a `chapter_slide` (ink-blue full-bleed divider); never run more than 5 consecutive `content_slides` without a divider; the deck must include at least one `quote_slide` or `metrics_slide` to vary density. Monotony is a structure failure, not a content one.
+**Deck rhythm (>=12 slides)**: before writing any slide, sketch a layout-type sequence. Rules: every 4-6 slides must include a `chapter_slide` (cinnabar full-bleed divider); never run more than 5 consecutive `content_slides` without a divider; the deck must include at least one `quote_slide` or `metrics_slide` to vary density. Monotony is a structure failure, not a content one.
 
 **Term consistency self-check**: after drafting, list every domain term that appears 3 or more times (product names, feature names, roles, metrics). Confirm there is exactly one spelling and capitalization for each. Inconsistent casing ("LLM" vs "llm" vs "large language model") signals an unreviewed draft.
 
@@ -405,7 +405,7 @@ English documents:
 
 ### Emphasis is not bold
 
-Use `color: var(--brand)` alone - don't also add `font-weight: bold`. Bold breaks the single-weight design language.
+Use `color: var(--cinnabar)` alone - don't also add `font-weight: bold`. Bold breaks the single-weight design language.
 
 ---
 

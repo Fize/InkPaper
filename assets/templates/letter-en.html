@@ -19,35 +19,33 @@
   @page {
     size: A4;
     margin: 25mm 25mm 25mm 25mm;
-    background: #f5f4ed;
+    background: #F8F4EB;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --parchment: #f5f4ed;
-    --near-black:#141413;
-    --dark-warm: #3d3d3a;
-    --olive:     #504e49;
-    --stone:     #6b6a64;
-    --brand:     #1B365D;
-    --ivory:     #faf9f5;
-    --border:    #e8e6dc;
-    --border-soft:#e5e3d8;
-
-    --serif: Charter, Georgia,
-             Palatino, "Times New Roman", serif;
-    --sans: var(--serif);
+    --paper:        #F8F4EB;
+    --paper-card:   rgba(245,240,230,0.7);
+    --ink-deep:     #2B1E14;
+    --ink-mid:      #5E4E3F;
+    --ink-light:    #9B8B7A;
+    --border-ink-ink:   #C5B9A5;
+    --cinnabar:     #B33A3A;
+    --cinnabar-hover: #8E2D2D;
+    --select-bg:    #D9D1BD;
+    --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
   }
 
-  html, body { background: var(--parchment); }
+  html, body { background: var(--paper); }
 
   @media screen {
     body { max-width: 210mm; margin: 0 auto; padding: 25mm; }
   }
 
   body {
-    color: var(--near-black);
-    font-family: var(--serif);
+    color: var(--ink-deep);
+    font-family: var(--font);
     font-size: 11.5pt;
     line-height: 1.55;
   }
@@ -57,20 +55,20 @@
     margin-bottom: 30pt;
     font-size: 10pt;
     line-height: 1.55;
-    color: var(--olive);
+    color: var(--ink-light);
   }
   .letterhead .sender-name {
     font-size: 13pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
     margin-bottom: 4pt;
   }
-  .letterhead a { color: var(--dark-warm); text-decoration: none; }
+  .letterhead a { color: var(--ink-mid); text-decoration: none; }
 
   .date {
     text-align: right;
     font-size: 10.5pt;
-    color: var(--olive);
+    color: var(--ink-light);
     margin-bottom: 24pt;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
@@ -81,9 +79,9 @@
     line-height: 1.5;
   }
   .recipient .to {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
     letter-spacing: 0.5pt;
     text-transform: uppercase;
     margin-bottom: 3pt;
@@ -92,23 +90,23 @@
   .recipient .name {
     font-size: 12pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
   }
   .recipient .org {
     font-size: 10.5pt;
-    color: var(--olive);
+    color: var(--ink-light);
   }
 
   .subject {
     margin-bottom: 24pt;
-    border-left: 2.5pt solid var(--brand);
+    border-left: 2.5pt solid var(--cinnabar);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
   .subject .label {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 9pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 1pt;
     text-transform: uppercase;
     margin-bottom: 3pt;
@@ -117,7 +115,7 @@
   .subject .title {
     font-size: 16pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
     line-height: 1.25;
     letter-spacing: -0.2pt;
   }
@@ -125,7 +123,7 @@
   .salutation {
     margin-bottom: 18pt;
     font-size: 12pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
   }
 
   .body-content p {
@@ -137,7 +135,7 @@
   .body-content p.indent { text-indent: 1.5em; }
 
   .body-content .hl {
-    color: var(--brand);
+    color: var(--cinnabar);
     font-weight: 500;
   }
 
@@ -147,32 +145,32 @@
   }
   .closing .regards {
     margin-bottom: 30pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
   }
   .closing .signature {
     font-size: 14pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
     margin-bottom: 3pt;
   }
   .closing .signoff-meta {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 10pt;
-    color: var(--olive);
+    color: var(--ink-light);
     line-height: 1.5;
   }
 
   .attachments {
     margin-top: 36pt;
     padding-top: 10pt;
-    border-top: 0.5pt dotted var(--border);
-    font-family: var(--sans);
+    border-top: 0.5pt dotted var(--border-ink);
+    font-family: var(--font);
     font-size: 9.5pt;
-    color: var(--stone);
+    color: var(--ink-light);
     line-height: 1.55;
   }
   .attachments .label {
-    color: var(--brand);
+    color: var(--cinnabar);
     margin-right: 6pt;
     font-weight: 500;
     letter-spacing: 0.5pt;
@@ -181,7 +179,7 @@
 
   /* Memo variant: sans-led, no indent */
   body.memo {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 10.5pt;
     line-height: 1.55;
   }
@@ -198,14 +196,14 @@
   table th, .kami-table th {
     text-align: left;
     font-weight: 500;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     padding: 5pt 8pt;
-    border-bottom: 1pt solid var(--border);
+    border-bottom: 1pt solid var(--border-ink);
     background: transparent;
   }
   table td, .kami-table td {
     padding: 4pt 8pt;
-    border-bottom: 0.3pt solid var(--border-soft);
+    border-bottom: 0.3pt solid var(--border-ink-soft);
     vertical-align: top;
   }
   table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
@@ -215,10 +213,10 @@
   }
   table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
   table.striped tbody tr:nth-child(even) td, .kami-table.striped tbody tr:nth-child(even) td {
-    background: var(--ivory);
+    background: var(--paper-card);
   }
   table .total td, .kami-table .total td {
-    font-weight: 500; border-top: 1pt solid var(--brand); border-bottom: none; color: var(--near-black);
+    font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
   }
 </style>
 </head>

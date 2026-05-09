@@ -20,20 +20,20 @@
   @page {
     size: A4;
     margin: 20mm 22mm 22mm 22mm;
-    background: #f5f4ed;
+    background: #F8F4EB;
 
     @top-right {
       content: string(section-title);
       font-family: Charter, Georgia, Palatino, serif;
       font-size: 8pt;
-      color: #6b6a64;
+      color: #9B8B7A;
     }
 
     @bottom-center {
       content: counter(page) "  ·  {{DOC_TITLE}}";
       font-family: Charter, Georgia, Palatino, serif;
       font-size: 9pt;
-      color: #6b6a64;
+      color: #9B8B7A;
     }
   }
   @page:first {
@@ -44,40 +44,35 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --parchment: #f5f4ed;
-    --ivory:     #faf9f5;
-    --near-black:#141413;
-    --dark-warm: #3d3d3a;
-    --olive:     #504e49;
-    --stone:     #6b6a64;
-    --brand:     #1B365D;
-    --border:    #e8e6dc;
-    --border-soft:#e5e3d8;
-    --tag-bg:    #E4ECF5;
-
-    --serif: Charter, Georgia,
-             Palatino, "Times New Roman", serif;
-    --sans: var(--serif);
-    --mono:  "JetBrains Mono", "SF Mono", "Fira Code",
-             Consolas, Monaco, monospace;
+    --paper:        #F8F4EB;
+    --paper-card:   rgba(245,240,230,0.7);
+    --ink-deep:     #2B1E14;
+    --ink-mid:      #5E4E3F;
+    --ink-light:    #9B8B7A;
+    --border-ink-ink:   #C5B9A5;
+    --cinnabar:     #B33A3A;
+    --cinnabar-hover: #8E2D2D;
+    --select-bg:    #D9D1BD;
+    --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
   }
 
-  html, body { background: var(--parchment); }
+  html, body { background: var(--paper); }
 
   @media screen {
     body { max-width: 210mm; margin: 0 auto; padding: 20mm 22mm 22mm 22mm; }
   }
 
   body {
-    color: var(--near-black);
-    font-family: var(--serif);
+    color: var(--ink-deep);
+    font-family: var(--font);
     font-size: 10.5pt;
     line-height: 1.55;
     widows: 3;
     orphans: 3;
   }
 
-  .sans { font-family: var(--sans); }
+  .sans { font-family: var(--font); }
 
   /* COVER */
   .cover {
@@ -89,9 +84,9 @@
     break-after: page;
   }
   .cover-eyebrow {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 10pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 2pt;
     text-transform: uppercase;
     font-weight: 500;
@@ -100,27 +95,27 @@
   .cover-title {
     font-size: 40pt;
     font-weight: 500;
-    color: var(--near-black);
+    color: var(--ink-deep);
     line-height: 1.12;
     letter-spacing: -0.5pt;
     margin-bottom: 16pt;
   }
   .cover-sub {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 14pt;
-    color: var(--olive);
+    color: var(--ink-light);
     line-height: 1.45;
     max-width: 85%;
     margin-bottom: 30pt;
   }
   .cover-meta {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 10pt;
-    color: var(--stone);
+    color: var(--ink-light);
     line-height: 1.55;
     font-variant-numeric: tabular-nums;
   }
-  .cover-meta strong { color: var(--dark-warm); font-weight: 500; }
+  .cover-meta strong { color: var(--ink-mid); font-weight: 500; }
 
   /* TOC */
   .toc { break-after: page; }
@@ -128,7 +123,7 @@
     font-size: 22pt;
     font-weight: 500;
     margin-bottom: 14pt;
-    border-left: 2.5pt solid var(--brand);
+    border-left: 2.5pt solid var(--cinnabar);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
@@ -137,23 +132,23 @@
     justify-content: space-between;
     align-items: baseline;
     padding: 6pt 0;
-    border-bottom: 0.3pt dotted var(--border);
+    border-bottom: 0.3pt dotted var(--border-ink);
     font-size: 11pt;
   }
   .toc-item:last-of-type { border-bottom: none; }
   .toc-num {
-    color: var(--brand);
+    color: var(--cinnabar);
     font-weight: 500;
     min-width: 30pt;
     font-variant-numeric: tabular-nums;
   }
   .toc-title {
     flex: 1;
-    color: var(--near-black);
+    color: var(--ink-deep);
     padding-left: 6pt;
   }
   .toc-page {
-    color: var(--stone);
+    color: var(--ink-light);
     font-variant-numeric: tabular-nums;
   }
 
@@ -164,10 +159,10 @@
     line-height: 1.15;
     letter-spacing: -0.3pt;
     margin: 0 0 10pt 0;
-    border-left: 2.5pt solid var(--brand);
+    border-left: 2.5pt solid var(--cinnabar);
     border-radius: 1.5pt;
     padding-left: 8pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
     break-after: avoid;
   }
   h2 {
@@ -175,7 +170,7 @@
     font-weight: 500;
     line-height: 1.25;
     margin: 24pt 0 8pt 0;
-    color: var(--near-black);
+    color: var(--ink-deep);
     break-after: avoid;
     string-set: section-title content();
   }
@@ -184,14 +179,14 @@
     font-weight: 500;
     line-height: 1.3;
     margin: 18pt 0 6pt 0;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     break-after: avoid;
   }
 
   .chapter-num {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 10pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 1pt;
     text-transform: uppercase;
     font-weight: 500;
@@ -199,16 +194,16 @@
   }
 
   /* PARAGRAPHS */
-  p { margin: 0 0 10pt 0; line-height: 1.55; color: var(--near-black); widows: 2; orphans: 2; }
+  p { margin: 0 0 10pt 0; line-height: 1.55; color: var(--ink-deep); widows: 2; orphans: 2; }
 
   .lead {
     font-size: 12pt;
     line-height: 1.55;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     margin-bottom: 14pt;
   }
 
-  .hl { color: var(--brand); font-weight: 500; }
+  .hl { color: var(--cinnabar); font-weight: 500; }
   strong { font-weight: 500; }
 
   /* LISTS */
@@ -217,23 +212,23 @@
     padding-left: 20pt;
     line-height: 1.55;
   }
-  ul li::marker { color: var(--brand); }
-  ol li::marker { color: var(--brand); font-weight: 500; }
+  ul li::marker { color: var(--cinnabar); }
+  ol li::marker { color: var(--cinnabar); font-weight: 500; }
 
   /* QUOTE */
   blockquote, .quote {
-    border-left: 2pt solid var(--brand);
+    border-left: 2pt solid var(--cinnabar);
     margin: 12pt 0;
     padding: 4pt 0 4pt 16pt;
-    color: var(--olive);
+    color: var(--ink-light);
     line-height: 1.55;
     break-inside: avoid;
   }
   blockquote .cite, .quote .cite {
     display: block;
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
     margin-top: 4pt;
   }
 
@@ -241,21 +236,21 @@
   code {
     font-family: var(--mono);
     font-size: 9pt;
-    background: var(--ivory);
+    background: var(--paper-card);
     padding: 1pt 4pt;
     border-radius: 2pt;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
   }
   pre {
     font-family: var(--mono);
     font-size: 9pt;
     line-height: 1.5;
-    background: var(--ivory);
+    background: var(--paper-card);
     border-radius: 4pt;
     padding: 10pt 14pt;
     margin: 10pt 0;
     white-space: pre-wrap;
-    color: var(--near-black);
+    color: var(--ink-deep);
     break-inside: avoid;
   }
   pre code { background: transparent; padding: 0; font-size: inherit; }
@@ -270,16 +265,16 @@
   }
   table th, .kami-table th {
     text-align: left;
-    font-family: var(--sans);
+    font-family: var(--font);
     font-weight: 500;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     padding: 6pt 8pt;
-    border-bottom: 1pt solid var(--border);
-    background: var(--ivory);
+    border-bottom: 1pt solid var(--border-ink);
+    background: var(--paper-card);
   }
   table td, .kami-table td {
     padding: 5pt 8pt;
-    border-bottom: 0.3pt solid var(--border-soft);
+    border-bottom: 0.3pt solid var(--border-ink-soft);
     vertical-align: top;
   }
   table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
@@ -289,16 +284,16 @@
   }
   table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
   table.striped tbody tr:nth-child(even) td, .kami-table.striped tbody tr:nth-child(even) td {
-    background: var(--ivory);
+    background: var(--paper-card);
   }
   table .total td, .kami-table .total td {
-    font-weight: 500; border-top: 1pt solid var(--brand); border-bottom: none; color: var(--near-black);
+    font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
   }
 
   /* CALLOUT / TAKEAWAY */
   .callout {
-    background: var(--ivory);
-    border-left: 2pt solid var(--brand);
+    background: var(--paper-card);
+    border-left: 2pt solid var(--cinnabar);
     padding: 10pt 14pt;
     border-radius: 3pt;
     margin: 12pt 0;
@@ -310,23 +305,23 @@
     border-left: none;
     padding-left: 0;
     margin: 6pt 0;
-    color: var(--olive);
+    color: var(--ink-light);
   }
   .callout blockquote:first-child,
   .callout .quote:first-child { margin-top: 0; }
   .callout blockquote:last-child,
   .callout .quote:last-child  { margin-bottom: 0; }
   .takeaway {
-    background: var(--ivory);
+    background: var(--paper-card);
     border-radius: 4pt;
     padding: 10pt 14pt;
     margin: 14pt 0;
     break-inside: avoid;
   }
   .takeaway-label {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 9pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     letter-spacing: 1pt;
     text-transform: uppercase;
     font-weight: 500;
@@ -337,8 +332,8 @@
   .tag {
     display: inline-block;
     background: var(--tag-bg);
-    color: var(--brand);
-    font-family: var(--sans);
+    color: var(--cinnabar);
+    font-family: var(--font);
     font-size: 9pt;
     font-weight: 500;
     padding: 1pt 6pt;
@@ -352,9 +347,9 @@
   figure { margin: 14pt 0; break-inside: avoid; }
   figure img { max-width: 100%; border-radius: 4pt; }
   figcaption {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
     margin-top: 6pt;
     text-align: center;
   }

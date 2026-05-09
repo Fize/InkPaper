@@ -1,13 +1,13 @@
 ---
 name: kami
-description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, ink-blue accent, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
+description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, cinnabar accent, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
 ---
 
 # kami · 紙
 
 **紙** - the paper your deliverables land on.
 
-Good content deserves good paper. One design language across eight document types: warm parchment canvas, ink-blue accent, serif-led hierarchy, tight editorial rhythm.
+Good content deserves good paper. One design language across eight document types: warm parchment canvas, cinnabar accent, serif-led hierarchy, tight editorial rhythm.
 
 Part of `Kaku · Waza · Kami` - Kaku writes code, Waza drills habits, **Kami delivers documents**.
 
@@ -144,7 +144,7 @@ Confirm the materials that make the subject recognizable before layout:
 | Logo | Any branded document | User file or official SVG/PNG |
 | Product image | Physical product / venue / object | Official image, user image, or marked gap |
 | UI screenshot | App / SaaS / website / tool | Current screenshot, official product image, or user capture |
-| Brand colors | Branded one-pager / portfolio / deck | Official value, extracted asset value, or keep kami ink-blue |
+| Brand colors | Branded one-pager / portfolio / deck | Official value, extracted asset value, or keep kami cinnabar |
 | Fonts | Only if brand typography matters | Official font, close system fallback, or kami default |
 
 If a required item is missing, use a compact gap table and ask once. Do not replace missing material with generic imagery, approximate logo drawings, or invented values.
@@ -156,7 +156,7 @@ After the material check, output a structured status block before continuing. Th
 ```
 Materials status:
 - Logo: OK assets/client-logo.svg
-- Brand colors: OK #1B365D mapped to --brand
+- Brand colors: OK #B33A3A mapped to --cinnabar
 - Product screenshot: MISSING (proceeding with kami default placeholder)
 - UI screenshot: not required for this doc type
 ```

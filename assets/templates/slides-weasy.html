@@ -11,31 +11,28 @@
   @page {
     size: 280mm 158mm;
     margin: 0;
-    background: #f5f4ed;
+    background: #F8F4EB;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --parchment:  #f5f4ed;
-    --ivory:      #faf9f5;
-    --near-black: #141413;
-    --dark-warm:  #3d3d3a;
-    --olive:      #504e49;
-    --stone:      #6b6a64;
-    --brand:      #1B365D;
-    --brand-tint: #EEF2F7;
-    --border:     #e8e6dc;
-    --border-soft:#e5e3d8;
-
-    --serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
-    --sans:  "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    --mono:  "JetBrains Mono", "SF Mono", Consolas, monospace;
+    --paper:        #F8F4EB;
+    --paper-card:   rgba(245,240,230,0.7);
+    --ink-deep:     #2B1E14;
+    --ink-mid:      #5E4E3F;
+    --ink-light:    #9B8B7A;
+    --border-ink-ink:   #C5B9A5;
+    --cinnabar:     #B33A3A;
+    --cinnabar-hover: #8E2D2D;
+    --select-bg:    #D9D1BD;
+    --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
   }
 
   body {
-    color: var(--near-black);
-    font-family: var(--sans);
+    color: var(--ink-deep);
+    font-family: var(--font);
     font-size: 13pt;
     line-height: 1.55;
     letter-spacing: 0.3pt;
@@ -45,7 +42,7 @@
     width: 280mm;
     height: 158mm;
     padding: 16mm 20mm;
-    background: var(--parchment);
+    background: var(--paper);
     break-after: page;
     position: relative;
     display: flex;
@@ -58,7 +55,7 @@
     font-size: 9.5pt;
     letter-spacing: 2pt;
     text-transform: uppercase;
-    color: var(--stone);
+    color: var(--ink-light);
     margin-bottom: 2pt;
   }
 
@@ -68,7 +65,7 @@
     right: 20mm;
     font-family: var(--mono);
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
     letter-spacing: 0.5pt;
     font-variant-numeric: tabular-nums;
   }
@@ -79,55 +76,55 @@
     left: 20mm;
     font-family: var(--mono);
     font-size: 9pt;
-    color: var(--stone);
+    color: var(--ink-light);
     letter-spacing: 1.5pt;
   }
 
   h2 {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 24pt;
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.3pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
     margin-bottom: 14pt;
   }
 
   h3 {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 15pt;
     font-weight: 500;
     line-height: 1.3;
     letter-spacing: 0.3pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     margin-bottom: 8pt;
   }
 
   .lead {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 12pt;
     font-weight: 400;
     line-height: 1.55;
     letter-spacing: 0.3pt;
-    color: var(--olive);
+    color: var(--ink-light);
     margin-bottom: 8pt;
   }
 
   .mt {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 16pt;
     font-weight: 500;
     line-height: 1.3;
     letter-spacing: 0.3pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
     margin-bottom: 8pt;
   }
 
   .ml {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 24pt;
     font-weight: 500;
-    color: var(--brand);
+    color: var(--cinnabar);
     margin-right: 6pt;
   }
 
@@ -136,48 +133,48 @@
     font-size: 7.5pt;
     letter-spacing: 1.5pt;
     text-transform: uppercase;
-    color: var(--stone);
-    border-bottom: 0.3pt solid var(--border);
+    color: var(--ink-light);
+    border-bottom: 0.3pt solid var(--border-ink);
     padding-bottom: 4pt;
     margin-bottom: 14pt;
   }
 
   .mb {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 11pt;
     line-height: 1.55;
     letter-spacing: 0.3pt;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     margin-bottom: 18pt;
   }
 
   .mi {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 11pt;
     line-height: 1.55;
     letter-spacing: 0.3pt;
-    color: var(--dark-warm);
+    color: var(--ink-mid);
     padding: 8pt 0;
   }
 
   .mc {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 9.5pt;
     line-height: 1.5;
     letter-spacing: 0.3pt;
-    color: var(--olive);
-    border-top: 0.3pt solid var(--border);
+    color: var(--ink-light);
+    border-top: 0.3pt solid var(--border-ink);
     padding-top: 8pt;
     margin-top: 18pt;
   }
 
   .co {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 11pt;
     font-weight: 500;
     line-height: 1.55;
     letter-spacing: 0.3pt;
-    color: var(--brand);
+    color: var(--cinnabar);
     position: absolute;
     bottom: 12mm;
     left: 20mm;
@@ -208,14 +205,14 @@
   }
   table.data td {
     padding: 8pt;
-    border-bottom: 0.3pt solid var(--border);
+    border-bottom: 0.3pt solid var(--border-ink);
     font-size: 11pt;
     line-height: 1.55;
     letter-spacing: 0.3pt;
   }
   table.data td:first-child {
     font-weight: 500;
-    color: var(--brand);
+    color: var(--cinnabar);
   }
 
   svg {
@@ -231,27 +228,27 @@
     text-align: center;
   }
   .cover h1 {
-    font-family: var(--serif);
+    font-family: var(--font);
     font-size: 38pt;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: 0.3pt;
-    color: var(--near-black);
+    color: var(--ink-deep);
     margin-bottom: 12pt;
   }
   .cover .sub {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 14pt;
     line-height: 1.5;
     letter-spacing: 0.3pt;
-    color: var(--olive);
+    color: var(--ink-light);
     max-width: 50ch;
     margin-bottom: 32pt;
   }
   .cover .meta {
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 10pt;
-    color: var(--stone);
+    color: var(--ink-light);
     letter-spacing: 0.3pt;
   }
 </style>
