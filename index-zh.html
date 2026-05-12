@@ -5,7 +5,6 @@
   <title>InkPaper 紙：面向 AI Agent 的文档设计系统</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="InkPaper 紙：面向 AI 文档生成的温暖纸质感设计系统，以单一强调色、serif 层级与编辑级留白，收束成稳定的排版。">
-  <link rel="icon" href="https://gw.alipayobjects.com/zos/k/vl/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <link rel="canonical" href="https://inkpaper.tw93.fun/index-zh.html">
   <link rel="alternate" hreflang="en" href="https://inkpaper.tw93.fun/">
@@ -15,12 +14,10 @@
   <meta property="og:title" content="InkPaper 紙：面向 AI Agent 的文档设计系统">
   <meta property="og:description" content="InkPaper 紙：面向 AI 文档生成的温暖纸质感设计系统，以单一强调色、serif 层级与编辑级留白，收束成稳定的排版。">
   <meta property="og:url" content="https://inkpaper.tw93.fun/index-zh.html">
-  <meta property="og:image" content="https://gw.alipayobjects.com/zos/k/vl/logo.svg">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="InkPaper 紙：面向 AI Agent 的文档设计系统">
   <meta name="twitter:description" content="InkPaper 紙：面向 AI 文档生成的温暖纸质感设计系统，以单一强调色、serif 层级与编辑级留白，收束成稳定的排版。">
-  <meta name="twitter:image" content="https://gw.alipayobjects.com/zos/k/vl/logo.svg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,11 +54,6 @@
         "@type": "Question",
         "name": "InkPaper 能生成什么？",
         "acceptedAnswer": { "@type": "Answer", "text": "八种文档：一页纸、长文档、信件、作品集、简历、幻灯片、个股研报、更新日志。外加 14 种内联 SVG 图表。输出为 HTML，可导出为 PDF、PNG 或幻灯片。" }
-      },
-      {
-        "@type": "Question",
-        "name": "怎么安装 InkPaper？",
-        "acceptedAnswer": { "@type": "Answer", "text": "四种方式。Claude Code: npx skills add tw93/inkpaper -a claude-code -g -y，或插件市场：/plugin marketplace add Fize/InkPaper 后执行 /plugin install inkpaper@inkpaper。通用 agent：npx skills add tw93/inkpaper -a '*' -g -y。Claude Desktop：从 GitHub Releases 下载 inkpaper.zip，在 Skills 设置中上传即可。" }
       },
       {
         "@type": "Question",
@@ -129,29 +121,10 @@
     </div>
   </section>
 
-  <!-- ============ 01 INSTALL ============ -->
-  <section>
-    <div class="section-head">
-      <p class="section-num">01 · Usage</p>
-      <h2 class="section-title">安装与调用</h2>
-      <p class="section-lede">直接告诉 Claude 你要什么，比如「帮我排版一份白皮书」「做一份简历」「帮我做一份作品集」，skill 会自动触发，无需斜杠命令。</p>
-    </div>
-<pre class="code"><span class="c"># Claude Code</span>
-npx skills add tw93/inkpaper -a claude-code -g -y
-
-<span class="c"># Claude Code plugin marketplace</span>
-/plugin marketplace add Fize/InkPaper
-/plugin install inkpaper@inkpaper
-
-<span class="c"># Codex</span>
-npx skills add tw93/inkpaper -a codex -g -y</pre>
-    <p class="section-lede" style="font-size:14px;">Claude Desktop：下载 <a href="https://github.com/Fize/inkpaper/releases/latest/download/inkpaper.zip" style="color:var(--cinnabar); text-decoration:none; font-weight:500;">inkpaper.zip</a>，在 Customize &gt; Skills &gt; "+" &gt; Create skill 中直接上传。</p>
-  </section>
-
   <!-- ============ 02 MANIFESTO ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">02 · Manifesto</p>
+      <p class="section-num">01 · Manifesto</p>
       <h2 class="section-title">设计原则</h2>
     </div>
     <p class="manifesto">暖米纸底，<em>油墨蓝</em>点缀，serif 承担层级，硬阴影与花哨配色都退后；这套系统面向印刷文档，负责把内容收束成稳定、清晰、易读的版面。</p>
@@ -170,7 +143,7 @@ npx skills add tw93/inkpaper -a codex -g -y</pre>
   <!-- ============ 03 COLOR ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">03 · Color</p>
+      <p class="section-num">02 · Color</p>
       <h2 class="section-title">暖调克制</h2>
       <p class="section-lede">唯一强调色、纯暖调中性灰、零冷色；油墨蓝全文档不超过 <b>5%</b> 面积，超过就从克制变成堆砌。</p>
     </div>
@@ -213,7 +186,7 @@ npx skills add tw93/inkpaper -a codex -g -y</pre>
   <!-- ============ 04 TYPE ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">04 · Typography</p>
+      <p class="section-num">03 · Typography</p>
       <h2 class="section-title">字体系统</h2>
       <p class="section-lede">Serif 承担层级，sans 承担功能；serif 正文 400，标题 500。</p>
     </div>
@@ -288,7 +261,7 @@ npx skills add tw93/inkpaper -a codex -g -y</pre>
   <!-- ============ 05 SPACING ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">05 · Spacing &amp; Shape</p>
+      <p class="section-num">04 · Spacing &amp; Shape</p>
       <h2 class="section-title">节奏与形</h2>
       <p class="section-lede">基础单位 4pt，密度越高 margin 越小，场合越正式 margin 越大。</p>
     </div>
@@ -338,7 +311,7 @@ npx skills add tw93/inkpaper -a codex -g -y</pre>
   <!-- ============ 06 COMPONENTS ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">06 · Components</p>
+      <p class="section-num">05 · Components</p>
       <h2 class="section-title">原子组件</h2>
       <p class="section-lede">组件不求多，只保留能解决具体问题的一组。</p>
     </div>
@@ -429,7 +402,7 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
   <!-- ============ 07 DIAGRAMS ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">07 · Diagrams</p>
+      <p class="section-num">06 · Diagrams</p>
       <h2 class="section-title">内联图表</h2>
       <p class="section-lede">十四种内联 SVG 图表，覆盖架构、流程、数据三大场景。直接告诉 Claude 需要哪种图，会自动嵌入文档，配色与字体沿用 InkPaper 设计语言。</p>
     </div>
@@ -531,7 +504,7 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
   <!-- ============ 08 DECISION TABLE ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">08 · Decision Lookup</p>
+      <p class="section-num">07 · Decision Lookup</p>
       <h2 class="section-title">决策速查</h2>
       <p class="section-lede">遇到“该用什么”时先看这张表，不在表里就回到基础原则。</p>
     </div>
@@ -554,7 +527,7 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
   <!-- ============ 09 ANTI ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">09 · Anti-Patterns</p>
+      <p class="section-num">08 · Anti-Patterns</p>
       <h2 class="section-title">反面示例</h2>
       <p class="section-lede">破例可以，但理由要足够清楚。</p>
     </div>
@@ -601,7 +574,7 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
   <!-- ============ 10 BACKGROUND ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">10 · Background</p>
+      <p class="section-num">09 · Background</p>
       <h2 class="section-title">设计缘起</h2>
     </div>
     <div class="background-text">
@@ -613,7 +586,7 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
   <!-- ============ 11 FAQ ============ -->
   <section>
     <div class="section-head">
-      <p class="section-num">11 · 常见问题</p>
+      <p class="section-num">10 · 常见问题</p>
       <h2 class="section-title">FAQ</h2>
     </div>
     <dl class="faq">
@@ -624,10 +597,6 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
       <div class="faq-pair">
         <dt>能生成什么？</dt>
         <dd>八种文档类型：一页纸、长文档、信件、作品集、简历、幻灯片、个股研报、更新日志。外加 14 种内联 SVG 图表用于可视化说明。输出为 HTML，可导出为 PDF、PNG 或幻灯片。</dd>
-      </div>
-      <div class="faq-pair">
-        <dt>怎么安装？</dt>
-        <dd>四种方式。Claude Code：<code style="font-family:var(--mono); font-size:0.9em; color:var(--cinnabar);">npx skills add tw93/inkpaper -a claude-code -g -y</code>，或插件市场：<code style="font-family:var(--mono); font-size:0.9em; color:var(--cinnabar);">/plugin marketplace add Fize/InkPaper</code> 后执行 <code style="font-family:var(--mono); font-size:0.9em; color:var(--cinnabar);">/plugin install inkpaper@inkpaper</code>。通用 agent：<code style="font-family:var(--mono); font-size:0.9em; color:var(--cinnabar);">npx skills add tw93/inkpaper -a '*' -g -y</code>。Claude Desktop：从 GitHub Releases 下载 inkpaper.zip，在自定义 &gt; Skills 中上传即可。</dd>
       </div>
       <div class="faq-pair">
         <dt>支持哪些语言？</dt>

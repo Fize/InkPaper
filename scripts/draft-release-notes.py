@@ -2,8 +2,8 @@
 """Draft the next InkPaper release notes from git log.
 
 Pulls commit subjects in a rev range and pours them into the V1.4.0-style
-template (centered logo + bilingual changelog). The output is a starting
-point: regroup the commits into 5-8 product-themed bullets and translate
+bilingual changelog template. The output is a starting point: regroup the
+commits into 5-8 product-themed bullets and translate
 each to Chinese before publishing.
 
 Usage:
@@ -27,8 +27,7 @@ from textwrap import dedent
 
 _HEADER = dedent("""\
     <div align="center">
-      <img src="https://gw.alipayobjects.com/zos/k/vl/logo.svg" alt="InkPaper Logo" width="120" />
-      <h1 style="margin: 12px 0 6px;">InkPaper {version}</h1>
+      <h1 style="margin: 0 0 6px;">InkPaper {version}</h1>
       <p><em>{subtitle_en}</em></p>
     </div>
 """)

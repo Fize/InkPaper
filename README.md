@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://gw.alipayobjects.com/zos/k/vl/logo.svg" width="120" />
   <h1>InkPaper</h1>
   <p><b>Good content deserves good paper.</b></p>
   <a href="https://github.com/Fize/inkpaper/stargazers"><img src="https://img.shields.io/github/stars/Fize/InkPaper?style=flat-square" alt="Stars"></a>
@@ -7,14 +6,6 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
 </div>
-
-## Why
-
-InkPaper (紙) means paper in Chinese: the surface where a finished idea lands. AI can produce documents better than most humans do manually. The missing piece is not capability but constraint: without a design system, every session drifts into generic gray and inconsistent layouts.
-
-InkPaper fills that gap: one constraint language, eight templates, simple enough for agents to run reliably, strict enough that every output is something you actually want to ship. English and Chinese are first-class supported languages.
-
-Part of a trilogy: [Kaku](https://github.com/Fize/Kaku) writes code, [Waza](https://github.com/Fize/Waza) (技) drills habits, [InkPaper](https://github.com/Fize/InkPaper) (紙) delivers documents.
 
 ## See it
 
@@ -38,61 +29,21 @@ Part of a trilogy: [Kaku](https://github.com/Fize/Kaku) writes code, [Waza](http
 </tr>
 </table>
 
-## Usage
-
-**Claude Code**
-
-```bash
-npx skills add Fize/InkPaper -a claude-code -g -y
-```
-
-Or via the Claude Code plugin marketplace:
-
-```bash
-/plugin marketplace add Fize/InkPaper
-/plugin install inkpaper@inkpaper
-```
-
-**Generic agents** (Codex, OpenCode, Pi, and other tools that read from `~/.agents/`)
-
-```bash
-npx skills add Fize/InkPaper -a '*' -g -y
-```
-
-**Claude Desktop**
-
-Download [inkpaper.zip](https://github.com/Fize/inkpaper/releases/latest/download/inkpaper.zip), open Customize > Skills > "+" > Create skill, and upload the ZIP directly (no need to unzip).
-
-The ZIP is lightweight: Chinese fonts load from local checkout first, then jsDelivr CDN. If rendering is off, Claude downloads them on the next run. To update: download the same URL, click "..." on the skill card, choose Replace, upload.
-
-The skill auto-triggers from natural requests, no slash command needed. Optimized for English and Chinese.
-
-Example prompts by language:
-
-- English: `make a one-pager for my startup` / `turn this research into a long doc` / `write a formal letter` / `make a portfolio of my projects` / `build me a resume` / `design a slide deck for my talk`
-- 中文: `帮我做一份一页纸` / `帮我排版一份长文档` / `帮我写一封正式信件` / `帮我做一份作品集` / `帮我做一份简历` / `帮我做一套演讲幻灯片`
-
-**Optional: brand profile**
-
-Create `~/.config/inkpaper/brand.md` to persist identity, brand, defaults, and writing habits. See [brand.example.md](references/brand.example.md) for a full template.
-
-The file has YAML frontmatter (structured fields: name, role, email, website, GitHub, brand color, language, page size, currency locale, tone, and more) plus a Markdown body for freeform notes. InkPaper treats it as the lowest-resolution context: applied only when the current request is ambiguous, and always overridable by what the specific document needs. The goal is to feel familiar across your work without making every output look the same.
-
 ## Design
 
 Warm paper canvas, ink blue as the sole accent, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
 
 Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Equity Report, Changelog) with dedicated EN/CN templates. Fourteen inline SVG diagram types included. InkPaper picks the right variant based on the language you write in.
 
-| Element | Rule |
-|---|---|
-| Canvas | `#F8F4EB` paper, never pure white |
-| Accent | Ink blue `#B33A3A` only, no second chromatic hue |
-| Neutrals | All warm-toned (yellow-brown undertone), no cool blue-grays |
-| Serif | Body 400, headings 500. Avoid synthetic bold |
-| Line-height | Tight titles 1.1-1.3, dense body 1.4-1.45, reading body 1.5-1.55 |
-| Shadows | Ring or whisper only, no hard drop shadows |
-| Tags | Solid hex backgrounds only. `rgba()` triggers a WeasyPrint double-rectangle bug |
+| Element     | Rule                                                                            |
+| ----------- | ------------------------------------------------------------------------------- |
+| Canvas      | `#F8F4EB` paper, never pure white                                               |
+| Accent      | Ink blue `#B33A3A` only, no second chromatic hue                                |
+| Neutrals    | All warm-toned (yellow-brown undertone), no cool blue-grays                     |
+| Serif       | Body 400, headings 500. Avoid synthetic bold                                    |
+| Line-height | Tight titles 1.1-1.3, dense body 1.4-1.45, reading body 1.5-1.55                |
+| Shadows     | Ring or whisper only, no hard drop shadows                                      |
+| Tags        | Solid hex backgrounds only. `rgba()` triggers a WeasyPrint double-rectangle bug |
 
 **Fonts**: Each language uses a single serif font for the entire page. Chinese: TsangerJinKai02. English: Charter. TsangerJinKai is free for personal use, commercial use requires a license from [tsanger.cn](https://tsanger.cn). All other fonts are system-bundled.
 
