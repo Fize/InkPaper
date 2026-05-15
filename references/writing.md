@@ -48,7 +48,7 @@ Branded documents should first make the subject recognizable, then use decoratio
 - Company / product / project docs should confirm logo, product image, UI screenshot, and brand color before layout
 - If a key material is missing, mark the gap or ask the user. Do not fill the page with unrelated imagery
 - Physical products prefer official product images; digital products prefer real UI screenshots
-- If brand color is unknown, keep inkpaper cinnabar rather than inventing a new color
+- If brand color is unknown, keep inkpaper seal color rather than inventing a new color
 - **Third-party figures**: when redrawing a paper figure, patent illustration, or official architecture diagram for visual consistency, mark the redraw as `Schematic redrawn` /「示意重绘」in the caption. Do not style a redrawn version to look like the original screenshot. If the figure carries primary evidentiary value (patent, official spec), embed the original with attribution rather than redrawing it
 
 ---
@@ -405,7 +405,7 @@ English documents:
 
 ### Emphasis is not bold
 
-Use `color: var(--cinnabar)` alone - don't also add `font-weight: bold`. Bold breaks the single-weight design language.
+Use `color: var(--ink-deep)` alone - don't also add `font-weight: bold`. Bold breaks the single-weight design language.
 
 ---
 

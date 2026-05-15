@@ -14,14 +14,13 @@
 
   :root {
     --paper:    #F8F4EB;
-    --paper-card:        #faf9f5;
+    --paper-card:        rgba(245,240,230,0.7);
     --ink-deep:   #2B1E14;
     --ink-light:        #9B8B7A;
     --ink-light:        #9B8B7A;
-    --cinnabar:        #B33A3A;
-    --cinnabar-tint:   rgba(245,240,230,0.7);
+    --seal-color: #B33A3A;
     --border-ink:       #C5B9A5;
-    --positive:     #B33A3A;
+    --positive:     #2B1E14;
     --negative:     #9B8B7A;
     --total:        #4d4c48;
 
@@ -85,7 +84,7 @@
          bar-width=64 · gap=20 · bar-spacing=84
          Scale: max=200 · 1 unit = 1.4px (280/200)
          Y-axis: 0 / 40 / 80 / 120 / 160 / 200
-         Positive: #B33A3A · Negative: #9B8B7A · Total: #4d4c48
+         Positive: #2B1E14 · Negative: #9B8B7A · Total: #4d4c48
          Connector lines: dashed 0.8px #b8b7b0
          ============================================================ -->
     <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +118,7 @@
 
       <!-- Bar 2: +30 (positive, floats from 120 to 150) -->
       <!-- bottom y = 152, top y = 152 - 30*1.4 = 110, h = 42 -->
-      <rect x="152" y="110" width="64" height="42" fill="#B33A3A" rx="2"/>
+      <rect x="152" y="110" width="64" height="42" fill="#2B1E14" rx="2"/>
       <text x="184" y="102" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">+30</text>
 
       <!-- Connector: bar2 top to bar3 -->
@@ -127,7 +126,7 @@
 
       <!-- Bar 3: +20 (positive, floats from 150 to 170) -->
       <!-- bottom y = 110, top y = 110 - 20*1.4 = 82, h = 28 -->
-      <rect x="236" y="82" width="64" height="28" fill="#B33A3A" rx="2"/>
+      <rect x="236" y="82" width="64" height="28" fill="#2B1E14" rx="2"/>
       <text x="268" y="74" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">+20</text>
 
       <!-- Connector: bar3 top to bar4 -->
@@ -143,7 +142,7 @@
 
       <!-- Bar 5: +10 (positive, floats from 130 to 140) -->
       <!-- bottom y = 138, top y = 138 - 10*1.4 = 124, h = 14 -->
-      <rect x="404" y="124" width="64" height="14" fill="#B33A3A" rx="2"/>
+      <rect x="404" y="124" width="64" height="14" fill="#2B1E14" rx="2"/>
       <text x="436" y="116" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">+10</text>
 
       <!-- Connector: bar5 top to bar6 -->
@@ -171,7 +170,7 @@
       <!-- Legend -->
       <line x1="60" y1="368" x2="660" y2="368" stroke="#e8e7e1" stroke-width="0.8"/>
 
-      <rect x="60" y="380" width="12" height="12" fill="#B33A3A" rx="2"/>
+      <rect x="60" y="380" width="12" height="12" fill="#2B1E14" rx="2"/>
       <text x="78" y="391" fill="#9B8B7A" font-size="10" font-family="Charter, Georgia, serif">Increase</text>
 
       <rect x="180" y="380" width="12" height="12" fill="#9B8B7A" rx="2"/>

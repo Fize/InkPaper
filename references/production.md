@@ -200,7 +200,7 @@ English stack on PowerPoint:
 
 1. **Cover**: paper background, centered display title + brand-colored short line + subtitle / author / date
 2. **Contents**: paper, left-aligned `01  Chapter title` (number serif brand-colored)
-3. **Chapter divider**: full brand cinnabar background, centered white title - the **only** fully chromatic slide in the deck
+3. **Chapter divider**: full seal-color background, centered white title - the **only** fully chromatic slide in the deck
 4. **Content slide**: eyebrow (serif stone) + core claim (serif near-black) + brand line + body (serif dark-warm)
 5. **Data slide**: top takeaway + 2-4 metric cards (big number serif brand + small label serif olive)
 6. **Comparison**: eyebrow + left column (muted, OLIVE/STONE) vs. right column (full-weight, DARK_WARM/NEAR_BLACK), separated by a 1pt BORDER warm-gray vertical divider. Left = "Before/Old/Problem"; right = "After/New/Solution". Use `comparison_slide()`.
@@ -359,7 +359,7 @@ Severity scale: **(P0)** render-breaking, must fix before delivery. **(P1)** bre
 /* use   */ .tag { background: rgba(245,240,230,0.7); }
 ```
 
-**rgba -> solid conversion** (paper `#F8F4EB` base + cinnabar `#B33A3A`):
+**rgba -> solid conversion** (paper `#F8F4EB` base + seal `#B33A3A`):
 
 | rgba alpha | Solid hex |
 |---|---|
@@ -481,7 +481,7 @@ grep -oE '[0-9]{4,}' doc.html | sort -u
 
 ### 8. (P2) Too much / too little emphasis
 
-- Four or five cinnabar runs in one line -> visual fatigue, no focal point
+- Four or five ink-deep highlights in one line -> visual fatigue, no focal point
 - Entire section with none -> flat, no scan handles
 
 **Rule**: ≤ 2 emphases per line, ≥ 1 per section, only **quantifiable numbers or distinctive phrases** get highlighted - never adjectives.
@@ -714,7 +714,7 @@ ul.pts { counter-reset: pts; }
 ul.pts li { counter-increment: pts; padding-left: 18pt; }
 ul.pts li::before {
   content: counter(pts) ".";
-  color: var(--cinnabar);
+  color: var(--ink-deep);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }

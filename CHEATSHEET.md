@@ -5,7 +5,7 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 ## Ten invariants
 
 1. Page background `#F8F4EB` (paper), never pure white
-2. Single accent: cinnabar `#B33A3A`
+2. Decorative seal only (`--seal-color`); functional hierarchy uses ink tones (`--ink-*`)
 3. All grays **warm-toned** (yellow-brown undertone), no cool blue-gray
 4. One serif font per page (headings + body). `--sans` is a CSS alias for the same family; introduce a real sans only for genuinely UI-style chrome
 5. Serif weight locked at 500, no bold
@@ -36,7 +36,7 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 | Warm Sand    | `#e8e6dc`     | Button / interactive surface                        |
 | Dark Surface | `#30302e`     | Dark container                                      |
 | Deep Dark    | `#141413`     | Dark page background                                |
-| **Brand**    | `**#B33A3A`** | **Accent · CTA · title left bar (≤ 5% of surface)** |
+| **Seal**     | `**#B33A3A`** | **Decorative stamp only (≤ 1% of surface, 24×24px max)** |
 | Ink Light    | `#2D5A8A`     | Links on dark surfaces                              |
 | Near Black   | `#141413`     | Primary text                                        |
 | Dark Warm    | `#3d3d3a`     | Secondary text · table headers · links              |
@@ -46,7 +46,7 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 | Border Soft  | `#e5e3d8`     | Secondary border · row separator                    |
 
 
-**rgba -> solid** (paper base + cinnabar):
+**rgba -> solid** (paper base):
 
 
 | Alpha    | Solid                       |
@@ -160,8 +160,8 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 ```css
 .tag {
   background: rgba(245,240,230,0.7);            /* 0.08 equivalent */
-  color: var(--cinnabar);
-  font-size: 9pt; font-weight: 600;
+  color: var(--ink-deep);
+  font-size: 9pt; font-weight: 500;
   padding: 1pt 5pt;
   border-radius: 2pt;
   letter-spacing: 0.4pt;
@@ -169,7 +169,7 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 }
 ```
 
-### Section title (brand left bar is the signature move)
+### Section title (left accent bar)
 
 ```css
 .section-title {
@@ -177,7 +177,7 @@ Any font-family that may render Chinese must include a CJK fallback, including `
   font-size: 14pt; font-weight: 500;
   color: var(--ink-deep);
   margin: 24pt 0 10pt 0;
-  border-left: 2.5pt solid var(--cinnabar);
+  border-left: 2.5pt solid var(--ink-deep);
   border-radius: 1.5pt;
   padding-left: 8pt;
 }
@@ -216,7 +216,7 @@ Combine freely: `<table class="inkpaper-table financial striped">`.
 .metric { display: flex; align-items: baseline; gap: 6pt; }
 .metric-value {
   font-family: var(--serif); font-size: 16pt; font-weight: 500;
-  color: var(--cinnabar);
+  color: var(--ink-deep);
   font-variant-numeric: tabular-nums;
 }
 .metric-label { font-size: 9pt; color: var(--ink-light); }
@@ -226,7 +226,7 @@ Combine freely: `<table class="inkpaper-table financial striped">`.
 
 ```css
 .quote {
-  border-left: 2pt solid var(--cinnabar);
+  border-left: 2pt solid var(--ink-light);
   padding: 4pt 0 4pt 14pt;
   color: var(--ink-light);
   line-height: 1.55;
@@ -258,7 +258,7 @@ Fourteen built-in diagram types. Extract the `<svg>` block and embed in a `<figu
 
 Usage: extract the `<svg>` block from the HTML file and paste into the template's `<figure>` container.
 
-**Data chart colors**: primary series `#B33A3A` · secondary `#504e49` → `#6b6a64` → `#b8b7b0` → `#d4d3cd` → `rgba(245,240,230,0.7)`.
+**Data chart colors**: primary series `#2B1E14` · secondary `#504e49` → `#6b6a64` → `#b8b7b0` → `#d4d3cd` → `rgba(245,240,230,0.7)`.
 
 **Editing data**: only modify elements between `<!-- DATA START -->` / `<!-- DATA END -->`, leave CSS untouched. All coordinates must be divisible by 4.
 
@@ -334,13 +334,13 @@ Page 2 font sizes stay at template defaults. The density variant only tightens p
 | Headline            | serif 500, line-height 1.10-1.30                               |
 | Reading body (EN)   | serif 400, 9.5-10pt, 1.55                                      |
 | Reading body (CN)   | sans 400, 9.5-10pt, 1.55                                       |
-| Emphasize a number  | `color: var(--cinnabar)`, no bold                                 |
-| Divide two sections | 2.5pt brand left bar, or 0.5pt warm dotted                     |
-| Quote               | 2pt brand left border + olive color                            |
+| Emphasize a number  | `color: var(--ink-deep)`, no bold                                 |
+| Divide two sections | 2.5pt ink-deep left bar, or 0.5pt warm dotted                     |
+| Quote               | 2pt ink-light left border + olive color                            |
 | Code                | ivory bg + 0.5pt border + 6pt radius + mono                    |
-| Primary button      | brand fill + ivory text                                        |
-| Secondary button    | warm-sand + dark-warm                                          |
-| Chapter start       | serif heading + 2.5pt brand left bar                           |
+| Primary button      | select-bg fill + ink-deep text + border-ink ring                  |
+| Secondary button    | select-bg + ink-mid                                              |
+| Chapter start       | serif heading + 2.5pt ink-deep left bar                           |
 | Cover               | Display heading + right-aligned author/date + heavy whitespace |
 | Figure SVG          | `width: 100%; height: auto; max-height: <safe>`. Never `max-height` alone (starves width on wide viewBoxes; production.md #17). |
 | Metric labels (4-col) | Soft cap 14-18 chars at 9pt Charter; trim context, don't wrap (production.md #18). |
@@ -350,4 +350,4 @@ Page 2 font sizes stay at template defaults. The density variant only tightens p
 | Slide bullets       | Numerals `1. 2. 3.` or `•`; en-dash `–` reads informal at slide scale (production.md #22). Print docs keep en-dash. |
 
 
-Not on the table -> first principles: **serif carries authority, sans carries utility, warm gray carries rhythm, cinnabar carries focus**.
+Not on the table -> first principles: **serif carries authority, sans carries utility, warm gray carries rhythm, ink carries hierarchy, seal carries decoration**.

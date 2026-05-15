@@ -26,8 +26,12 @@
     --ink-mid:      #5E4E3F;
     --ink-light:    #9B8B7A;
     --border-ink-ink:   #C5B9A5;
-    --cinnabar:     #B33A3A;
-    --cinnabar-hover: #8E2D2D;
+    --seal-color:   #B33A3A;
+    --link-color:   var(--ink-deep);
+    --link-hover:   var(--ink-mid);
+    --active-indicator: var(--ink-deep);
+    --quote-line:   var(--ink-light);
+    --code-keyword: var(--ink-deep);
     --select-bg:    #D9D1BD;
     --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
     --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
@@ -52,7 +56,8 @@
   .serif { font-family: var(--font); }
   .mono  { font-family: var(--mono); }
 
-  a { color: var(--cinnabar); text-decoration: none; }
+  a { color: var(--link-color); text-decoration: none; }
+  a:hover { color: var(--link-hover); }
 
   /* HEADER */
   .header {
@@ -60,7 +65,7 @@
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 3mm;
-    border-left: 2.5pt solid var(--cinnabar);
+    border-left: 2.5pt solid var(--active-indicator);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
@@ -89,7 +94,7 @@
     line-height: 1.5;
   }
   .contact .role {
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     font-size: 10.5pt;
     font-weight: 500;
   }
@@ -111,7 +116,7 @@
     font-family: var(--font);
     font-size: 14pt;
     font-weight: 500;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     line-height: 1;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
@@ -120,7 +125,7 @@
     font-size: 10.5pt;
     margin-left: 0.5mm;
     font-weight: 500;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
   }
   .metric-label { font-size: 9pt; color: var(--ink-light); line-height: 1.2; }
 
@@ -138,7 +143,7 @@
     font-size: 13pt;
     font-weight: 500;
     color: var(--ink-deep);
-    border-left: 2.5pt solid var(--cinnabar);
+    border-left: 2.5pt solid var(--active-indicator);
     border-radius: 1.5pt;
     padding: 0 0 0 8pt;
     margin: 5mm 0 2mm 0;
@@ -159,7 +164,7 @@
 
   /* SUMMARY */
   .summary { font-size: 9.4pt; line-height: 1.42; color: var(--ink-deep); }
-  .summary .hl { color: var(--cinnabar); }
+  .summary .hl { color: var(--ink-deep); }
 
   /* TIMELINE */
   .timeline { display: flex; gap: 7mm; margin-bottom: 2.5mm; }
@@ -171,7 +176,7 @@
   .tl-year {
     font-family: var(--font);
     font-size: 11pt; font-weight: 500;
-    color: var(--cinnabar); line-height: 1;
+    color: var(--ink-deep); line-height: 1;
   }
   .tl-head {
     font-size: 11pt; font-weight: 500;
@@ -199,7 +204,7 @@
   }
   .proj-kind { font-size: 11pt; color: var(--ink-light); }
   .proj-role {
-    font-size: 9pt; color: var(--cinnabar); font-weight: 500;
+    font-size: 9pt; color: var(--ink-mid); font-weight: 500;
     margin-left: auto; background: rgba(245,240,230,0.7);
     padding: 0.4mm 1.6mm; border-radius: 2pt; letter-spacing: 0.3pt;
     text-transform: uppercase;
@@ -208,7 +213,7 @@
   .proj-row { display: table-row; }
   .proj-label {
     display: table-cell; width: 16mm;
-    font-size: 9pt; color: var(--cinnabar);
+    font-size: 9pt; color: var(--ink-mid);
     font-weight: 500; letter-spacing: 0.4pt;
     text-transform: uppercase;
     padding: 0.4mm 0 0.4mm 0; vertical-align: top;
@@ -218,7 +223,7 @@
     color: var(--ink-deep); line-height: 1.45;
     padding: 0 0 0.4mm 1mm;
   }
-  .proj-text .hl { color: var(--cinnabar); }
+  .proj-text .hl { color: var(--ink-deep); }
 
   /* PAGE 2 FORCE BREAK */
   .page-break { break-before: page; }
@@ -230,7 +235,7 @@
     margin: 1.6mm 0 2.4mm 0;
     break-inside: avoid;
   }
-  .os-intro .hl { color: var(--cinnabar); }
+  .os-intro .hl { color: var(--ink-deep); }
   .os-intro .strong { color: var(--ink-deep); font-weight: 500; }
 
   .os-grid {
@@ -251,7 +256,7 @@
     font-size: 10.5pt; font-weight: 500;
     flex-shrink: 0; min-width: 18mm;
   }
-  .os-name a { color: var(--cinnabar); }
+  .os-name a { color: var(--link-color); }
   .os-desc { font-size: 9pt; color: var(--ink-light); line-height: 1.4; flex: 1; }
   .os-star {
     font-size: 9pt; color: var(--ink-mid);
@@ -259,22 +264,22 @@
     flex-shrink: 0; min-width: 10mm; text-align: right;
     font-variant-numeric: tabular-nums;
   }
-  .os-star.big { color: var(--cinnabar); font-size: 9.2pt; }
+  .os-star.big { color: var(--ink-deep); font-size: 9.2pt; }
 
   .os-highlight {
     margin-top: 2.5mm;
     padding: 1.8mm 3mm;
-    background: var(--cinnabar-tint);
-    border-left: 1.4pt solid var(--cinnabar);
+    background: var(--paper-card);
+    border-left: 1.4pt solid var(--quote-line);
     border-radius: 2pt;
     font-size: 9pt; line-height: 1.45;
     color: var(--ink-deep);
     break-inside: avoid;
   }
-  .os-highlight .hl { color: var(--cinnabar); }
+  .os-highlight .hl { color: var(--ink-deep); }
   .os-highlight .tag {
     display: inline-block;
-    background: var(--cinnabar); color: var(--paper-card);
+    background: var(--seal-color); color: var(--paper-card);
     font-size: 9pt; font-weight: 500;
     padding: 0.2mm 1.6mm; border-radius: 2pt;
     margin-right: 1.5mm; letter-spacing: 0.5pt;
@@ -297,7 +302,7 @@
     display: flex; align-items: baseline; gap: 2mm;
   }
   .conv-head .year {
-    color: var(--cinnabar); font-weight: 500;
+    color: var(--ink-deep); font-weight: 500;
     font-size: 9pt;
     font-variant-numeric: tabular-nums;
   }
@@ -305,7 +310,7 @@
     font-size: 9pt; color: var(--ink-light);
     line-height: 1.45;
   }
-  .conv-body .hl { color: var(--cinnabar); }
+  .conv-body .hl { color: var(--ink-deep); }
 
   /* IMPACT */
   .handle-strip {
@@ -315,7 +320,7 @@
   }
   .handle-strip .handle {
     font-family: var(--font);
-    font-size: 10pt; font-weight: 500; color: var(--cinnabar);
+    font-size: 10pt; font-weight: 500; color: var(--ink-mid);
     flex-shrink: 0;
   }
   .handle-strip .follower { font-size: 9pt; color: var(--ink-light); flex-shrink: 0; font-variant-numeric: tabular-nums; }
@@ -362,7 +367,7 @@
     line-height: 1.4; margin-top: 0.6mm;
     white-space: nowrap;
   }
-  .art-stats .em-brand { color: var(--cinnabar); }
+  .art-stats .em-brand { color: var(--ink-deep); }
   .art-date, .talk-date {
     font-size: 9pt; color: var(--ink-light);
     font-variant-numeric: tabular-nums;
@@ -379,13 +384,13 @@
   .skill-row:last-of-type { border-bottom: none; }
   .skill-label {
     font-size: 9pt; font-weight: 500;
-    color: var(--cinnabar); letter-spacing: 0.5pt;
+    color: var(--ink-mid); letter-spacing: 0.5pt;
     text-transform: uppercase;
     width: 32mm; flex-shrink: 0;
     line-height: 1.35;
   }
   .skill-body { font-size: 9.2pt; color: var(--ink-deep); line-height: 1.45; flex: 1; }
-  .skill-body .em-brand { color: var(--cinnabar); }
+  .skill-body .em-brand { color: var(--ink-deep); }
 
   .no-break { break-inside: avoid; }
 
@@ -432,13 +437,30 @@
     background: var(--paper-card);
   }
   table .total td, .inkpaper-table .total td {
-    font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
+    font-weight: 500; border-top: 1pt solid var(--ink-deep); border-bottom: none; color: var(--ink-deep);
   }
 
   /* DENSE VARIANT: add class="resume--dense" to <body> when 5+ projects overflow */
   body.resume--dense { font-size: 9pt; }
   body.resume--dense .proj-text { line-height: 1.40; }
   body.resume--dense .section-title { margin-top: 3.5mm; margin-bottom: 1.5mm; }
+
+  .seal-stamp {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .seal-stamp-sm {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
@@ -458,7 +480,9 @@
 
 <div class="header">
   <div>
-    <div class="name serif">{{NAME}}<span class="alias">{{ALIAS_OR_PREFERRED_NAME}}</span></div>
+    <div class="name serif">{{NAME}}<span class="alias">{{ALIAS_OR_PREFERRED_NAME}}</span><span class="seal-stamp" style="margin-left: 3mm;">
+      <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/><text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text></svg>
+    </span></div>
   </div>
   <div class="contact">
     <span class="role">{{ROLE_TITLE - e.g. AI / Agent Engineer}}</span>

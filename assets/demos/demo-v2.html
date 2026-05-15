@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>素宣墨韵 · InkPaper v2.0</title>
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #F8F4EB;
+    --paper-card: rgba(245,240,230,0.7);
+    --ink-deep: #2B1E14;
+    --ink-mid: #5E4E3F;
+    --ink-light: #9B8B7A;
+    --border-ink: #C5B9A5;
+    --select-bg: #D9D1BD;
+    --seal-color: #B33A3A;
+    --link-color: var(--ink-deep);
+    --link-hover: var(--ink-mid);
+    --active-indicator: var(--ink-deep);
+    --font: "TsangerJinKai02", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --transition: 0.3s ease;
+  }
+
+  html { font-size: 16px; }
+  body {
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(0deg, transparent 0%, rgba(180,160,140,0.02) 100%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    color: var(--ink-deep);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 32px 48px;
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 40px 20px 32px; }
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .header .title-group {
+    flex: 1;
+  }
+  .header h1 {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--ink-deep);
+    letter-spacing: 0.08em;
+    margin: 0;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--ink-light);
+    letter-spacing: 0.15em;
+    margin-top: 4px;
+  }
+
+  .seal-stamp {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    color: var(--seal-color);
+    flex-shrink: 0;
+  }
+  .seal-stamp svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    margin-bottom: 52px;
+    padding-bottom: 36px;
+    border-bottom: none;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 80 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,2 Q20,0 40,2 Q60,4 80,2' fill='none' stroke='%23C5B9A5' stroke-width='1.5' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    margin-top: 36px;
+  }
+  .hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .hero .big-title {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 1.08;
+    color: var(--ink-deep);
+    letter-spacing: 0.06em;
+    margin: 0 0 10px;
+  }
+  .hero .big-title .cn {
+    display: inline-block;
+    color: var(--ink-deep);
+  }
+  .hero .tagline {
+    font-size: 17px;
+    color: var(--ink-mid);
+    line-height: 1.45;
+    margin: 0;
+    max-width: 480px;
+  }
+
+  /* ── Section ── */
+  section { margin-bottom: 48px; }
+  .section-title {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .section-body {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .section-body p { margin-bottom: 14px; }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── Ink tones swatches ── */
+  .ink-swatches {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .ink-swatch {
+    flex: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--paper-card);
+    border: 1px solid var(--border-ink);
+    transition: transform 0.2s;
+  }
+  .ink-swatch:hover {
+    transform: translateY(-2px);
+  }
+  .ink-swatch .bar {
+    height: 48px;
+  }
+  .ink-swatch .info {
+    padding: 10px 10px 12px;
+  }
+  .ink-swatch .name-cn {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink-deep);
+    line-height: 1.2;
+  }
+  .ink-swatch .name {
+    font-size: 11px;
+    color: var(--ink-light);
+    margin: 2px 0 4px;
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .ink-swatch .hex {
+    font-size: 10px;
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    color: var(--ink-light);
+    letter-spacing: 0;
+  }
+
+  /* ── Interaction demo ── */
+  .interaction-demo {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .nav-demo {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border-ink);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--paper-card);
+  }
+  .nav-demo a {
+    display: block;
+    padding: 8px 16px;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+    transition: color 0.15s, background 0.15s;
+    border-right: 1px solid var(--border-ink);
+  }
+  .nav-demo a:last-child { border-right: none; }
+  .nav-demo a:hover {
+    color: var(--ink-deep);
+    background: var(--select-bg);
+  }
+  .nav-demo a.active {
+    color: var(--ink-deep);
+    box-shadow: inset 0 -2px 0 var(--ink-deep);
+    background: var(--select-bg);
+  }
+
+  .btn-demo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-demo .btn {
+    display: inline-block;
+    padding: 7px 14px;
+    font-family: var(--font);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    cursor: default;
+    transition: all 0.15s;
+    border: 1px solid var(--border-ink);
+    background: transparent;
+    color: var(--ink-light);
+  }
+  .btn-demo .btn:hover {
+    color: var(--ink-deep);
+    border-color: var(--ink-deep);
+    background: var(--select-bg);
+  }
+
+  /* ── Quote ── */
+  .quote-demo {
+    position: relative;
+    padding: 4px 0 4px 28px;
+    color: var(--ink-light);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .quote-demo::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 12%;
+    bottom: 12%;
+    width: 3px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 100' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3,0 Q0,20 3,50 Q6,80 3,100' fill='none' stroke='%239B8B7A' stroke-width='2.2' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .quote-demo .source {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 6px;
+    letter-spacing: 0;
+  }
+
+  /* ── Code sample ── */
+  .code-demo {
+    background: var(--paper-card);
+    border: 1px solid var(--border-ink);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-mid);
+    margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .code-demo .k {
+    color: var(--ink-deep);
+    font-weight: 500;
+  }
+  .code-demo .c {
+    color: var(--ink-light);
+  }
+
+  /* ── Metric row ── */
+  .metrics {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 20px;
+  }
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .metric-value {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--ink-deep);
+    font-variant-numeric: tabular-nums;
+  }
+  .metric-label {
+    font-size: 12px;
+    color: var(--ink-light);
+    letter-spacing: 0;
+  }
+
+  /* ── Divider ── */
+  .brush-hr {
+    width: 100%;
+    height: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,3 Q30,0 60,3 Q90,6 120,3' fill='none' stroke='%23C5B9A5' stroke-width='1.8' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left center;
+    margin: 24px 0;
+    border: none;
+    background-size: 120px 6px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    border-top: 1px solid var(--border-ink);
+  }
+  .footer .colophon {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+  .footer .colophon b {
+    color: var(--ink-mid);
+    font-weight: 500;
+  }
+  .footer .seal-stamp {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ── Tag ── */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--select-bg);
+    color: var(--ink-deep);
+    letter-spacing: 0.05em;
+    margin-right: 6px;
+  }
+  .tag.seal-tag {
+    background: transparent;
+    color: var(--seal-color);
+    border: 1px solid var(--seal-color);
+    font-size: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="header">
+    <span class="seal-stamp">
+      <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/>
+        <text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text>
+      </svg>
+    </span>
+    <div class="title-group">
+      <h1>InkPaper</h1>
+      <div class="subtitle">DESIGN SYSTEM · V2.0</div>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <div class="eyebrow">素宣墨韵</div>
+    <div class="big-title">
+      以墨为魂<br>
+      <span class="cn">朱砂仅为印痕</span>
+    </div>
+    <p class="tagline">所有信息层级、交互反馈、功能色彩均来自墨色五阶体系。<br>朱砂不参与任何功能性表达，仅出现在装饰小印。</p>
+  </div>
+
+  <!-- ═══ INK TONES ═══ -->
+  <section>
+    <div class="section-title">墨分五色 · Five Ink Tones</div>
+    <div class="ink-swatches">
+      <div class="ink-swatch">
+        <div class="bar" style="background:#2B1E14"></div>
+        <div class="info">
+          <div class="name-cn">焦墨</div>
+          <div class="name">Ink Deep</div>
+          <div class="hex">#2B1E14</div>
+        </div>
+      </div>
+      <div class="ink-swatch">
+        <div class="bar" style="background:#5E4E3F"></div>
+        <div class="info">
+          <div class="name-cn">浓墨</div>
+          <div class="name">Ink Mid</div>
+          <div class="hex">#5E4E3F</div>
+        </div>
+      </div>
+      <div class="ink-swatch">
+        <div class="bar" style="background:#9B8B7A"></div>
+        <div class="info">
+          <div class="name-cn">淡墨</div>
+          <div class="name">Ink Light</div>
+          <div class="hex">#9B8B7A</div>
+        </div>
+      </div>
+      <div class="ink-swatch">
+        <div class="bar" style="background:#C5B9A5"></div>
+        <div class="info">
+          <div class="name-cn">清墨</div>
+          <div class="name">Border Ink</div>
+          <div class="hex">#C5B9A5</div>
+        </div>
+      </div>
+      <div class="ink-swatch">
+        <div class="bar" style="background:#B33A3A"></div>
+        <div class="info">
+          <div class="name-cn">朱砂</div>
+          <div class="name">Seal</div>
+          <div class="hex">#B33A3A</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>功能用墨，装饰用印。焦墨承担主文字与交互反馈，浓墨用于正文，淡墨用于日期与备注，清墨用于边框分隔。朱砂仅作为装饰印章色，<b>不参与任何链接、按钮、高亮、标签或状态指示</b>。</p>
+    </div>
+  </section>
+
+  <!-- ═══ INTERACTION ═══ -->
+  <section>
+    <div class="section-title">墨色交互 · Ink Interaction</div>
+    <div class="section-body" style="margin-bottom:14px">
+      <p>所有交互状态变化在墨色体系内闭环——将鼠标悬停以体验。</p>
+    </div>
+
+    <div style="font-size:12px;color:var(--ink-light);letter-spacing:0.1em;margin-bottom:8px">导航链接</div>
+    <div class="interaction-demo">
+      <div class="nav-demo">
+        <a href="#" class="active">首页</a>
+        <a href="#">作品</a>
+        <a href="#">关于</a>
+        <a href="#">联系</a>
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:var(--ink-light);letter-spacing:0.1em;margin-bottom:8px">按钮</div>
+    <div class="btn-demo">
+      <span class="btn">主要操作</span>
+      <span class="btn">次要操作</span>
+      <span class="btn">更多</span>
+    </div>
+
+    <div class="brush-hr"></div>
+
+    <div style="font-size:12px;color:var(--ink-light);letter-spacing:0.1em;margin-bottom:8px">引用</div>
+    <div class="quote-demo">
+      功能用墨，装饰用印。红色不过三点，全页墨色当家。
+      <span class="source">— 素宣墨韵 · 设计规范 v2.0</span>
+    </div>
+
+    <div style="font-size:12px;color:var(--ink-light);letter-spacing:0.1em;margin-bottom:8px">代码关键字（焦墨加粗）</div>
+    <div class="code-demo"><span class="c">// 一种克制的温度</span>
+canvas   = <span class="k">paper</span>
+palette  = <span class="k">ink_tones</span> − cool_grays − <span class="k">cinnabar</span>
+document = <span class="k">serif</span> × hierarchy + generous_space
+beauty   = constraints × <span class="k">intention</span> ÷ noise</div>
+
+    <div style="font-size:12px;color:var(--ink-light);letter-spacing:0.1em;margin-bottom:8px">指标数据</div>
+    <div class="metrics">
+      <div class="metric"><span class="metric-value">五</span><span class="metric-label">墨色阶</span></div>
+      <div class="metric"><span class="metric-value">二</span><span class="metric-label">处朱砂（≤ 24px）</span></div>
+      <div class="metric"><span class="metric-value">零</span><span class="metric-label">冷色</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ BRUSH STROKE ═══ -->
+  <section>
+    <div class="section-title">毛筆质感 · Brush Texture</div>
+    <div class="section-body">
+      <p>宣纸底色叠加 5% 纤维噪点，所有分隔线与引用线使用 SVG 贝塞尔枯笔路径，无 <code style="font-family:monospace;font-size:12px;color:var(--ink-deep);background:var(--select-bg);padding:1px 5px;border-radius:3px">solid</code> 或 <code style="font-family:monospace;font-size:12px;color:var(--ink-deep);background:var(--select-bg);padding:1px 5px;border-radius:3px">dashed</code> 硬边。空间划分仅依靠留白与渐淡细线。</p>
+    </div>
+
+    <div style="display:flex;gap:24px;margin-top:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:140px">
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.15em;margin-bottom:10px">横笔分隔线</div>
+        <div style="height:6px;background-image:url('data:image/svg+xml,%3Csvg viewBox=''0 0 120 6'' xmlns=''http://www.w3.org/2000/svg''%3E%3Cpath d=''M0,3 Q30,1 60,3 Q90,5 120,3'' fill=''none'' stroke=''%23C5B9A5'' stroke-width=''1.8'' stroke-linecap=''round'' opacity=''0.8''/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:left center;background-size:120px 6px"></div>
+      </div>
+      <div style="flex:1;min-width:140px">
+        <div style="font-size:11px;color:var(--ink-light);letter-spacing:0.15em;margin-bottom:10px">侧锋引用线</div>
+        <div style="height:40px;position:relative;padding-left:24px;display:flex;align-items:center;font-size:12px;color:var(--ink-light)">← 淡墨 SVG 枯笔</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    <div class="colophon">
+      InkPaper · 素宣墨韵<br>
+      <b>功能用墨 · 装饰用印 · 红色不过三点</b>
+    </div>
+    <span class="seal-stamp">
+      <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/>
+        <text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">印</text>
+      </svg>
+    </span>
+  </div>
+
+</div>
+</body>
+</html>

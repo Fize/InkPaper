@@ -1,6 +1,6 @@
 # Diagrams
 
-inkpaper's drawing capability. **14 diagram types** covering structural, process, and data chart scenarios. All wear inkpaper's skin (parchment + ink-blue + warm grays). No second design system.
+inkpaper's drawing capability. **14 diagram types** covering structural, process, and data chart scenarios. All wear inkpaper's skin (parchment + ink-deep + warm grays). No second design system.
 
 Every diagram is a **self-contained HTML + inline SVG**. No Mermaid, no JS, no build step. Browse them as standalone pages, or copy the `<svg>...</svg>` block into a long-doc `<figure>` to embed.
 
@@ -44,9 +44,9 @@ If "no", don't draw. Diagrams add signal to hierarchy, direction, and magnitude.
 - Nodes > 9 -> this is two diagrams, not one
 - Two nodes that always travel together -> they're one node
 - A line whose meaning is obvious from layout -> remove the line
-- 5 nodes in ink-blue -> you haven't decided what's focal
+- 5 nodes in ink-deep -> you haven't decided what's focal
 
-**Focal rule**: 1-2 focal elements per diagram (`#B33A3A` stroke + `rgba(245,240,230,0.7)` fill). Everything else goes neutral. Focal signal comes from contrast, not count.
+**Focal rule**: 1-2 focal elements per diagram (`--ink-deep` `#2B1E14` stroke + `--paper-card` `#faf9f5` fill). Everything else goes neutral. Focal signal comes from contrast, not count.
 
 ---
 
@@ -100,15 +100,15 @@ Shared tokens across inkpaper's diagram set, mapping directly to the design syst
 | Cloud node stroke | near-black 30% (solid) | `#B2B1AC` |
 | External node fill | olive 8% (solid) | `#E9E8E1` |
 | External node stroke | `--stone` | `#6b6a64` |
-| **Focal fill** | `--cinnabar-tint` | `rgba(245,240,230,0.7)` |
-| **Focal stroke** | `--cinnabar` | `#B33A3A` |
+| **Focal fill** | `--paper-card` | `#faf9f5` |
+| **Focal stroke** | `--ink-deep` | `#2B1E14` |
 | Standard arrow | `--ink-light` | `#9B8B7A` |
-| Focal arrow | `--cinnabar` | `#B33A3A` |
+| Focal arrow | `--ink-deep` | `#2B1E14` |
 | Primary text | `--ink-deep` | `#2B1E14` |
 | Secondary text | `--ink-light` | `#9B8B7A` |
 | Tertiary text / small mono label | `--stone` | `#6b6a64` |
 
-Don't add a fourth state ("warning amber", "success green"). inkpaper has one accent.
+Don't add a fourth state ("warning amber", "success green"). inkpaper has one focal accent (`--ink-deep`).
 
 ### Shared `<defs>` fragment
 
@@ -153,12 +153,12 @@ For tall diagrams (e.g. 5-layer stack), a working layout is `viewBox: 0 0 1000 5
 For embedded diagrams, put the "FIGURE N · TITLE" header inside the SVG instead of using `<figcaption>`. The diagram becomes a self-contained editorial unit, and the brand-colored header doubles as a section anchor.
 
 ```svg
-<text x="80" y="38" fill="#B33A3A" font-size="13" font-weight="600"
+<text x="80" y="38" fill="#2B1E14" font-size="13" font-weight="600"
       font-family="mono" letter-spacing="3">FIGURE  1</text>
 <text x="195" y="38" fill="#9B8B7A" font-size="13"
       font-family="mono" letter-spacing="3">DIAGRAM TITLE GOES HERE</text>
 <line x1="80" y1="52" x2="920" y2="52"
-      stroke="#B33A3A" stroke-width="0.8"/>
+      stroke="#2B1E14" stroke-width="0.8"/>
 ```
 
 Two spaces between `FIGURE` and the number. With `letter-spacing: 3`, a single space lets the digit collide with the preceding letter.
@@ -174,7 +174,7 @@ Icons live inside `<svg>` blocks alongside diagram nodes. Draw them with the sam
 - Stroke weight stays consistent within one diagram. Never mix 1pt and 1.5pt icons in the same figure
 - No drop shadow, gradient, 3D, or glassmorphism
 - No emoji-style faces, mascots, or expressive characters - this is editorial schematic, not playful
-- Focal icons may use `--cinnabar` stroke or fill, but the figure's total ink-blue area still respects the 5% cap
+- Focal icons may use `--ink-deep` stroke or fill. Cinnabar red (`--seal-color`) is reserved for decorative seals only — never on nodes, strokes, or arrows.
 
 ### Canonical shapes
 
@@ -215,10 +215,10 @@ Scan for these when drawing or reviewing:
 | Three equal-width summary cards as a default | Template feel. Vary widths. |
 | `box-shadow` on anything | inkpaper only permits ring / whisper |
 | `rounded-2xl` / border-radius above 10px | Max 6-10px. Beyond, it starts to look like App Store chrome. |
-| Ink Blue on every "important" node | Focal rule is 1-2, not a signaling system |
+| Ink Deep on every "important" node | Focal rule is 1-2, not a signaling system |
 | Decorative icons | Disaster |
 | Gradient backgrounds | inkpaper forbids them |
-| Focal color contradicts the caption's claim | Caption says "Simple **core**", but the ACT node is painted ink-blue - two focals competing. Focal color must match the word emphasized (`<span class="hl">`) in the caption |
+| Focal color contradicts the caption's claim | Caption says "Simple **core**", but the ACT node is painted ink-deep - two focals competing. Focal color must match the word emphasized (`<span class="hl">`) in the caption |
 | Cycle diagram with a dashed ring AND four directed arcs | Same loop drawn twice; reader thinks there are two flows |
 | SVG text clipped at the viewBox top | `text` y is the baseline; cap letters extend above y=0. Pad the top by font-size × 1.2 or adjust the viewBox |
 | 5-10px gap between arrow endpoint and node edge | Reads as "arrow floating in space". Anchor endpoints to exact `box.x / box.x+w / box.y / box.y+h` |
@@ -258,7 +258,7 @@ Five data-driven chart types for investment reports, financial comparisons, and 
 
 | Role | Value | Use |
 |---|---|---|
-| Primary series | `#B33A3A` ink-blue | First group / focal data |
+| Primary series | `#2B1E14` ink-deep | First group / focal data |
 | Series 2 | `#9B8B7A` olive | Second group |
 | Series 3 | `#6b6a64` stone | Third group |
 | Series 4 | `#b8b7b0` light-stone | Fourth group |
@@ -307,7 +307,7 @@ inner_y = 200 + 76  × sin(angle_deg × π/180)
 **Candlestick Y-axis formula** (default: price range 100-160, chart-height=280, scale=4.67):
 ```
 candle_y = 320 - (price - 100) * 4.67
-Up candle: fill=#B33A3A (close > open), body from open_y to close_y
+Up candle: fill=#2B1E14 (close > open), body from open_y to close_y
 Down candle: fill=#6b6a64 (close < open), body from close_y to open_y
 Wick: 1.2px stroke from high_y to low_y, centered on candle
 ```
@@ -316,7 +316,7 @@ Wick: 1.2px stroke from high_y to low_y, centered on candle
 ```
 bar_y = 320 - value * 1.4
 Floating bars: top = running_total_y, height = abs(delta) * 1.4
-Positive: fill=#B33A3A · Negative: fill=#6b6a64 · Total: fill=#4d4c48
+Positive: fill=#2B1E14 · Negative: fill=#6b6a64 · Total: fill=#4d4c48
 Connector: dashed 0.8px #b8b7b0 between adjacent bar edges
 ```
 

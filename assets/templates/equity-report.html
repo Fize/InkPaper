@@ -54,8 +54,12 @@
     --ink-mid:      #5E4E3F;
     --ink-light:    #9B8B7A;
     --border-ink-ink:   #C5B9A5;
-    --cinnabar:     #B33A3A;
-    --cinnabar-hover: #8E2D2D;
+    --seal-color:   #B33A3A;
+    --link-color:   var(--ink-deep);
+    --link-hover:   var(--ink-mid);
+    --active-indicator: var(--ink-deep);
+    --quote-line:   var(--ink-light);
+    --code-keyword: var(--ink-deep);
     --select-bg:    #D9D1BD;
     --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
     --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
@@ -78,7 +82,7 @@
   }
 
   strong { font-weight: 500; }
-  .hl { color: var(--cinnabar); font-weight: 500; }
+  .hl { color: var(--ink-deep); font-weight: 500; }
 
   /* ========== HEADER ========== */
   .report-header {
@@ -86,14 +90,14 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 14pt;
-    border-left: 2.5pt solid var(--cinnabar);
+    border-left: 2.5pt solid var(--active-indicator);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
   .ticker-block { flex: 1; }
   .ticker-eyebrow {
     font-size: 9pt;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     letter-spacing: 1pt;
     text-transform: uppercase;
     margin-bottom: 4pt;
@@ -156,7 +160,7 @@
     font-family: var(--font);
     font-size: 16pt;
     font-weight: 500;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     line-height: 1;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
@@ -192,14 +196,14 @@
     padding-left: 18pt;
     line-height: 1.5;
   }
-  ul li::marker { color: var(--cinnabar); }
-  ol li::marker { color: var(--cinnabar); font-weight: 500; }
+  ul li::marker { color: var(--ink-mid); }
+  ol li::marker { color: var(--ink-mid); font-weight: 500; }
 
   /* ========== TAG ========== */
   .tag {
     display: inline-block;
     background: var(--tag-bg);
-    color: var(--cinnabar);
+    color: var(--ink-mid);
     font-size: 9pt;
     font-weight: 500;
     padding: 1pt 6pt;
@@ -238,13 +242,13 @@
     background: var(--paper-card);
   }
   table .total td, .inkpaper-table .total td {
-    font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
+    font-weight: 500; border-top: 1pt solid var(--ink-deep); border-bottom: none; color: var(--ink-deep);
   }
 
   /* ========== CALLOUT ========== */
   .callout {
     background: var(--paper-card);
-    border-left: 2pt solid var(--cinnabar);
+    border-left: 2pt solid var(--quote-line);
     padding: 8pt 12pt;
     border-radius: 3pt;
     margin: 10pt 0;
@@ -291,7 +295,7 @@
   .risk-label {
     font-size: 9pt;
     font-weight: 500;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     margin-bottom: 2pt;
   }
   .risk-desc {
@@ -310,7 +314,7 @@
   /* ========== ANALYST SUMMARY ========== */
   .analyst-box {
     background: var(--paper-card);
-    border-left: 1.4pt solid var(--cinnabar);
+    border-left: 1.4pt solid var(--quote-line);
     border-radius: 4pt;
     padding: 10pt 14pt;
     margin: 12pt 0;
@@ -329,7 +333,7 @@
   }
   .analyst-label {
     font-size: 9pt;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     letter-spacing: 0.5pt;
     text-transform: uppercase;
     margin-bottom: 4pt;
@@ -347,6 +351,23 @@
   }
 
   .page-break { break-before: page; }
+
+  .seal-stamp {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .seal-stamp-sm {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
@@ -355,7 +376,9 @@
 <div class="report-header">
   <div class="ticker-block">
     <div class="ticker-eyebrow">{{EYEBROW · 如 "个股研报" / "估值分析" / "投资备忘"}}</div>
-    <div class="ticker-name">{{公司名称}} <span style="font-size: 14pt; color: var(--ink-light);">{{股票代码}}</span></div>
+    <div class="ticker-name">{{公司名称}}<span class="seal-stamp" style="margin-left: 6pt;">
+      <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/><text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text></svg>
+    </span> <span style="font-size: 14pt; color: var(--ink-light);">{{股票代码}}</span></div>
     <div class="ticker-sub">{{行业}} · {{交易所}} · {{一句核心判断}}</div>
   </div>
   <div class="price-block">
@@ -533,7 +556,9 @@
 
 <!-- ========== FOOTER ========== -->
 <div class="report-footer">
-  <span>{{机构名 / 免责声明}}</span>
+  <span><span class="seal-stamp-sm">
+    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/><text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text></svg>
+  </span> {{机构名 / 免责声明}}</span>
   <span>{{作者}} · {{日期}}</span>
 </div>
 

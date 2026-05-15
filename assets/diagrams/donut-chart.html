@@ -23,12 +23,11 @@
 
   :root {
     --paper:    #F8F4EB;
-    --paper-card:        #faf9f5;
+    --paper-card:        rgba(245,240,230,0.7);
     --ink-deep:   #2B1E14;
     --ink-light:        #9B8B7A;
     --ink-light:        #9B8B7A;
-    --cinnabar:        #B33A3A;
-    --cinnabar-tint:   rgba(245,240,230,0.7);
+    --seal-color: #B33A3A;
     --border-ink:       #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -88,7 +87,7 @@
          viewBox: 0 0 680 420
          Donut center: cx=300 cy=200  R=136 (outer)  r=76 (inner)
          6 segments, clockwise from top (-90°):
-           S1: 32%  -90° to  25.2°  fill=#B33A3A  (focal/largest)
+           S1: 32%  -90° to  25.2°  fill=#2B1E14  (focal/largest)
            S2: 24%  25.2° to 111.6° fill=#9B8B7A
            S3: 18% 111.6° to 176.4° fill=#9B8B7A
            S4: 12% 176.4° to 219.6° fill=#b8b7b0
@@ -109,7 +108,7 @@
 
       <!-- S1: 32% · -90° to 25.2° · span 115.2° · large-arc=0 -->
       <path d="M 300 64 A 136 136 0 0 1 423.1 257.9 L 368.8 232.4 A 76 76 0 0 0 300 124 Z"
-            fill="#B33A3A"/>
+            fill="#2B1E14"/>
 
       <!-- S2: 24% · 25.2° to 111.6° · span 86.4° · large-arc=0 -->
       <path d="M 423.1 257.9 A 136 136 0 0 1 249.1 326.1 L 271.5 270.5 A 76 76 0 0 0 368.8 232.4 Z"
@@ -139,7 +138,7 @@
       <circle cx="300" cy="200" r="75" fill="#F8F4EB"/>
 
       <!-- Center label (primary value + secondary text) -->
-      <text x="300" y="193" fill="#B33A3A" font-size="26" font-family="inherit" font-weight="500" text-anchor="middle">32%</text>
+      <text x="300" y="193" fill="#2B1E14" font-size="26" font-family="inherit" font-weight="500" text-anchor="middle">32%</text>
       <text x="300" y="214" fill="#9B8B7A" font-size="10" font-family="inherit" text-anchor="middle" letter-spacing="0.1em">{{CENTER LABEL}}</text>
 
       <!-- ================================================== DATA END -->
@@ -148,7 +147,7 @@
       <line x1="460" y1="120" x2="460" y2="300" stroke="#e8e7e1" stroke-width="0.8"/>
 
       <!-- S1 -->
-      <rect x="472" y="136" width="12" height="12" fill="#B33A3A" rx="2"/>
+      <rect x="472" y="136" width="12" height="12" fill="#2B1E14" rx="2"/>
       <text x="492" y="147" fill="#2B1E14" font-size="9.5" font-family="inherit" font-weight="500">32%</text>
       <text x="532" y="147" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category A}}</text>
 

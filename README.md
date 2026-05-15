@@ -9,36 +9,22 @@
 
 ## See it
 
-<table>
-<tr>
-  <td align="center" width="25%">
-    <a href="assets/demos/demo-tesla.pdf"><img src="assets/demos/demo-tesla.png" alt="Tesla equity report"></a>
-    <br><b>Equity Report</b> · 中文
-    <br><sub>Tesla Q1 2026 财报点评</sub>
-  </td>
-  <td align="center" width="25%">
-    <a href="assets/demos/demo-agent-slides.pdf"><img src="assets/demos/demo-agent-slides.png" alt="Agent keynote slides" /></a>
-    <br><b>Slides</b> · English
-    <br><sub>Agent keynote, 6 slides</sub>
-  </td>
-  <td align="center" width="25%">
-    <a href="assets/demos/demo-musk-resume.pdf"><img src="assets/demos/demo-musk-resume.png" alt="Elon Musk resume"></a>
-    <br><b>Resume</b> · English
-    <br><sub>Founder CV, 2 pages</sub>
-  </td>
-</tr>
-</table>
+<div align="center">
+  <a href="assets/demos/demo-v2.html"><img src="assets/demos/demo-v2.png" alt="InkPaper v2.0 demo" width="80%"></a>
+  <br><sub>素宣墨韵 · 以墨为魂，朱砂仅为印痕</sub>
+</div>
 
 ## Design
 
-Warm paper canvas, ink blue as the sole accent, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
+Warm paper canvas, ink-toned functional hierarchy (five ink gradations), decorative cinnabar seal only, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
 
 Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Equity Report, Changelog) with dedicated EN/CN templates. Fourteen inline SVG diagram types included. InkPaper picks the right variant based on the language you write in.
 
 | Element     | Rule                                                                            |
 | ----------- | ------------------------------------------------------------------------------- |
 | Canvas      | `#F8F4EB` paper, never pure white                                               |
-| Accent      | Ink blue `#B33A3A` only, no second chromatic hue                                |
+| Hierarchy   | Five ink tones (`--ink-deep/mid/light/border`), no red in functional roles       |
+| Seal        | `#B33A3A` decorative stamp only (22×22px max), never for interaction             |
 | Neutrals    | All warm-toned (yellow-brown undertone), no cool blue-grays                     |
 | Serif       | Body 400, headings 500. Avoid synthetic bold                                    |
 | Line-height | Tight titles 1.1-1.3, dense body 1.4-1.45, reading body 1.5-1.55                |
@@ -48,34 +34,6 @@ Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Eq
 **Fonts**: Each language uses a single serif font for the entire page. Chinese: TsangerJinKai02. English: Charter. TsangerJinKai is free for personal use, commercial use requires a license from [tsanger.cn](https://tsanger.cn). All other fonts are system-bundled.
 
 Full spec: [design.md](references/design.md). Cheatsheet: [CHEATSHEET.md](CHEATSHEET.md).
-
-## Travel
-
-The same constraint system doubles as a brief you can hand to any drawing tool. Point it at the [references folder](references/) and the output inherits warm paper, cinnabar restraint, single-line geometric icons, and editorial typography.
-
-> Apply the InkPaper design system from github.com/Fize/InkPaper/tree/main/references
-
-<table>
-<tr>
-  <td align="center" width="33%">
-    <img src="assets/illustrations/travel-tesla-optimus.png" alt="Tesla Optimus patent overview">
-    <br><b>Evidence layout</b> · 中文
-    <br><sub>Tesla Optimus 手部和前臂专利图一览</sub>
-  </td>
-  <td align="center" width="33%">
-    <img src="assets/illustrations/travel-spatialvla.png" alt="SpatialVLA architecture redraw">
-    <br><b>Architecture redraw</b> · English
-    <br><sub>SpatialVLA Figure 1, schematic</sub>
-  </td>
-  <td align="center" width="33%">
-    <img src="assets/illustrations/travel-3d-representations.png" alt="3D representation tradeoffs">
-    <br><b>Concept tradeoff</b> · 中文
-    <br><sub>3D 表示的算力-推理性取舍</sub>
-  </td>
-</tr>
-</table>
-
-<sub>Rendered by ChatGPT Images 2.0 in a single pass with no manual touch-up. InkPaper specifies, the renderer draws.</sub>
 
 ## Background
 

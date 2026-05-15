@@ -14,12 +14,11 @@
 
   :root {
     --paper:  #F8F4EB;
-    --paper-card:      #faf9f5;
+    --paper-card:      rgba(245,240,230,0.7);
     --ink-deep: #2B1E14;
     --ink-light:      #9B8B7A;
     --ink-light:      #9B8B7A;
-    --cinnabar:      #B33A3A;
-    --cinnabar-tint: rgba(245,240,230,0.7);
+    --seal-color: #B33A3A;
     --border-ink:     #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -80,7 +79,7 @@
           <polygon points="0 0, 8 3, 0 6" fill="#9B8B7A"/>
         </marker>
         <marker id="arrow-brand" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-          <polygon points="0 0, 8 3, 0 6" fill="#B33A3A"/>
+          <polygon points="0 0, 8 3, 0 6" fill="#2B1E14"/>
         </marker>
       </defs>
 
@@ -94,9 +93,9 @@
       <line x1="430" y1="176" x2="430" y2="216" stroke="#9B8B7A" stroke-width="1.2" marker-end="url(#arrow)"/>
 
       <!-- Decision → Yes branch (brand) -->
-      <path d="M 360 268 L 200 268 L 200 332" fill="none" stroke="#B33A3A" stroke-width="1.4" marker-end="url(#arrow-brand)"/>
+      <path d="M 360 268 L 200 268 L 200 332" fill="none" stroke="#2B1E14" stroke-width="1.4" marker-end="url(#arrow-brand)"/>
       <rect x="170" y="284" width="34" height="14" rx="2" fill="#F8F4EB"/>
-      <text x="187" y="294" fill="#B33A3A" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.12em">YES</text>
+      <text x="187" y="294" fill="#2B1E14" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.12em">YES</text>
 
       <!-- Decision → No branch -->
       <path d="M 500 268 L 660 268 L 660 332" fill="none" stroke="#9B8B7A" stroke-width="1.2" marker-end="url(#arrow)"/>
@@ -123,9 +122,9 @@
 
       <!-- Decision diamond (FOCAL) -->
       <polygon points="430,216 500,242 500,268 430,320 360,268 360,242"
-               fill="rgba(245,240,230,0.7)" stroke="#B33A3A" stroke-width="1.2"/>
+               fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1.2"/>
       <text x="430" y="266" fill="#2B1E14" font-size="11" font-weight="500" font-family="inherit" text-anchor="middle">{{Decision}}</text>
-      <text x="430" y="282" fill="#B33A3A" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.15em">BRANCH</text>
+      <text x="430" y="282" fill="#2B1E14" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.15em">BRANCH</text>
 
       <!-- Yes outcome -->
       <rect x="120" y="332" width="160" height="64" rx="6" fill="#faf9f5" stroke="#2B1E14" stroke-width="1"/>
@@ -147,7 +146,7 @@
       <line x1="40" y1="484" x2="820" y2="484" stroke="#DEDED7" stroke-width="0.8"/>
       <text x="40" y="500" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace" letter-spacing="0.22em">LEGEND</text>
 
-      <polygon points="180,492 192,498 180,504 168,498" fill="rgba(245,240,230,0.7)" stroke="#B33A3A" stroke-width="1"/>
+      <polygon points="180,492 192,498 180,504 168,498" fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
       <text x="202" y="502" fill="#9B8B7A" font-size="8.5" font-family="inherit">Focal decision</text>
 
       <rect x="310" y="494" width="14" height="10" rx="2" fill="#faf9f5" stroke="#2B1E14" stroke-width="1"/>

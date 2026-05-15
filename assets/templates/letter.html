@@ -45,8 +45,12 @@
     --ink-mid:      #5E4E3F;
     --ink-light:    #9B8B7A;
     --border-ink-ink:   #C5B9A5;
-    --cinnabar:     #B33A3A;
-    --cinnabar-hover: #8E2D2D;
+    --seal-color:   #B33A3A;
+    --link-color:   var(--ink-deep);
+    --link-hover:   var(--ink-mid);
+    --active-indicator: var(--ink-deep);
+    --quote-line:   var(--ink-light);
+    --code-keyword: var(--ink-deep);
     --select-bg:    #D9D1BD;
     --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
     --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
@@ -119,14 +123,14 @@
   /* ========== SUBJECT ========== */
   .subject {
     margin-bottom: 24pt;
-    border-left: 2.5pt solid var(--cinnabar);
+    border-left: 2.5pt solid var(--active-indicator);
     border-radius: 1.5pt;
     padding-left: 8pt;
   }
   .subject .label {
     font-family: var(--font);
     font-size: 9pt;
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     letter-spacing: 1pt;
     text-transform: uppercase;
     margin-bottom: 3pt;
@@ -159,7 +163,7 @@
   .body-content p.no-indent { text-indent: 0; }
 
   .body-content .hl {
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     font-weight: 500;
   }
 
@@ -194,7 +198,7 @@
     line-height: 1.55;
   }
   .attachments .label {
-    color: var(--cinnabar);
+    color: var(--ink-deep);
     margin-right: 6pt;
     font-weight: 500;
   }
@@ -238,7 +242,24 @@
     background: var(--paper-card);
   }
   table .total td, .inkpaper-table .total td {
-    font-weight: 500; border-top: 1pt solid var(--cinnabar); border-bottom: none; color: var(--ink-deep);
+    font-weight: 500; border-top: 1pt solid var(--ink-deep); border-bottom: none; color: var(--ink-deep);
+  }
+
+  .seal-stamp {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .seal-stamp-sm {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
   }
 </style>
 </head>
@@ -264,7 +285,9 @@
 <!-- ========== 主题 ========== -->
 <div class="subject">
   <div class="label">关于</div>
-  <div class="title">{{信件主题，一句话说清}}</div>
+  <div class="title">{{信件主题，一句话说清}}<span class="seal-stamp" style="margin-left: 6pt;">
+    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/><text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text></svg>
+  </span></div>
 </div>
 
 <!-- ========== 称呼 ========== -->

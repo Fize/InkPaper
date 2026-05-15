@@ -71,7 +71,7 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="eyebrow">
-      <span>Design System · v1.1.0<span class="eyebrow-date"> · 2026.04</span></span>
+      <span>Design System · v2.0<span class="eyebrow-date"> · 2026.05</span></span>
       <span class="hero-links">
         <a href="https://github.com/Fize/inkpaper" target="_blank" rel="noopener" aria-label="GitHub">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -89,7 +89,7 @@
     <p class="tagline">好内容，值得好版面。InkPaper 是一套适合 AI 时代的排版设计系统，让文档更清晰好读，也容易记住。</p>
     <div class="hero-tokens">
       <span><b>Canvas</b>#F8F4EB</span>
-      <span><b>Accent</b>#B33A3A</span>
+      <span><b>Seal</b>#B33A3A</span>
       <span><b>Serif</b>TsangerJinKai / Charter</span>
       <span><b>Sans</b>= Serif (一页一字体)</span>
     </div>
@@ -100,7 +100,7 @@
     <div class="section-head">
       <p class="section-num">00 · See it</p>
       <h2 class="section-title">输出样本</h2>
-      <p class="section-lede">把文档需求交给 Claude。无论是一页纸、长文、正式信件、作品集、简历还是幻灯片，InkPaper 都用少量清晰规则，把提示词变成可交付的排版。同一份 brief 也能 <a href="https://github.com/Fize/inkpaper#travel" style="color:var(--cinnabar); text-decoration:none; font-weight:500;">交给绘图模型</a>，README 里附了样图和可复制的提示词。</p>
+      <p class="section-lede">把文档需求交给 Claude。无论是一页纸、长文、正式信件、作品集、简历还是幻灯片，InkPaper 都用少量清晰规则，把提示词变成可交付的排版。同一份 brief 也能 <a href="https://github.com/Fize/inkpaper#travel" style="color:var(--link-color); text-decoration:none; font-weight:500;">交给绘图模型</a>，README 里附了样图和可复制的提示词。</p>
     </div>
     <div class="demo-grid">
       <div class="demo-card">
@@ -127,10 +127,10 @@
       <p class="section-num">01 · Manifesto</p>
       <h2 class="section-title">设计原则</h2>
     </div>
-    <p class="manifesto">暖米纸底，<em>油墨蓝</em>点缀，serif 承担层级，硬阴影与花哨配色都退后；这套系统面向印刷文档，负责把内容收束成稳定、清晰、易读的版面。</p>
+    <p class="manifesto">暖米纸底，<em>墨色</em>承担功能层级，朱砂仅供装饰小印，serif 承担层级，硬阴影与花哨配色都退后；这套系统面向印刷文档，负责把内容收束成稳定、清晰、易读的版面。</p>
     <ol class="rules">
       <li><span class="n">1</span><p>页面背景 parchment <code>#F8F4EB</code>，不用纯白</p></li>
-      <li><span class="n">2</span><p>强调色只有油墨蓝 <code>#B33A3A</code>，不引入第二种彩色</p></li>
+      <li><span class="n">2</span><p>功能层级全部用墨色；朱砂 <code>#B33A3A</code> 仅供装饰印章</p></li>
       <li><span class="n">3</span><p>所有灰色暖调 (yellow-brown undertone)，禁止冷蓝灰</p></li>
       <li><span class="n">4</span><p>英文 serif 通吃标题和正文，中文标题用 serif、正文用 sans</p></li>
       <li><span class="n">5</span><p>Serif 正文 400，标题 500，不用合成 bold</p></li>
@@ -145,7 +145,7 @@
     <div class="section-head">
       <p class="section-num">02 · Color</p>
       <h2 class="section-title">暖调克制</h2>
-      <p class="section-lede">唯一强调色、纯暖调中性灰、零冷色；油墨蓝全文档不超过 <b>5%</b> 面积，超过就从克制变成堆砌。</p>
+      <p class="section-lede">墨色承担功能层级，朱砂仅供装饰印章；纯暖调中性灰、零冷色。印章色全文档不超过 <b>1%</b> 面积。</p>
     </div>
 
     <h3 class="subhead">画布 · Canvas</h3>
@@ -158,7 +158,7 @@
 
     <h3 class="subhead">主调 · Brand</h3>
     <div class="swatches">
-      <div class="swatch brand"><div class="chip" style="background:#B33A3A"></div><div class="info"><p class="name">Ink Blue</p><p class="role">主色 · CTA · quote 竖线 · 章节标题</p><span class="hex">#B33A3A</span></div></div>
+      <div class="swatch brand"><div class="chip" style="background:#B33A3A"></div><div class="info"><p class="name">朱砂印</p><p class="role">装饰印章专用（最大 22×22px）</p><span class="hex">#B33A3A</span></div></div>
       <div class="swatch"><div class="chip" style="background:#8E2D2D"></div><div class="info"><p class="name">Ink Light</p><p class="role">深色底上的链接 · 亮变体</p><span class="hex">#8E2D2D</span></div></div>
       <div class="swatch"><div class="chip" style="background:#30302e"></div><div class="info"><p class="name" style="color:var(--deep-dark)">Dark Surface</p><p class="role">深色主题容器 · 暖炭灰</p><span class="hex">#30302E</span></div></div>
       <div class="swatch"><div class="chip" style="background:#b53333"></div><div class="info"><p class="name">Error</p><p class="role">错误，深暖红，不刺眼</p><span class="hex">#B53333</span></div></div>
@@ -173,7 +173,7 @@
     </div>
 
     <h3 class="subhead">Tag Tints · rgba → 实色对照</h3>
-    <p style="font-size:14px; color: var(--ink-light); margin: 0 0 16px; line-height: 1.55;">这里列的是油墨蓝 <code style="font-family:var(--mono);font-size:12px;background:rgba(245,240,230,0.7);color:var(--cinnabar);padding:1px 5px;border-radius:2px">#B33A3A</code> 叠加在 parchment 上的等效实色；Tag 背景不使用 <code style="font-family:var(--mono);font-size:12px;background:rgba(245,240,230,0.7);color:var(--cinnabar);padding:1px 5px;border-radius:2px">rgba()</code>，避免 WeasyPrint 的双层矩形问题。</p>
+    <p style="font-size:14px; color: var(--ink-light); margin: 0 0 16px; line-height: 1.55;">这里列的是油墨蓝 <code style="font-family:var(--mono);font-size:12px;background:rgba(245,240,230,0.7);color:var(--ink-deep);padding:1px 5px;border-radius:2px">#B33A3A</code> 叠加在 parchment 上的等效实色；Tag 背景不使用 <code style="font-family:var(--mono);font-size:12px;background:rgba(245,240,230,0.7);color:var(--ink-deep);padding:1px 5px;border-radius:2px">rgba()</code>，避免 WeasyPrint 的双层矩形问题。</p>
     <div class="tint-strip">
       <div class="tint"><span class="flag">&nbsp;</span><span class="sample" style="background:rgba(245,240,230,0.7)">Tag sample</span><p class="opacity">0.08</p><span class="hex">rgba(245,240,230,0.7)</span></div>
       <div class="tint"><span class="flag">&nbsp;</span><span class="sample" style="background:rgba(245,240,230,0.7)">Tag sample</span><p class="opacity">0.14</p><span class="hex">rgba(245,240,230,0.7)</span></div>
@@ -251,7 +251,7 @@
       </div>
       <div class="type-row">
         <div class="type-label">Label</div>
-        <div class="type-sample label">Design System · v1.1.0</div>
+        <div class="type-sample label">Design System · v2.0</div>
         <div class="type-specs"><b>7.5–8 pt</b><br>weight 600<br>line 1.35</div>
       </div>
 
@@ -391,7 +391,7 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <span class="tag calm">中文</span>
             <span class="tag calm">A4 × 1</span>
-            <span class="tag calm">Ink Blue</span>
+            <span class="tag calm">朱砂印</span>
           </div>
         </div>
       </div>
@@ -512,12 +512,12 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
       <tr><th>要做什么</th><th>怎么做</th></tr>
       <tr><td class="task">大标题</td><td class="how">serif <code>500</code>，字号按层级，line-height <code>1.10–1.30</code></td></tr>
       <tr><td class="task">正文阅读</td><td class="how">sans <code>400</code>，<code>9.5–10 pt</code>，line-height <code>1.55</code></td></tr>
-      <tr><td class="task">强调一个数字</td><td class="how"><code>color: var(--cinnabar)</code>，不要粗体</td></tr>
+      <tr><td class="task">强调一个数字</td><td class="how"><code>color: var(--ink-deep)</code>，不要粗体</td></tr>
       <tr><td class="task">分隔两段内容</td><td class="how"><code>2.5pt</code> 品牌色左侧竖线，或 <code>0.5pt</code> 暖灰虚线</td></tr>
       <tr><td class="task">引用某人的话</td><td class="how">左 <code>2pt</code> 品牌色实线 + olive 色</td></tr>
       <tr><td class="task">展示代码</td><td class="how">ivory 底 + <code>0.5pt</code> border + <code>6pt</code> 圆角 + mono 字体</td></tr>
       <tr><td class="task">区分主次按钮</td><td class="how">Primary 品牌色填充 + ivory 字；Secondary warm-sand + charcoal</td></tr>
-      <tr><td class="task">标注某张特殊卡片</td><td class="how"><code>border: 0.5pt solid var(--cinnabar)</code> 或 <code>border-left: 3pt</code></td></tr>
+      <tr><td class="task">标注某张特殊卡片</td><td class="how"><code>border: 0.5pt solid var(--ink-deep)</code> 或 <code>border-left: 3pt</code></td></tr>
       <tr><td class="task">章节开始</td><td class="how">serif <code>500</code> · <code>15pt</code> · 纯字号层级，无额外装饰</td></tr>
       <tr><td class="task">文档封面</td><td class="how">单页 Display 字号 + 右对齐作者/日期 + 大量留白</td></tr>
       <tr><td class="task">数据卡</td><td class="how">ivory 底 + <code>8pt</code> 圆角 + serif 大数字（油墨蓝） + sans 小标签</td></tr>
@@ -619,9 +619,9 @@ beauty   = constraints × <span class="k">intention</span> ÷ noise</pre>
       </div>
     </div>
     <div class="colophon">
-      <div><a href="https://github.com/Fize/inkpaper" style="color:var(--cinnabar); text-decoration:none; font-weight:500;">GitHub</a>&nbsp;&nbsp;·&nbsp;&nbsp;One-Pager · Long Doc · Letter · 作品集 · Resume · Slides</div>
+      <div><a href="https://github.com/Fize/inkpaper" style="color:var(--link-color); text-decoration:none; font-weight:500;">GitHub</a>&nbsp;&nbsp;·&nbsp;&nbsp;One-Pager · Long Doc · Letter · 作品集 · Resume · Slides</div>
       <div style="margin-top:8px; color: var(--ink-light); font-family: var(--font);">
-        Serif 承担权威，sans 承担功能，暖灰承担节奏，油墨蓝承担焦点。
+        Serif 承担权威，sans 承担功能，暖灰承担节奏，墨色承担层级。
       </div>
     </div>
   </footer>
