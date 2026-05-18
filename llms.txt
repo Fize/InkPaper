@@ -2,16 +2,12 @@
 
 > A warm parchment design system for AI-assisted professional documents. Ink-toned functional hierarchy, decorative seal accent, serif-led typography, and editorial whitespace.
 
-## Author
-- Name: Tw93
-- Site: https://tw93.fun
-
 ## What is InkPaper
 InkPaper is a layout design system for the AI era. Give Claude (or any LLM) a brief, and it produces polished documents: one-pagers, resumes, portfolios, slides, long docs, letters, equity reports, and changelogs. The system uses a warm parchment canvas (#F8F4EB), five-ink-tone functional hierarchy (#2B1E14 → #5E4E3F → #9B8B7A → #C5B9A5), decorative cinnabar seal (#B33A3A for stamps only), and Charter/TsangerJinKai serif fonts.
 
 ## Key Pages
-- [English showcase](https://inkpaper.tw93.fun): Design system overview with live demos
-- [Chinese showcase](https://inkpaper.tw93.fun/index-zh.html): Chinese version
+- [English showcase](/): Design system overview with live demos
+- [Chinese showcase](/index-zh.html): Chinese version
 - [GitHub](https://github.com/Fize/inkpaper): Source code and templates
 
 ## Templates
@@ -20,5 +16,3 @@ InkPaper is a layout design system for the AI era. Give Claude (or any LLM) a br
 
 ## Links
 - GitHub: https://github.com/Fize
-- Blog: https://tw93.fun
-- AI Profile: https://tw93.fun/llms-full.txt

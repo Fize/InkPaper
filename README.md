@@ -4,8 +4,9 @@
   <a href="https://github.com/Fize/inkpaper/stargazers"><img src="https://img.shields.io/github/stars/Fize/InkPaper?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/Fize/inkpaper/releases"><img src="https://img.shields.io/github/v/tag/Fize/InkPaper?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
-  <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
 </div>
+
+> InkPaper 源自 [kami](https://github.com/tw93/Kami) 项目，在原作基础上重构演进而来。
 
 ## See it
 

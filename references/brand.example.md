@@ -13,8 +13,8 @@ name: ""                    # Your name. Used in author metadata and {{NAME}} pl
 role_title: ""              # e.g. "Software Engineer", "Partner", "Founder"
 email: ""                   # e.g. "you@example.com"
 website: ""                 # e.g. "yoursite.com" (no protocol needed)
-github: ""                  # GitHub handle only, e.g. "tw93" (not the full URL)
-x: ""                       # X (Twitter) handle only, e.g. "HiTw93"
+github: ""                  # GitHub handle only (not the full URL)
+x: ""                       # X (Twitter) handle only
 city: ""                    # e.g. "San Francisco"
 country: ""                 # e.g. "USA"
 
