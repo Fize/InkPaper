@@ -12,7 +12,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:  #F8F4EB;
+    --paper:  #FAF8F4;
     --paper-card:      rgba(245,240,230,0.7);
     --ink-deep: #2B1E14;
     --ink-light:      #9B8B7A;
@@ -79,13 +79,13 @@
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="#F8F4EB"/>
+      <rect width="100%" height="100%" fill="#FAF8F4"/>
       <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
 
       <!-- ── Back arc: Processing → Idle (reset / timeout) ── -->
       <path d="M 560,196 Q 356,120 152,196"
             fill="none" stroke="#9B8B7A" stroke-width="1.2" stroke-dasharray="4,3"/>
-      <rect x="328" y="120" width="56" height="12" rx="2" fill="#F8F4EB"/>
+      <rect x="328" y="120" width="56" height="12" rx="2" fill="#FAF8F4"/>
       <text x="356" y="130" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.1em">RESET</text>
       <!-- Left-pointing chevron at Idle top -->
@@ -100,7 +100,7 @@
 
       <!-- Idle → Active -->
       <line x1="224" y1="228" x2="284" y2="228" stroke="#2B1E14" stroke-width="1.4"/>
-      <rect x="226" y="218" width="56" height="12" rx="2" fill="#F8F4EB"/>
+      <rect x="226" y="218" width="56" height="12" rx="2" fill="#FAF8F4"/>
       <text x="254" y="228" fill="#2B1E14" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.1em">TRIGGER</text>
       <path d="M 278,224 L 284,228 L 278,232"
@@ -108,7 +108,7 @@
 
       <!-- Active → Processing -->
       <line x1="428" y1="228" x2="488" y2="228" stroke="#9B8B7A" stroke-width="1.2"/>
-      <rect x="430" y="218" width="56" height="12" rx="2" fill="#F8F4EB"/>
+      <rect x="430" y="218" width="56" height="12" rx="2" fill="#FAF8F4"/>
       <text x="458" y="228" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.1em">SUBMIT</text>
       <path d="M 482,224 L 488,228 L 482,232"
@@ -116,7 +116,7 @@
 
       <!-- Processing → Done -->
       <line x1="632" y1="228" x2="720" y2="228" stroke="#9B8B7A" stroke-width="1.2"/>
-      <rect x="634" y="218" width="84" height="12" rx="2" fill="#F8F4EB"/>
+      <rect x="634" y="218" width="84" height="12" rx="2" fill="#FAF8F4"/>
       <text x="676" y="228" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.1em">COMPLETE</text>
       <path d="M 714,224 L 720,228 L 714,232"
@@ -133,7 +133,7 @@
       <!-- ── State nodes ── -->
 
       <!-- S1: Idle -->
-      <rect x="80" y="196" width="144" height="64" rx="6" fill="#F8F4EB"/>
+      <rect x="80" y="196" width="144" height="64" rx="6" fill="#FAF8F4"/>
       <rect x="80" y="196" width="144" height="64" rx="6"
             fill="#E9E8E1" stroke="#9B8B7A" stroke-width="1"/>
       <text x="102" y="214" fill="#9B8B7A" font-size="7" font-family="'JetBrains Mono', monospace"
@@ -144,7 +144,7 @@
             text-anchor="middle">waiting</text>
 
       <!-- S2: Active (FOCAL) -->
-      <rect x="284" y="196" width="144" height="64" rx="6" fill="#F8F4EB"/>
+      <rect x="284" y="196" width="144" height="64" rx="6" fill="#FAF8F4"/>
       <rect x="284" y="196" width="144" height="64" rx="6"
             fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
       <text x="306" y="214" fill="#2B1E14" font-size="7" font-family="'JetBrains Mono', monospace"
@@ -155,7 +155,7 @@
             text-anchor="middle">editing</text>
 
       <!-- S3: Processing -->
-      <rect x="488" y="196" width="144" height="64" rx="6" fill="#F8F4EB"/>
+      <rect x="488" y="196" width="144" height="64" rx="6" fill="#FAF8F4"/>
       <rect x="488" y="196" width="144" height="64" rx="6"
             fill="#EEEDE6" stroke="#B2B1AC" stroke-width="1"/>
       <text x="510" y="214" fill="#9B8B7A" font-size="7" font-family="'JetBrains Mono', monospace"
@@ -166,7 +166,7 @@
             text-anchor="middle">running</text>
 
       <!-- S4: Done -->
-      <rect x="720" y="196" width="128" height="64" rx="6" fill="#F8F4EB"/>
+      <rect x="720" y="196" width="128" height="64" rx="6" fill="#FAF8F4"/>
       <rect x="720" y="196" width="128" height="64" rx="6"
             fill="#faf9f5" stroke="#2B1E14" stroke-width="1"/>
       <text x="742" y="214" fill="#2B1E14" font-size="7" font-family="'JetBrains Mono', monospace"

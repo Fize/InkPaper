@@ -13,8 +13,8 @@ TOKENS_FILE = ROOT / "references" / "tokens.json"
 
 # Canonical parchment background color, kept here so build/stabilize/density
 # checks share one source of truth instead of redefining the RGB triple.
-PARCHMENT_HEX = "#f5f4ed"
-PARCHMENT_RGB = (0xF5, 0xF4, 0xED)
+PARCHMENT_HEX = "#faf8f4"
+PARCHMENT_RGB = (0xFA, 0xF8, 0xF4)
 
 _HOMEBREW_PREFIXES = (Path("/opt/homebrew"), Path("/usr/local"))
 

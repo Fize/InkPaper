@@ -91,7 +91,7 @@ Shared tokens across inkpaper's diagram set, mapping directly to the design syst
 
 | SVG role | inkpaper token | Value |
 |---|---|---|
-| Canvas | `--paper` | `#F8F4EB` |
+| Canvas | `--paper` | `#FAF8F4` |
 | Standard node fill | `--ivory` | `#faf9f5` |
 | Standard node stroke | `--ink-deep` | `#2B1E14` |
 | Store node fill | near-black 5% (solid) | `#EAE9E2` |
@@ -121,7 +121,7 @@ Every diagram opens with the same parchment + dotted-noise overlay. Copy this bl
   </pattern>
 </defs>
 
-<rect width="100%" height="100%" fill="#F8F4EB"/>
+<rect width="100%" height="100%" fill="#FAF8F4"/>
 <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
 ```
 

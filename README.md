@@ -23,7 +23,7 @@ Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Eq
 
 | Element     | Rule                                                                            |
 | ----------- | ------------------------------------------------------------------------------- |
-| Canvas      | `#F8F4EB` paper, never pure white                                               |
+| Canvas      | `#FAF8F4` paper, never pure white                                               |
 | Hierarchy   | Five ink tones (`--ink-deep/mid/light/border`), no red in functional roles       |
 | Seal        | `#B33A3A` decorative stamp only (22×22px max), never for interaction             |
 | Neutrals    | All warm-toned (yellow-brown undertone), no cool blue-grays                     |

@@ -92,7 +92,7 @@ def test_registry_consistency() -> None:
           f"got {len(DIAGRAM_TARGETS)}")
     check("PPTX_TARGETS has 2 entries", len(PPTX_TARGETS) == 2,
           f"got {len(PPTX_TARGETS)}")
-    check("PARCHMENT_RGB is canonical", PARCHMENT_RGB == (0xF5, 0xF4, 0xED))
+    check("PARCHMENT_RGB is canonical", PARCHMENT_RGB == (0xFA, 0xF8, 0xF4))
 
 
 # --------------------------- scan_file ---------------------------
@@ -293,7 +293,7 @@ def test_rgb_to_hex_pads_uppercase() -> None:
 def test_blend_rgba_on_parchment_alpha_zero() -> None:
     """alpha=0 returns the parchment background (overlay invisible)."""
     out = blend_rgba_on_parchment(0, 0, 0, 0.0)
-    check("blend alpha=0 -> parchment", out == "#F5F4ED", f"got {out}")
+    check("blend alpha=0 -> parchment", out == "#FAF8F4", f"got {out}")
 
 
 def test_blend_rgba_on_parchment_alpha_one() -> None:

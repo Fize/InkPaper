@@ -4,7 +4,7 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 
 ## Ten invariants
 
-1. Page background `#F8F4EB` (paper), never pure white
+1. Page background `#FAF8F4` (paper), never pure white
 2. Decorative seal only (`--seal-color`); functional hierarchy uses ink tones (`--ink-*`)
 3. All grays **warm-toned** (yellow-brown undertone), no cool blue-gray
 4. One serif font per page (headings + body). `--sans` is a CSS alias for the same family; introduce a real sans only for genuinely UI-style chrome
@@ -31,7 +31,7 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 
 | Role         | Hex           | Use                                                 |
 | ------------ | ------------- | --------------------------------------------------- |
-| Parchment    | `#F8F4EB`     | Page background                                     |
+| Parchment    | `#FAF8F4`     | Page background                                     |
 | Ivory        | `#faf9f5`     | Card / lifted container                             |
 | Warm Sand    | `#e8e6dc`     | Button / interactive surface                        |
 | Dark Surface | `#30302e`     | Dark container                                      |

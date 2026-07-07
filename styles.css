@@ -17,7 +17,7 @@
 
   :root {
     /* 宣纸底色 */
-    --paper:        #F8F4EB;
+    --paper:        #FAF8F4;
     --paper-card:   rgba(245,240,230,0.7);
 
     /* 墨色分层（五阶） */
@@ -120,9 +120,9 @@
   html, body { margin: 0; padding: 0; }
 
   /* Print rules: keep warm background, avoid harsh page breaks */
-  @page { size: A4; margin: 14mm 16mm; background: #F8F4EB; }
+  @page { size: A4; margin: 14mm 16mm; background: #FAF8F4; }
   @media print {
-    body { background: #F8F4EB; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #FAF8F4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .page { padding: 0 !important; max-width: 100% !important; }
     section { page-break-inside: auto; margin-bottom: 36px; }
     .hero, .section-head, .family, .comp, .shadow-demo, .tint, .swatch, .radius, blockquote, pre, tr, .anti > div { break-inside: avoid; page-break-inside: avoid; }
