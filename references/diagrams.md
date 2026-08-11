@@ -87,26 +87,26 @@ Edit the `<text>` and `<rect>` values directly. Rules:
 
 ### Color token map
 
-Shared tokens across inkpaper's diagram set, mapping directly to the design system. All fills are solid hex values pre-blended on parchment; never use `rgba()` in SVG fills or strokes (it disagrees with the warm-tone palette and complicates WeasyPrint output).
+Shared tokens across inkpaper's diagram set, mapping directly to the design system. All fills come from the v3 token set: paper layers use `--paper-card` (`rgba(249,248,243,0.75)`) or paper solid, ink and accent layers use solid hex. The `--paper-card` rgba tint is the one sanctioned rgba in SVG fills; keep everything else solid hex (it disagrees with the warm-tone palette and complicates WeasyPrint output).
 
 | SVG role | inkpaper token | Value |
 |---|---|---|
-| Canvas | `--paper` | `#FAF8F4` |
+| Canvas | `--paper` | `#FAF9F5` |
 | Standard node fill | `--ivory` | `#faf9f5` |
 | Standard node stroke | `--ink-deep` | `#2B1E14` |
-| Store node fill | near-black 5% (solid) | `#EAE9E2` |
+| Store node fill | `--paper-card` | `rgba(249,248,243,0.75)` |
 | Store node stroke | `--ink-light` | `#9B8B7A` |
-| Cloud node fill | near-black 3% (solid) | `#EEEDE6` |
-| Cloud node stroke | near-black 30% (solid) | `#B2B1AC` |
-| External node fill | olive 8% (solid) | `#E9E8E1` |
-| External node stroke | `--stone` | `#6b6a64` |
-| **Focal fill** | `--paper-card` | `#faf9f5` |
+| Cloud node fill | `--paper-card` | `rgba(249,248,243,0.75)` |
+| Cloud node stroke | `--border-ink` | `#C5B9A5` |
+| External node fill | `--paper-card` | `rgba(249,248,243,0.75)` |
+| External node stroke | `--ink-light` | `#9B8B7A` |
+| **Focal fill** | `--paper-card` | `rgba(249,248,243,0.75)` |
 | **Focal stroke** | `--ink-deep` | `#2B1E14` |
 | Standard arrow | `--ink-light` | `#9B8B7A` |
 | Focal arrow | `--ink-deep` | `#2B1E14` |
 | Primary text | `--ink-deep` | `#2B1E14` |
 | Secondary text | `--ink-light` | `#9B8B7A` |
-| Tertiary text / small mono label | `--stone` | `#6b6a64` |
+| Tertiary text / small mono label | `--ink-light` | `#9B8B7A` |
 
 Don't add a fourth state ("warning amber", "success green"). inkpaper has one focal accent (`--ink-deep`).
 
@@ -117,15 +117,15 @@ Every diagram opens with the same parchment + dotted-noise overlay. Copy this bl
 ```html
 <defs>
   <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-    <circle cx="1" cy="1" r="0.9" fill="#E3E2DC"/>
+    <circle cx="1" cy="1" r="0.9" fill="rgba(249,248,243,0.75)"/>
   </pattern>
 </defs>
 
-<rect width="100%" height="100%" fill="#FAF8F4"/>
+<rect width="100%" height="100%" fill="#FAF9F5"/>
 <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
 ```
 
-`#E3E2DC` is the parchment-blended solid for `rgba(20,20,19,0.08)`; the `opacity="0.55"` on the overlay rect is a deliberate decoration, not a violation of the no-rgba-on-tag-backgrounds rule (which targets CSS tag fills, not SVG dot textures).
+`rgba(249,248,243,0.75)` is `--paper-card` (玉白同调半透纸层). The dot texture keeps the decorative overlay — at `opacity="0.55"` on the paper canvas it reads as a ghost grain and stays invisible in print, so node fills/panels layer cleanly on top. It is not a violation of the no-rgba-on-tag-backgrounds rule (which targets CSS tag fills, not SVG dot textures).
 
 ### Embedded font calibration (override standalone sizes)
 
@@ -260,11 +260,11 @@ Five data-driven chart types for investment reports, financial comparisons, and 
 |---|---|---|
 | Primary series | `#2B1E14` ink-deep | First group / focal data |
 | Series 2 | `#9B8B7A` olive | Second group |
-| Series 3 | `#6b6a64` stone | Third group |
-| Series 4 | `#b8b7b0` light-stone | Fourth group |
-| Series 5 | `#d4d3cd` mist | Fifth group |
-| Series 6 | `rgba(245,240,230,0.7)` brand-tint | Sixth group |
-| Grid lines | `#e8e7e1` | Axes / reference lines |
+| Series 3 | `#5E4E3F` ink-mid | Third group |
+| Series 4 | `#C5B9A5` border-ink | Fourth group |
+| Series 5 | `#C5B9A5` border-ink | Fifth group |
+| Series 6 | `rgba(249,248,243,0.75)` paper-tint | Sixth group |
+| Grid lines | `#FAF9F5` paper (ghost) | Axes / reference lines |
 | Data labels | `#2B1E14` near-black | Numeric text |
 
 ### Data limits
@@ -307,8 +307,8 @@ inner_y = 200 + 76  × sin(angle_deg × π/180)
 **Candlestick Y-axis formula** (default: price range 100-160, chart-height=280, scale=4.67):
 ```
 candle_y = 320 - (price - 100) * 4.67
-Up candle: fill=#2B1E14 (close > open), body from open_y to close_y
-Down candle: fill=#6b6a64 (close < open), body from close_y to open_y
+Up candle: fill=#2B5C8A (close > open), body from open_y to close_y
+Down candle: fill=#B33A3A (close < open), body from close_y to open_y
 Wick: 1.2px stroke from high_y to low_y, centered on candle
 ```
 
@@ -316,8 +316,8 @@ Wick: 1.2px stroke from high_y to low_y, centered on candle
 ```
 bar_y = 320 - value * 1.4
 Floating bars: top = running_total_y, height = abs(delta) * 1.4
-Positive: fill=#2B1E14 · Negative: fill=#6b6a64 · Total: fill=#4d4c48
-Connector: dashed 0.8px #b8b7b0 between adjacent bar edges
+Positive: fill=#2B5C8A · Negative: fill=#3E8E7E · Total: fill=#B33A3A
+Connector: dashed 0.8px #C5B9A5 between adjacent bar edges
 ```
 
 ---

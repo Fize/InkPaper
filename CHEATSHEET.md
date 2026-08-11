@@ -1,186 +1,138 @@
 # inkpaper · Cheatsheet
 
-One-page quick reference. Scan before filling a template or tweaking a detail. Full spec in `references/design.md`.
+One-page quick reference — scan before filling a template or tweaking a detail. Full spec in `references/design.md`.
 
 ## Ten invariants
 
-1. Page background `#FAF8F4` (paper), never pure white
-2. Decorative seal only (`--seal-color`); functional hierarchy uses ink tones (`--ink-*`)
-3. All grays **warm-toned** (yellow-brown undertone), no cool blue-gray
-4. One serif font per page (headings + body). `--sans` is a CSS alias for the same family; introduce a real sans only for genuinely UI-style chrome
+1. Page background `#FAF9F5` (paper), never pure white or cold blue-white
+2. 文字用墨，功能用石，装饰用印 — text: ink tones (`--ink-*`); function: minerals; decoration: cinnabar seal
+3. Neutrals warm-toned (yellow-brown undertone), no cool gray; mineral colors are the only chromatic exception (function only)
+4. One serif per page (headings + body); `--sans` = `var(--serif)`; real sans only for genuinely UI-style chrome
 5. Serif weight locked at 500, no bold
 6. Line-height: headlines 1.1-1.3 / dense 1.4-1.45 / reading 1.5-1.55
-7. Letter-spacing: Chinese body with TsangerJinKai 0.1-0.2pt (dense layouts may push to 0.3pt); English body 0; small labels and all-caps overlines get +0.2-1pt
+7. Letter-spacing: Chinese body with TsangerJinKai 0.1-0.2pt (dense ≤0.3pt); English body 0; small labels / all-caps overlines +0.2-1pt
 8. Tag backgrounds solid hex, no rgba (WeasyPrint double-rectangle bug)
 9. Depth via ring / whisper shadow, no hard drop shadows
 10. No italic in templates or demos
 
 ## Sources and Materials
 
-
-| Trigger                                                   | Do first                                                            |
-| --------------------------------------------------------- | ------------------------------------------------------------------- |
-| Latest product / version / launch / funding / market data | Check reliable sources first                                        |
-| Company / product / project branded doc                   | Confirm logo, product image, or UI screenshot                       |
-| Key number or result                                      | Record the source; if unverifiable, write magnitude or mark missing |
-| Missing material                                          | Mark the gap or ask the user; do not use unrelated imagery          |
-
+| Trigger | Do first |
+| --- | --- |
+| Latest product / version / launch / funding / market data | Check reliable sources first |
+| Company / product / project branded doc | Confirm logo, product image, or UI screenshot |
+| Key number or result | Record the source; if unverifiable, write magnitude or mark missing |
+| Missing material | Mark the gap or ask the user; do not use unrelated imagery |
 
 ## Color
 
+| Token | Value | Use |
+| --- | --- | --- |
+| `--paper` | `#FAF9F5` | Page background (jade-white xuan paper, R−B=+5 warm base) |
+| `--paper-card` | `rgba(249,248,243,0.75)` | Card / lifted container · code block · chart · status bar |
+| `--ink-deep` | `#2B1E14` | Primary text · headings · code keyword |
+| `--ink-mid` | `#5E4E3F` | Body · secondary text · table headers |
+| `--ink-light` | `#9B8B7A` | Subtext · metadata · nav default · placeholder |
+| `--border-ink` | `#C5B9A5` | Borders · dividers · horizontal strokes |
+| `--cinnabar` | `#B33A3A` | **Signature**: seal + danger (≤1% surface; logo 22×22, footer 18×18, error bar) — only strong color |
+| `--azurite` | `#2B5C8A` | Links · nav · selection · chart series 1 (≤2 per screen) |
+| `--malachite` | `#3E8E7E` | Success (3.5:1 — large/UI only, never small text) |
+| `--ochre` | `#A96A2E` | Warning · quote-line (never text) |
+| `--gamboge` | `#D9A620` | Charts only (1.98:1 — never text) |
+| `--select-bg` | `rgba(43,92,138,0.08)` | Selection (`::selection`) fill |
+| `--azurite-line` | `rgba(43,92,138,0.30)` | Link underline (default) |
 
-| Role         | Hex           | Use                                                 |
-| ------------ | ------------- | --------------------------------------------------- |
-| Parchment    | `#FAF8F4`     | Page background                                     |
-| Ivory        | `#faf9f5`     | Card / lifted container                             |
-| Warm Sand    | `#e8e6dc`     | Button / interactive surface                        |
-| Dark Surface | `#30302e`     | Dark container                                      |
-| Deep Dark    | `#141413`     | Dark page background                                |
-| **Seal**     | `**#B33A3A`** | **Decorative stamp only (≤ 1% of surface, 24×24px max)** |
-| Ink Light    | `#2D5A8A`     | Links on dark surfaces                              |
-| Near Black   | `#141413`     | Primary text                                        |
-| Dark Warm    | `#3d3d3a`     | Secondary text · table headers · links              |
-| Olive        | `#504e49`     | Subtext · descriptions                              |
-| Stone        | `#6b6a64`     | Tertiary · metadata                                 |
-| Border       | `#e8e6dc`     | Primary border · section divider                    |
-| Border Soft  | `#e5e3d8`     | Secondary border · row separator                    |
-
-
-**rgba -> solid** (paper base):
-
-
-| Alpha    | Solid                       |
-| -------- | --------------------------- |
-| 0.08     | `rgba(245,240,230,0.7)`                   |
-| 0.14     | `rgba(245,240,230,0.7)`                   |
-| **0.18** | `**rgba(245,240,230,0.7)`** ← default tag |
-| 0.22     | `#D0DCE9`                   |
-| 0.30     | `#D6E1EE`                   |
-
+**Discipline (十戒)**: ink ≥85% of page · azurite ≤2 per screen · cinnabar ≤1% · gamboge never text · ≤3 colors per view. Text never takes mineral color; one mineral per job (一色一职).
 
 ## Type (print pt)
 
+| Role | Size | Weight | Line-height |
+| --- | --- | --- | --- |
+| Display | 36 | 500 | 1.10 |
+| H1 | 22 | 500 | 1.20 |
+| H2 | 16 | 500 | 1.25 |
+| H3 | 13 | 500 | 1.30 |
+| Body Lead | 11 | 400 | 1.55 |
+| Body | 10 | 400 | 1.55 |
+| Body Dense | 9.2 | 400 | 1.42 |
+| Caption | 9 | 400 | 1.45 |
+| Label | 9 | 600 | 1.35 |
+| Tiny | 9 | 400 | 1.40 |
 
-| Role       | Size | Weight | Line-height |
-| ---------- | ---- | ------ | ----------- |
-| Display    | 36   | 500    | 1.10        |
-| H1         | 22   | 500    | 1.20        |
-| H2         | 16   | 500    | 1.25        |
-| H3         | 13   | 500    | 1.30        |
-| Body Lead  | 11   | 400    | 1.55        |
-| Body       | 10   | 400    | 1.55        |
-| Body Dense | 9.2  | 400    | 1.42        |
-| Caption    | 9    | 400    | 1.45        |
-| Label      | 9    | 600    | 1.35        |
-| Tiny       | 9    | 400    | 1.40        |
-
-
-Screen (px) ≈ pt × 1.33.
-Minimum floor: web text >= 12px, PDF text >= 9pt.
+Screen (px) ≈ pt × 1.33. Floor: web ≥12px, PDF ≥9pt.
 
 ## Font stacks
 
-Each language uses a single serif for the entire page. `--sans` always equals `var(--serif)`.
+One serif per language for the entire page; `--sans` always equals `var(--serif)`.
 
 English:
 
 ```css
---serif: Charter, Georgia, Palatino,
-         "Times New Roman", serif;
+--serif: Charter, Georgia, Palatino, "Times New Roman", serif;
 --sans:  var(--serif);
---mono:  "JetBrains Mono", "SF Mono", "Fira Code",
-         Consolas, Monaco, monospace;
+--mono:  "JetBrains Mono", "SF Mono", "Fira Code", Consolas, Monaco, monospace;
 ```
 
 Chinese:
 
 ```css
---serif: "TsangerJinKai02", "Source Han Serif SC",
-         "Noto Serif CJK SC", "Songti SC", "STSong",
-         Georgia, serif;
+--serif: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", Georgia, serif;
 --sans:  var(--serif);
---mono:  "JetBrains Mono", "SF Mono", Consolas,
-         "TsangerJinKai02", "Source Han Serif SC",
-         monospace;
+--mono:  "JetBrains Mono", "SF Mono", Consolas, "TsangerJinKai02", "Source Han Serif SC", monospace;
 ```
 
-Any font-family that may render Chinese must include a CJK fallback, including `@page` footer text, `pre`, `code`, and SVG labels. A pure mono stack can render missing glyph boxes in WeasyPrint.
+Any font-family that may render Chinese needs a CJK fallback — `@page` footer, `pre`, `code`, SVG labels included; a pure mono stack renders missing-glyph boxes in WeasyPrint.
 
 ## Spacing (4pt base)
 
-
-| Tier | Value    | Use                    |
-| ---- | -------- | ---------------------- |
-| xs   | 2-3pt    | Inline                 |
-| sm   | 4-5pt    | Tag padding            |
-| md   | 8-10pt   | Component interior     |
-| lg   | 16-20pt  | Between components     |
-| xl   | 24-32pt  | Section-title margin   |
-| 2xl  | 40-60pt  | Between major sections |
-| 3xl  | 80-120pt | Between chapters       |
-
+| Tier | Value | Use |
+| --- | --- | --- |
+| xs | 2-3pt | Inline |
+| sm | 4-5pt | Tag padding |
+| md | 8-10pt | Component interior |
+| lg | 16-20pt | Between components |
+| xl | 24-32pt | Section-title margin |
+| 2xl | 40-60pt | Between major sections |
+| 3xl | 80-120pt | Between chapters |
 
 **Page margins (A4)**
 
-
-| Document      | T · R · B · L        |
-| ------------- | -------------------- |
-| Resume        | 11 · 13 · 11 · 13 mm |
-| One-Pager     | 15 · 18 · 15 · 18 mm |
-| Long Doc      | 20 · 22 · 22 · 22 mm |
-| Letter        | 25 mm all sides      |
-| Portfolio     | 12 · 15 · 12 · 15 mm |
+| Document | T · R · B · L |
+| --- | --- |
+| Resume | 11 · 13 · 11 · 13 mm |
+| One-Pager | 15 · 18 · 15 · 18 mm |
+| Long Doc | 20 · 22 · 22 · 22 mm |
+| Letter | 25 mm all sides |
+| Portfolio | 12 · 15 · 12 · 15 mm |
 | Equity Report | 16 · 18 · 18 · 18 mm |
-| Changelog     | 20 · 22 · 22 · 22 mm |
+| Changelog | 20 · 22 · 22 · 22 mm |
 
-
-## Radius scale
-
-`4pt -> 6pt -> 8pt (default) -> 12pt -> 16pt -> 24pt -> 32pt (hero)`
+**Radius**: `4pt → 6pt → 8pt (default) → 12pt → 16pt → 24pt → 32pt (hero)`
 
 ## Common CSS snippets
 
 ### Card
 
 ```css
-.card {
-  background: var(--ivory);
-  border: 0.5pt solid var(--border-cream);
-  border-radius: 8pt;
-  padding: 16pt 20pt;
-  transition: box-shadow 0.2s;
-}
-.card:hover {
-  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);  /* whisper shadow */
-}
+.card { background: var(--paper-card); border: 0.5pt solid var(--border-ink); border-radius: 8pt; padding: 16pt 20pt; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4pt 24pt rgba(0,0,0,0.05); }  /* whisper shadow */
 ```
 
-### Tag (default lightest solid)
+### Tag (lightest solid)
 
 ```css
-.tag {
-  background: rgba(245,240,230,0.7);            /* 0.08 equivalent */
-  color: var(--ink-deep);
-  font-size: 9pt; font-weight: 500;
-  padding: 1pt 5pt;
-  border-radius: 2pt;
-  letter-spacing: 0.4pt;
-  text-transform: uppercase;
-}
+.tag { background: var(--tag-bg);  /* solid, never rgba (WeasyPrint double-rectangle bug) */
+  color: var(--ink-deep); font-size: 9pt; font-weight: 500;
+  padding: 1pt 5pt; border-radius: 2pt;
+  letter-spacing: 0.4pt; text-transform: uppercase; }
 ```
 
 ### Section title (left accent bar)
 
 ```css
-.section-title {
-  font-family: var(--serif);
-  font-size: 14pt; font-weight: 500;
-  color: var(--ink-deep);
-  margin: 24pt 0 10pt 0;
-  border-left: 2.5pt solid var(--ink-deep);
-  border-radius: 1.5pt;
-  padding-left: 8pt;
-}
+.section-title { font-family: var(--serif); font-size: 14pt; font-weight: 500; color: var(--ink-deep);
+  margin: 24pt 0 10pt 0; border-left: 2.5pt solid var(--ink-deep);
+  border-radius: 1.5pt; padding-left: 8pt; }
 ```
 
 ### Table (inkpaper-table)
@@ -188,25 +140,18 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 Base class works on bare `<table>` or `.inkpaper-table`. Add variant classes for density/alignment:
 
 ```css
-/* Base */
-table, .inkpaper-table {
-  width: 100%; border-collapse: collapse;
-  font-size: 9.5pt; margin: 12pt 0; break-inside: avoid;
-}
+table, .inkpaper-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 12pt 0; break-inside: avoid; }
 table th { text-align: left; font-weight: 500; color: var(--ink-mid);
-  padding: 6pt 8pt; border-bottom: 1pt solid var(--border); }
-table td { padding: 5pt 8pt; border-bottom: 0.3pt solid var(--border-soft);
-  vertical-align: top; }
+  padding: 6pt 8pt; border-bottom: 1pt solid var(--border-ink); }
+table td { padding: 5pt 8pt; border-bottom: 0.3pt solid var(--border-ink); vertical-align: top; }
 ```
 
-
-| Variant   | Class              | Effect                                               |
-| --------- | ------------------ | ---------------------------------------------------- |
-| Compact   | `.compact`         | 8pt font, tight padding (data-dense tables)          |
-| Financial | `.financial`       | Right-align all columns except first, `tabular-nums` |
-| Striped   | `.striped`         | Alternating `var(--ivory)` row background            |
-| Total row | `.total` on `<tr>` | Bold, brand top border, no bottom border             |
-
+| Variant | Class | Effect |
+| --- | --- | --- |
+| Compact | `.compact` | 8pt font, tight padding (data-dense tables) |
+| Financial | `.financial` | Right-align all columns except first, `tabular-nums` |
+| Striped | `.striped` | Alternating `var(--paper-card)` row background |
+| Total row | `.total` on `<tr>` | Bold, brand top border, no bottom border |
 
 Combine freely: `<table class="inkpaper-table financial striped">`.
 
@@ -214,62 +159,48 @@ Combine freely: `<table class="inkpaper-table financial striped">`.
 
 ```css
 .metric { display: flex; align-items: baseline; gap: 6pt; }
-.metric-value {
-  font-family: var(--serif); font-size: 16pt; font-weight: 500;
-  color: var(--ink-deep);
-  font-variant-numeric: tabular-nums;
-}
+.metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--ink-deep); font-variant-numeric: tabular-nums; }
 .metric-label { font-size: 9pt; color: var(--ink-light); }
 ```
 
 ### Quote
 
 ```css
-.quote {
-  border-left: 2pt solid var(--ink-light);
-  padding: 4pt 0 4pt 14pt;
-  color: var(--ink-light);
-  line-height: 1.55;
-}
+.quote { border-left: 2pt solid var(--ochre); padding: 4pt 0 4pt 14pt; color: var(--ink-light); line-height: 1.55; }
 ```
 
 ## Diagram components
 
-Fourteen built-in diagram types. Extract the `<svg>` block and embed in a `<figure>` in long-doc / portfolio:
+Fourteen built-in diagram types — extract the `<svg>` block into a `<figure>` in long-doc / portfolio:
 
+| Type | File | Use |
+| --- | --- | --- |
+| Architecture | `assets/diagrams/architecture.html` | Components + connections |
+| Flowchart | `assets/diagrams/flowchart.html` | Decision branches / flows |
+| Quadrant | `assets/diagrams/quadrant.html` | 2×2 positioning |
+| Bar Chart | `assets/diagrams/bar-chart.html` | Comparison (≤8 groups × 3 series) |
+| Line Chart | `assets/diagrams/line-chart.html` | Trends (≤12 points × 3 lines) |
+| Donut Chart | `assets/diagrams/donut-chart.html` | Breakdown (≤6 segments) |
+| State Machine | `assets/diagrams/state-machine.html` | States + transitions |
+| Timeline | `assets/diagrams/timeline.html` | Time axis + milestones |
+| Swimlane | `assets/diagrams/swimlane.html` | Cross-team process flow |
+| Tree | `assets/diagrams/tree.html` | Hierarchies |
+| Layer Stack | `assets/diagrams/layer-stack.html` | Stacked system layers |
+| Venn | `assets/diagrams/venn.html` | Set intersections |
+| Candlestick | `assets/diagrams/candlestick.html` | OHLC history (≤30 days) |
+| Waterfall | `assets/diagrams/waterfall.html` | Revenue bridge / decomposition |
 
-| Type          | File                                 | Use                                             |
-| ------------- | ------------------------------------ | ----------------------------------------------- |
-| Architecture  | `assets/diagrams/architecture.html`  | System components and connections               |
-| Flowchart     | `assets/diagrams/flowchart.html`     | Decision branches and flows                     |
-| Quadrant      | `assets/diagrams/quadrant.html`      | 2×2 positioning                                 |
-| Bar Chart     | `assets/diagrams/bar-chart.html`     | Category comparison (up to 8 groups × 3 series) |
-| Line Chart    | `assets/diagrams/line-chart.html`    | Trends over time (up to 12 points × 3 lines)    |
-| Donut Chart   | `assets/diagrams/donut-chart.html`   | Proportional breakdown (up to 6 segments)       |
-| State Machine | `assets/diagrams/state-machine.html` | Finite states + directed transitions            |
-| Timeline      | `assets/diagrams/timeline.html`      | Time axis + milestone events                    |
-| Swimlane      | `assets/diagrams/swimlane.html`      | Cross-responsibility process flow               |
-| Tree          | `assets/diagrams/tree.html`          | Hierarchical relationships                      |
-| Layer Stack   | `assets/diagrams/layer-stack.html`   | Vertically stacked system layers                |
-| Venn          | `assets/diagrams/venn.html`          | Set intersections and overlaps                  |
-| Candlestick   | `assets/diagrams/candlestick.html`   | OHLC price history (up to 30 days)              |
-| Waterfall     | `assets/diagrams/waterfall.html`     | Revenue bridge / decomposition                  |
+**Data chart colors** (only place all five minerals appear): series 1-5 = azurite `#2B5C8A` · malachite `#3E8E7E` · cinnabar `#B33A3A` · ochre `#A96A2E` · gamboge `#D9A620`; container `--paper-card` + `--border-ink`; labels/values always ink.
 
-
-Usage: extract the `<svg>` block from the HTML file and paste into the template's `<figure>` container.
-
-**Data chart colors**: primary series `#2B1E14` · secondary `#504e49` → `#6b6a64` → `#b8b7b0` → `#d4d3cd` → `rgba(245,240,230,0.7)`.
-
-**Editing data**: only modify elements between `<!-- DATA START -->` / `<!-- DATA END -->`, leave CSS untouched. All coordinates must be divisible by 4.
+**Editing**: touch only elements between `<!-- DATA START -->` / `<!-- DATA END -->`, leave CSS untouched; all coordinates divisible by 4.
 
 ## Dark section
 
 Alternate light/dark rhythm: add `.sd-alt` to any section container.
 
-- Background switches to `--deep-dark` (`#141413`)
-- Body text switches to `--warm-silver` (`#b0aea5`)
-- Headings switch to `--ivory`
-- Appropriate for: section-level light/dark alternation in long-doc / portfolio
+- Background `--paper` `#22262E` (黛青夜空) · headings `--ink-deep` `#ECE4D5` · body `--ink-mid` `#B9AD97` · subtext `--ink-light` `#7A6E5F`
+- Card `rgba(38,43,54,0.8)` · border `rgba(255,255,255,0.08)` · select-bg `rgba(111,163,201,0.14)` · azurite-line `rgba(111,163,201,0.42)`
+- Minerals brightened one step: azurite `#6FA3C9` · malachite `#63B5A4` · cinnabar `#D87070` · ochre `#C98A4B` · gamboge `#E0B64C` — all ≥4.8:1 (AA)
 - Restriction: showcase pages only, never in print templates
 
 ## Verification checks
@@ -286,27 +217,25 @@ Source templates intentionally keep `{{...}}` fields. Run `python3 scripts/build
 
 ## Content quality (one rule per type)
 
-Full quality bars in `references/writing.md`. The single most important rule for each document type:
+Most important rule per type (full bars in `references/writing.md`):
 
-
-| Document      | Core quality rule                                                                    |
-| ------------- | ------------------------------------------------------------------------------------ |
-| Resume        | Every bullet: Action + Scope + Measurable Result + Business Outcome                  |
-| Portfolio     | Open with the problem and stakes, not the project name                               |
-| Slides        | Slide titles are full sentences (assertions), not topic labels                       |
-| Equity Report | Lead with variant perception: what you see that the market doesn't                   |
-| Long Document | Each chapter claim paragraph must survive the "so what?" test                        |
-| One-Pager     | Metrics are the headline; if the 4 cards don't tell the story, the metrics are wrong |
-| Letter        | First paragraph states purpose in one sentence                                       |
-| Changelog     | One sentence per change, verb-led, user-facing language                              |
-
+| Document | Core quality rule |
+| --- | --- |
+| Resume | Every bullet: Action + Scope + Measurable Result + Business Outcome |
+| Portfolio | Open with the problem and stakes, not the project name |
+| Slides | Slide titles are full sentences (assertions), not topic labels |
+| Equity Report | Lead with variant perception: what you see that the market doesn't |
+| Long Document | Each chapter claim paragraph must survive the "so what?" test |
+| One-Pager | Metrics are the headline; if the 4 cards don't tell the story, the metrics are wrong |
+| Letter | First paragraph states purpose in one sentence |
+| Changelog | One sentence per change, verb-led, user-facing language |
 
 ## Per-page font size strategy (Resume two-page)
 
-Page 1 carries the projects section, which is the densest content. Page 2 carries open source, convictions, impact, skills, and education, which has more breathing room.
+Page 1 carries projects (densest); page 2 carries open source, convictions, impact, skills, education (more room).
 
 | Location | Class | Default | Dense (5 projects) |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Project body | `.proj-text` | 9pt / lh 1.40 | 9pt / lh 1.38 |
 | Timeline body | `.tl-body` | 9pt / lh 1.40 | 8.5pt (CN) |
 | Summary | `.summary` | 9.2pt | 9pt via body |
@@ -324,30 +253,27 @@ Page 1 carries the projects section, which is the densest content. Page 2 carrie
 </body>
 ```
 
-Page 2 font sizes stay at template defaults. The density variant only tightens page 1 elements. If page 2 has unusually long content, reduce `.os-intro`, `.conv-body`, or `.skill-body` individually, never globally.
+Page 2 stays at template defaults; density tightens page 1 only. Long page 2 → shrink `.os-intro`, `.conv-body`, or `.skill-body` individually, never globally.
 
 ## Quick decisions
 
+| Need | Use |
+| --- | --- |
+| Headline | serif 500, line-height 1.10-1.30 |
+| Reading body (EN/CN) | serif 400, 9.5-10pt, 1.55 |
+| Emphasize a number | `color: var(--ink-deep)`, no bold |
+| Divide two sections | 2.5pt ink-deep left bar, or 0.5pt warm dotted |
+| Quote | 2pt ochre left border + ink-light text |
+| Code | paper-card bg + 0.5pt border-ink + 6pt radius + mono |
+| Primary button | select-bg fill + ink-deep text + border-ink ring |
+| Secondary button | select-bg + ink-mid |
+| Chapter start | serif heading + 2.5pt ink-deep left bar |
+| Cover | Display heading + right-aligned author/date + heavy whitespace |
+| Figure SVG | `width: 100%; height: auto; max-height: <safe>` — never `max-height` alone (#17) |
+| Metric labels (4-col) | Soft cap 14-18 chars at 9pt Charter; trim, don't wrap (#18) |
+| Multi-column body | Lengths within ±10 chars across parallel columns (#19) |
+| Image references | Only `assets/demos/images/` or `assets/illustrations/`; never `../../sibling-project/...` (#20) |
+| Metric row layout | Vertical stack (`flex-direction: column`); baseline-align breaks when labels wrap (#21) |
+| Slide bullets | `1. 2. 3.` or `•`; en-dash reads informal at slide scale (#22); print docs keep en-dash |
 
-| Need                | Use                                                            |
-| ------------------- | -------------------------------------------------------------- |
-| Headline            | serif 500, line-height 1.10-1.30                               |
-| Reading body (EN)   | serif 400, 9.5-10pt, 1.55                                      |
-| Reading body (CN)   | sans 400, 9.5-10pt, 1.55                                       |
-| Emphasize a number  | `color: var(--ink-deep)`, no bold                                 |
-| Divide two sections | 2.5pt ink-deep left bar, or 0.5pt warm dotted                     |
-| Quote               | 2pt ink-light left border + olive color                            |
-| Code                | ivory bg + 0.5pt border + 6pt radius + mono                    |
-| Primary button      | select-bg fill + ink-deep text + border-ink ring                  |
-| Secondary button    | select-bg + ink-mid                                              |
-| Chapter start       | serif heading + 2.5pt ink-deep left bar                           |
-| Cover               | Display heading + right-aligned author/date + heavy whitespace |
-| Figure SVG          | `width: 100%; height: auto; max-height: <safe>`. Never `max-height` alone (starves width on wide viewBoxes; production.md #17). |
-| Metric labels (4-col) | Soft cap 14-18 chars at 9pt Charter; trim context, don't wrap (production.md #18). |
-| Multi-column body   | Hold lengths within ±10 chars across parallel columns (production.md #19). |
-| Image references    | Always inside `assets/demos/images/` or `assets/illustrations/`; never `../../sibling-project/...` (production.md #20). |
-| Metric row layout   | Vertical stack (`flex-direction: column`); horizontal baseline-align breaks when any label wraps (production.md #21). |
-| Slide bullets       | Numerals `1. 2. 3.` or `•`; en-dash `–` reads informal at slide scale (production.md #22). Print docs keep en-dash. |
-
-
-Not on the table -> first principles: **serif carries authority, sans carries utility, warm gray carries rhythm, ink carries hierarchy, seal carries decoration**.
+Not on the table → first principles: **serif carries authority, sans carries utility, warm gray carries rhythm, ink carries hierarchy, mineral carries function, seal carries signature**.

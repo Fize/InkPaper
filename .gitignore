@@ -27,3 +27,4 @@ AGENTS.override.md
 
 # Slides build artifact (moved into assets/examples/ by build.py)
 /output.pptx
+.soloqueue

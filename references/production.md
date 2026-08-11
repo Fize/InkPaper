@@ -81,7 +81,7 @@ Remove the `../fonts/` prefix that templates use when fonts are in the project t
 @page {
   size: A4;                     /* or 210mm 297mm / A4 landscape / 13in 10in */
   margin: 20mm 22mm;
-  background: #F8F4EB;          /* extend past margins to avoid white printed edge */
+  background: #FAF9F5;          /* extend past margins to avoid white printed edge */
 }
 ```
 
@@ -91,11 +91,11 @@ Remove the `../fonts/` prefix that templates use when fonts are in the project t
 @page {
   @top-right {
     content: counter(page);
-    font-family: serif; font-size: 9pt; color: #6b6a64;
+    font-family: serif; font-size: 9pt; color: #5E4E3F;
   }
   @bottom-center {
     content: "{{DOC_NAME}} · {{AUTHOR}}";
-    font-size: 9pt; color: #6b6a64;
+    font-size: 9pt; color: #5E4E3F;
   }
 }
 
@@ -241,7 +241,7 @@ def blank_slide():
 
 1. **One idea per slide** - if it runs over three lines, split it
 2. **No default PowerPoint template** - it's cool-blue-gray, clashes with paper
-3. **Animations**: don't. Parchment is a print aesthetic, not a SaaS demo. At most `fade`
+3. **Animations**: don't. Xuan-paper restraint is a print aesthetic, not a SaaS demo. At most `fade`
 4. **Export to PDF** for sharing - cross-machine consistency is better than .pptx
  - macOS: Keynote -> Export to PDF
  - Linux: `libreoffice --headless --convert-to pdf output.pptx`
@@ -356,28 +356,28 @@ Severity scale: **(P0)** render-breaking, must fix before delivery. **(P1)** bre
 
 ```css
 /* avoid */ .tag { background: rgba(201, 100, 66, 0.18); }
-/* use   */ .tag { background: rgba(245,240,230,0.7); }
+/* use   */ .tag { background: rgba(249,248,243,0.75); }
 ```
 
-**rgba -> solid conversion** (paper `#F8F4EB` base + seal `#B33A3A`):
+**rgba -> solid conversion** (paper `#FAF9F5` base + seal `#B33A3A`):
 
 | rgba alpha | Solid hex |
 |---|---|
-| 0.08 | `rgba(245,240,230,0.7)` |
-| 0.14 | `rgba(245,240,230,0.7)` |
-| **0.18** | **`rgba(245,240,230,0.7)`** ← default |
-| 0.22 | `#D0DCE9` |
-| 0.30 | `#D6E1EE` |
+| 0.08 | `rgba(249,248,243,0.75)` |
+| 0.14 | `rgba(249,248,243,0.75)` |
+| **0.18** | **`rgba(249,248,243,0.75)`** ← default |
+| 0.22 | `rgba(43,92,138,0.18)` |
+| 0.30 | `rgba(43,92,138,0.12)` |
 
 Formula: `solid_channel = base + (foreground - base) × alpha`. Different base colors (e.g. ivory) need re-computing.
 
 **Want "breathing" texture?** Use `linear-gradient` - the whole tag rasterizes as one bitmap, no alpha compositing:
 
 ```css
-.tag { background: linear-gradient(to right, #D6E1EE, rgba(245,240,230,0.7) 70%, rgba(245,240,230,0.7)); }
+.tag { background: linear-gradient(to right, rgba(43,92,138,0.12), rgba(249,248,243,0.75) 70%, rgba(249,248,243,0.75)); }
 ```
 
-**Aesthetic warning**: gradients work engineering-wise but usually oversell the tag. Priority order: lightest solid (`rgba(245,240,230,0.7)`) > standard solid (`rgba(245,240,230,0.7)`) > gradient (rarely). If the reader's eye lands on the tag background shape before the text inside - you went too far.
+**Aesthetic warning**: gradients work engineering-wise but usually oversell the tag. Priority order: lightest solid (`rgba(249,248,243,0.75)`) > standard solid (`rgba(249,248,243,0.75)`) > gradient (rarely). If the reader's eye lands on the tag background shape before the text inside - you went too far.
 
 ### 2. (P0) Thin border + radius = double circle
 
@@ -542,7 +542,7 @@ Healthy ratio: one emphasis per 80-150 words.
 ```css
 @page {
   size: A4; margin: 20mm;
-  background: #F8F4EB;    /* extends past margins */
+  background: #FAF9F5;    /* extends past margins */
 }
 ```
 
@@ -582,8 +582,8 @@ pdftoppm -png -r 300 out.pdf inspect    # when in doubt
 <path d="M 440 52 Q 568 52 568 244" marker-end="url(#a)"/>
 
 <!-- Good: manual chevron, direction per endpoint -->
-<path d="M 440 52 Q 568 52 568 244" fill="none" stroke="#504e49" stroke-width="1.5"/>
-<path d="M 560 236 L 568 244 L 576 236" fill="none" stroke="#504e49" stroke-width="1.5"
+<path d="M 440 52 Q 568 52 568 244" fill="none" stroke="#5E4E3F" stroke-width="1.5"/>
+<path d="M 560 236 L 568 244 L 576 236" fill="none" stroke="#5E4E3F" stroke-width="1.5"
       stroke-linecap="round" stroke-linejoin="round"/>
 ```
 

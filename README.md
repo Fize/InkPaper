@@ -8,29 +8,24 @@
 
 > InkPaper 源自 [kami](https://github.com/tw93/Kami) 项目，在原作基础上重构演进而来。
 
-## See it
-
-<div align="center">
-  <a href="assets/demos/demo-v2.html"><img src="assets/demos/demo-v2.png" alt="InkPaper v2.0 demo" width="80%"></a>
-  <br><sub>素宣墨韵 · 以墨为魂，朱砂仅为印痕</sub>
-</div>
-
 ## Design
 
-Warm paper canvas, ink-toned functional hierarchy (five ink gradations), decorative cinnabar seal only, serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
+Jade-white xuan paper canvas (#FAF9F5), ink-skeleton typographic hierarchy, mineral-pigment functional colors (azurite links, ochre quotes, cinnabar seal/danger), serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.
 
 Eight document types (One-Pager, Long Doc, Letter, Portfolio, Resume, Slides, Equity Report, Changelog) with dedicated EN/CN templates. Fourteen inline SVG diagram types included. InkPaper picks the right variant based on the language you write in.
 
-| Element     | Rule                                                                            |
-| ----------- | ------------------------------------------------------------------------------- |
-| Canvas      | `#FAF8F4` paper, never pure white                                               |
-| Hierarchy   | Five ink tones (`--ink-deep/mid/light/border`), no red in functional roles       |
-| Seal        | `#B33A3A` decorative stamp only (22×22px max), never for interaction             |
-| Neutrals    | All warm-toned (yellow-brown undertone), no cool blue-grays                     |
-| Serif       | Body 400, headings 500. Avoid synthetic bold                                    |
-| Line-height | Tight titles 1.1-1.3, dense body 1.4-1.45, reading body 1.5-1.55                |
-| Shadows     | Ring or whisper only, no hard drop shadows                                      |
-| Tags        | Solid hex backgrounds only. `rgba()` triggers a WeasyPrint double-rectangle bug |
+| Element      | Rule                                                                            |
+| ------------ | ------------------------------------------------------------------------------- |
+| Canvas       | `#FAF9F5` jade-white xuan paper, never pure white                               |
+| Hierarchy    | Five ink tones for text (`--ink-deep/mid/light/border`), mineral pigments for function |
+| Links        | `#2B5C8A` azurite                                                               |
+| Quote        | `#A96A2E` ochre quote-line                                                      |
+| Seal/Danger  | `#B33A3A` cinnabar: decorative seal + danger                                    |
+| Neutrals     | All warm-toned (yellow-brown undertone), no cool blue-grays                     |
+| Serif        | Body 400, headings 500. Avoid synthetic bold                                    |
+| Line-height  | Tight titles 1.1-1.3, dense body 1.4-1.45, reading body 1.5-1.55                |
+| Shadows      | Ring or whisper only, no hard drop shadows                                      |
+| Tags         | Solid hex backgrounds only. `rgba()` triggers a WeasyPrint double-rectangle bug |
 
 **Fonts**: Each language uses a single serif font for the entire page. Chinese: TsangerJinKai02. English: Charter. TsangerJinKai is free for personal use, commercial use requires a license from [tsanger.cn](https://tsanger.cn). All other fonts are system-bundled.
 

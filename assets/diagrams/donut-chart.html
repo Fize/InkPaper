@@ -22,12 +22,13 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:    #FAF8F4;
-    --paper-card:        rgba(245,240,230,0.7);
+    --paper:    #FAF9F5;
+    --paper-card:        rgba(249,248,243,0.75);
     --ink-deep:   #2B1E14;
     --ink-light:        #9B8B7A;
     --ink-light:        #9B8B7A;
     --seal-color: #B33A3A;
+    --azurite: #2B5C8A; --malachite: #3E8E7E; --cinnabar: #B33A3A; --ochre: #A96A2E; --gamboge: #D9A620;
     --border-ink:       #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -87,19 +88,19 @@
          viewBox: 0 0 680 420
          Donut center: cx=300 cy=200  R=136 (outer)  r=76 (inner)
          6 segments, clockwise from top (-90°):
-           S1: 32%  -90° to  25.2°  fill=#2B1E14  (focal/largest)
-           S2: 24%  25.2° to 111.6° fill=#9B8B7A
-           S3: 18% 111.6° to 176.4° fill=#9B8B7A
-           S4: 12% 176.4° to 219.6° fill=#b8b7b0
-           S5:  8% 219.6° to 248.4° fill=#d4d3cd
-           S6:  6% 248.4° to 270°   fill=rgba(245,240,230,0.7) stroke=#e8e7e1
+           S1: 32%  -90° to  25.2°  fill=#2B5C8A  (focal/largest · azurite)
+           S2: 24%  25.2° to 111.6° fill=#3E8E7E  (malachite)
+           S3: 18% 111.6° to 176.4° fill=#B33A3A  (cinnabar)
+           S4: 12% 176.4° to 219.6° fill=#A96A2E  (ochre)
+           S5:  8% 219.6° to 248.4° fill=#D9A620  (gamboge)
+           S6:  6% 248.4° to 270°   fill=#2B5C8A  (azurite · cycle) stroke=#FAF9F5
          Center text: primary label + secondary label at (300,200)
          Legend: x=476 from y=144 to y=296 step=24
          ============================================================ -->
     <svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
 
       <!-- Canvas -->
-      <rect width="100%" height="100%" fill="#FAF8F4"/>
+      <rect width="100%" height="100%" fill="#FAF9F5"/>
 
       <!-- ==================================================
            DONUT SEGMENTS · replace between DATA START / DATA END
@@ -108,34 +109,34 @@
 
       <!-- S1: 32% · -90° to 25.2° · span 115.2° · large-arc=0 -->
       <path d="M 300 64 A 136 136 0 0 1 423.1 257.9 L 368.8 232.4 A 76 76 0 0 0 300 124 Z"
-            fill="#2B1E14"/>
+            fill="#2B5C8A"/>
 
       <!-- S2: 24% · 25.2° to 111.6° · span 86.4° · large-arc=0 -->
       <path d="M 423.1 257.9 A 136 136 0 0 1 249.1 326.1 L 271.5 270.5 A 76 76 0 0 0 368.8 232.4 Z"
-            fill="#9B8B7A"/>
+            fill="#3E8E7E"/>
 
       <!-- S3: 18% · 111.6° to 176.4° · span 64.8° · large-arc=0 -->
       <path d="M 249.1 326.1 A 136 136 0 0 1 164.3 208.6 L 224.2 204.8 A 76 76 0 0 0 271.5 270.5 Z"
-            fill="#9B8B7A"/>
+            fill="#B33A3A"/>
 
       <!-- S4: 12% · 176.4° to 219.6° · span 43.2° · large-arc=0 -->
       <path d="M 164.3 208.6 A 136 136 0 0 1 195.2 113.3 L 241.4 151.6 A 76 76 0 0 0 224.2 204.8 Z"
-            fill="#b8b7b0"/>
+            fill="#A96A2E"/>
 
       <!-- S5: 8% · 219.6° to 248.4° · span 28.8° · large-arc=0 -->
       <path d="M 195.2 113.3 A 136 136 0 0 1 249.8 73.6 L 271.9 129.4 A 76 76 0 0 0 241.4 151.6 Z"
-            fill="#d4d3cd"/>
+            fill="#D9A620"/>
 
       <!-- S6: 6% · 248.4° to 270° · span 21.6° · large-arc=0 -->
       <path d="M 249.8 73.6 A 136 136 0 0 1 300 64 L 300 124 A 76 76 0 0 0 271.9 129.4 Z"
-            fill="rgba(245,240,230,0.7)" stroke="#e8e7e1" stroke-width="0.8"/>
+            fill="#2B5C8A" stroke="#FAF9F5" stroke-width="0.8"/>
 
       <!-- Thin separator ring over segment joins (visual polish) -->
-      <circle cx="300" cy="200" r="136" fill="none" stroke="#FAF8F4" stroke-width="1.5"/>
-      <circle cx="300" cy="200" r="76"  fill="none" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="300" cy="200" r="136" fill="none" stroke="#FAF9F5" stroke-width="1.5"/>
+      <circle cx="300" cy="200" r="76"  fill="none" stroke="#FAF9F5" stroke-width="1.5"/>
 
       <!-- Donut hole background -->
-      <circle cx="300" cy="200" r="75" fill="#FAF8F4"/>
+      <circle cx="300" cy="200" r="75" fill="#FAF9F5"/>
 
       <!-- Center label (primary value + secondary text) -->
       <text x="300" y="193" fill="#2B1E14" font-size="26" font-family="inherit" font-weight="500" text-anchor="middle">32%</text>
@@ -144,40 +145,40 @@
       <!-- ================================================== DATA END -->
 
       <!-- Legend (right of donut) -->
-      <line x1="460" y1="120" x2="460" y2="300" stroke="#e8e7e1" stroke-width="0.8"/>
+      <line x1="460" y1="120" x2="460" y2="300" stroke="#FAF9F5" stroke-width="0.8"/>
 
       <!-- S1 -->
-      <rect x="472" y="136" width="12" height="12" fill="#2B1E14" rx="2"/>
+      <rect x="472" y="136" width="12" height="12" fill="#2B5C8A" rx="2"/>
       <text x="492" y="147" fill="#2B1E14" font-size="9.5" font-family="inherit" font-weight="500">32%</text>
       <text x="532" y="147" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category A}}</text>
 
       <!-- S2 -->
-      <rect x="472" y="160" width="12" height="12" fill="#9B8B7A" rx="2"/>
+      <rect x="472" y="160" width="12" height="12" fill="#3E8E7E" rx="2"/>
       <text x="492" y="171" fill="#2B1E14" font-size="9.5" font-family="inherit">24%</text>
       <text x="532" y="171" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category B}}</text>
 
       <!-- S3 -->
-      <rect x="472" y="184" width="12" height="12" fill="#9B8B7A" rx="2"/>
+      <rect x="472" y="184" width="12" height="12" fill="#B33A3A" rx="2"/>
       <text x="492" y="195" fill="#2B1E14" font-size="9.5" font-family="inherit">18%</text>
       <text x="532" y="195" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category C}}</text>
 
       <!-- S4 -->
-      <rect x="472" y="208" width="12" height="12" fill="#b8b7b0" rx="2"/>
+      <rect x="472" y="208" width="12" height="12" fill="#A96A2E" rx="2"/>
       <text x="492" y="219" fill="#2B1E14" font-size="9.5" font-family="inherit">12%</text>
       <text x="532" y="219" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category D}}</text>
 
       <!-- S5 -->
-      <rect x="472" y="232" width="12" height="12" fill="#d4d3cd" rx="2"/>
+      <rect x="472" y="232" width="12" height="12" fill="#D9A620" rx="2"/>
       <text x="492" y="243" fill="#2B1E14" font-size="9.5" font-family="inherit">8%</text>
       <text x="532" y="243" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category E}}</text>
 
       <!-- S6 -->
-      <rect x="472" y="256" width="12" height="12" fill="rgba(245,240,230,0.7)" stroke="#e8e7e1" stroke-width="0.8" rx="2"/>
+      <rect x="472" y="256" width="12" height="12" fill="#2B5C8A" stroke="#FAF9F5" stroke-width="0.8" rx="2"/>
       <text x="492" y="267" fill="#2B1E14" font-size="9.5" font-family="inherit">6%</text>
       <text x="532" y="267" fill="#9B8B7A" font-size="9" font-family="inherit">{{Category F}}</text>
 
       <!-- Bottom rule -->
-      <line x1="60" y1="380" x2="620" y2="380" stroke="#e8e7e1" stroke-width="0.8"/>
+      <line x1="60" y1="380" x2="620" y2="380" stroke="#FAF9F5" stroke-width="0.8"/>
       <text x="60" y="397" fill="#9B8B7A" font-size="9" font-family="'JetBrains Mono', monospace" letter-spacing="0.15em">TOTAL · 100%</text>
       <text x="460" y="397" fill="#9B8B7A" font-size="9" font-family="inherit">{{Source / period}}</text>
 

@@ -12,12 +12,13 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:  #FAF8F4;
-    --paper-card:      rgba(245,240,230,0.7);
+    --paper:  #FAF9F5;
+    --paper-card:      rgba(249,248,243,0.75);
     --ink-deep: #2B1E14;
     --ink-light:      #9B8B7A;
     --ink-light:      #9B8B7A;
     --seal-color: #B33A3A;
+    --azurite: #2B5C8A; --malachite: #3E8E7E; --cinnabar: #B33A3A; --ochre: #A96A2E; --gamboge: #D9A620;
     --border-ink:     #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -75,21 +76,21 @@
     <svg viewBox="0 0 960 460" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="0.9" fill="#E3E2DC"/>
+          <circle cx="1" cy="1" r="0.9" fill="rgba(249,248,243,0.75)"/>
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="#FAF8F4"/>
+      <rect width="100%" height="100%" fill="#FAF9F5"/>
       <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
 
       <!-- ── Venn circles ── -->
       <!-- Circle A (FOCAL): cx=376 cy=208 r=152 -->
       <circle cx="376" cy="208" r="152"
-              fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1.2"/>
+              fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1.2"/>
 
       <!-- Circle B: cx=584 cy=208 r=152 -->
       <circle cx="584" cy="208" r="152"
-              fill="#EAE9E3" stroke="#9B8B7A" stroke-width="1.2"/>
+              fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1.2"/>
 
       <!-- ── Zone labels ── -->
 
@@ -129,14 +130,14 @@
             text-anchor="middle">item · item · item</text>
 
       <!-- ── Legend ── -->
-      <line x1="40" y1="372" x2="920" y2="372" stroke="#DEDED7" stroke-width="0.8"/>
+      <line x1="40" y1="372" x2="920" y2="372" stroke="#FAF9F5" stroke-width="0.8"/>
       <text x="40" y="388" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             letter-spacing="0.22em">LEGEND</text>
 
-      <circle cx="47" cy="406" r="12" fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
+      <circle cx="47" cy="406" r="12" fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1"/>
       <text x="66" y="410" fill="#9B8B7A" font-size="8.5" font-family="inherit">Focal set (A)</text>
 
-      <circle cx="199" cy="406" r="12" fill="#EAE9E3" stroke="#9B8B7A" stroke-width="1"/>
+      <circle cx="199" cy="406" r="12" fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1"/>
       <text x="218" y="410" fill="#9B8B7A" font-size="8.5" font-family="inherit">Secondary set (B)</text>
 
       <text x="375" y="402" fill="#2B1E14" font-size="11" font-family="inherit">Overlap</text>

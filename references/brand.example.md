@@ -22,7 +22,7 @@ country: ""                 # e.g. "USA"
 company: ""                 # Company or project name for headers and footers
 tagline: ""                 # One-liner used in one-pager / long-doc footer
 logo: ""                    # Absolute path to logo file, e.g. "~/Downloads/logo.svg"
-brand_color: ""  # Hex to override --seal-color (decorative stamp only), e.g. "#B33A3A". Functional hierarchy uses ink tones.
+brand_color: ""  # Hex to override --seal-color (cinnabar signature: seal + danger), e.g. "#B33A3A". Functional colors are mineral pigments (azurite/malachite/ochre).
 
 # ─── Document defaults ───
 language: ""                # cn / en. Used when the request language is ambiguous.

@@ -16,28 +16,40 @@
   
 
   :root {
-    /* 宣纸底色 */
-    --paper:        #FAF8F4;
-    --paper-card:   rgba(245,240,230,0.7);
+    /* 宣纸底色（玉白） */
+    --paper:        #FAF9F5;
+    --paper-card:   rgba(249,248,243,0.75);
 
-    /* 墨色分层（五阶） */
+    /* 墨色五阶 */
     --ink-deep:     #2B1E14;    /* 焦墨 */
-    --ink-mid:      #5E4E3F;     /* 浓墨 */
-    --ink-light:    #9B8B7A;   /* 淡墨 */
-    --border-ink-ink:   #C5B9A5;  /* 清墨 */
+    --ink-mid:      #5E4E3F;    /* 浓墨 */
+    --ink-light:    #9B8B7A;    /* 淡墨 */
+    --border-ink:   #C5B9A5;    /* 清墨 */
+
+    /* 矿物五色（功能用石，墨为骨架） */
+    --azurite:      #2B5C8A;    /* 石青 · 链接/导航指示/选中 */
+    --malachite:    #3E8E7E;    /* 石绿 · 成功 */
+    --cinnabar:     #B33A3A;    /* 朱砂 · 印章/危险 */
+    --ochre:        #A96A2E;    /* 赭石 · 警示/引用线 */
+    --gamboge:      #D9A620;    /* 藤黄 · 仅数据可视化 */
+
+    /* 派生 tint（仅取矿物色透明化，非新色） */
+    --select-bg:    rgba(43,92,138,0.08);   /* 石青淡染 · 选中背景 */
+    --azurite-line: rgba(43,92,138,0.30);   /* 石青淡染 · 链接下划线 */
 
     /* 印章色（仅装饰用，无交互功能） */
     --seal-color:   #B33A3A;
 
-    /* 语义变量：交互全部使用墨色 */
-    --link-color:       var(--ink-deep);
+    /* 语义变量：功能用石 */
+    --link-color:       var(--azurite);
     --link-hover:       var(--ink-mid);
-    --active-indicator: var(--ink-deep);
-    --quote-line:       var(--ink-light);
+    --active-indicator: var(--azurite);
+    --quote-line:       var(--ochre);
     --code-keyword:     var(--ink-deep);
 
-    /* 选中背景 */
-    --select-bg:    #D9D1BD;
+    /* 纸面质感：浅色无暖渐变，仅灰度纤维噪点 */
+    --paper-veil: none;
+    --paper-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 
     /* 字体 */
     --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
@@ -47,22 +59,31 @@
     --transition: 0.25s ease;
   }
 
-  /* 深色模式（拓片） */
+  /* 深色模式（黛青夜空 · 灯下书案） */
   [data-theme="dark"] {
-    --paper:        #25221C;
-    --paper-card:   rgba(40,36,28,0.8);
+    --paper:        #22262E;
+    --paper-card:   rgba(38,43,54,0.8);
     --ink-deep:     #ECE4D5;
     --ink-mid:      #B9AD97;
     --ink-light:    #7A6E5F;
-    --border-ink-ink:   #4A4136;
+    --border-ink:   rgba(255,255,255,0.08);
+
+    --azurite:      #6FA3C9;
+    --malachite:    #63B5A4;
+    --cinnabar:     #D87070;
+    --ochre:        #C98A4B;
+    --gamboge:      #E0B64C;
+
+    --select-bg:    rgba(111,163,201,0.14);
+    --azurite-line: rgba(111,163,201,0.42);
+
+    /* 印章色（深色提亮） */
     --seal-color:   #D87070;
 
-    --link-color:       var(--ink-deep);
-    --link-hover:       var(--ink-mid);
-    --active-indicator: var(--ink-deep);
-    --quote-line:       var(--ink-light);
-    --code-keyword:     var(--ink-deep);
-    --select-bg:    #40372B;
+    /* 顶部一盏暖台灯，微光即止 */
+    --paper-veil:
+      linear-gradient(180deg, rgba(255,214,165,0.05) 0%, rgba(255,214,165,0) 30%);
+    --paper-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
   }
 
   html[lang="zh-CN"] {
@@ -120,9 +141,9 @@
   html, body { margin: 0; padding: 0; }
 
   /* Print rules: keep warm background, avoid harsh page breaks */
-  @page { size: A4; margin: 14mm 16mm; background: #FAF8F4; }
+  @page { size: A4; margin: 14mm 16mm; background: #FAF9F5; }
   @media print {
-    body { background: #FAF8F4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #FAF9F5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .page { padding: 0 !important; max-width: 100% !important; }
     section { page-break-inside: auto; margin-bottom: 36px; }
     .hero, .section-head, .family, .comp, .shadow-demo, .tint, .swatch, .radius, blockquote, pre, tr, .anti > div { break-inside: avoid; page-break-inside: avoid; }
@@ -132,10 +153,9 @@
   }
   body {
     background-color: var(--paper);
-    background-image:
-      linear-gradient(0deg, transparent 0%, rgba(180,160,140,0.02) 100%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-    background-repeat: repeat;
+    background-image: var(--paper-veil), var(--paper-noise);
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, scroll;
     color: var(--ink-deep);
     font-family: var(--font);
     font-size: 14px;
@@ -319,7 +339,7 @@
     font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-deep);
-    background: #EEF2F7;
+    background: rgba(43,92,138,0.08);
     padding: 1px 5px;
     border-radius: 2px;
   }
@@ -369,7 +389,7 @@
     letter-spacing: 0.4px;
   }
   .swatch.brand .name { color: var(--ink-deep); }
-  .swatch.dark .chip { border-bottom-color: var(#25221C); }
+  .swatch.dark .chip { border-bottom-color: #22262E; }
 
   .subhead {
     font-family: var(--font);
@@ -704,10 +724,10 @@
     color: var(--ink-deep);
     letter-spacing: 0.4px;
   }
-  .tag.calm { background: #EEF2F7; }
-  .tag.standard { background: #E4ECF5; border-radius: 4px; padding: 2px 8px; }
+  .tag.calm { background: rgba(43,92,138,0.08); }
+  .tag.standard { background: rgba(43,92,138,0.18); border-radius: 4px; padding: 2px 8px; }
   .tag.brush {
-    background: linear-gradient(to right, #D6E1EE, #E4ECF5 70%, #EEF2F7);
+    background: linear-gradient(to right, rgba(43,92,138,0.30), rgba(43,92,138,0.18) 70%, rgba(43,92,138,0.08));
   }
 
   /* Brush stroke horizontal rule */
@@ -721,7 +741,7 @@
     border: none;
   }
   [data-theme="dark"] .brush-hr {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,3 Q30,0 60,3 Q90,6 120,3' fill='none' stroke='%234A4136' stroke-width='1.8' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,3 Q30,0 60,3 Q90,6 120,3' fill='none' stroke='%237A6E5F' stroke-width='1.8' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E");
   }
 
   /* Quote with brush stroke */
@@ -848,9 +868,9 @@
   }
   .sd-ring { box-shadow: 0 0 0 1px var(--border-ink); }
   .sd-whisper { box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
-  .sd-alt { background: var(#25221C); color: #b0aea5; }
+  .sd-alt { background: #22262E; color: #C5B9A5; }
   .sd-alt .t { color: var(--paper-card); font-family: var(--font); }
-  .sd-alt .s { color: #b0aea5; }
+  .sd-alt .s { color: #C5B9A5; }
 
   /* Decision table */
   .decision {
@@ -883,39 +903,10 @@
   .decision td.how code {
     font-family: var(--mono);
     font-size: 12px;
-    background: #EEF2F7;
+    background: rgba(43,92,138,0.08);
     color: var(--ink-deep);
     padding: 1px 5px;
     border-radius: 2px;
-  }
-
-  /* Demo grid */
-  .demo-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    align-items: start;
-  }
-  .demo-card a img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid var(--border-ink);
-    transition: box-shadow 0.2s;
-  }
-  .demo-card a img:hover {
-    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
-  }
-  .demo-card .demo-title {
-    font-family: var(--font);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink-deep);
-    margin: 10px 0 0;
-  }
-  .demo-card .demo-desc {
-    font-size: 12px;
-    color: var(--ink-light);
-    margin: 2px 0 0;
   }
 
 @media (min-width: 980px) {
@@ -928,12 +919,6 @@
 
   html[lang="ja"] .type-sample.display .display-line-nowrap {
     white-space: nowrap;
-  }
-
-  html[lang="ja"] .demo-desc.demo-desc-nowrap {
-    white-space: nowrap;
-    font-size: 12px;
-    letter-spacing: 0;
   }
 }
 
@@ -1086,7 +1071,7 @@
     font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-deep);
-    background: #EEF2F7;
+    background: rgba(43,92,138,0.08);
     padding: 1px 4px;
     border-radius: 2px;
   }
@@ -1107,9 +1092,6 @@
   .subhead { font-size: 16px; margin: 28px 0 12px; }
 
   /* Grids: single column */
-  .demo-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .demo-card { min-width: 0; }
-  .demo-card .demo-desc { overflow-wrap: break-word; word-break: break-word; }
   .swatches { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
   .tint-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .rules { grid-template-columns: 1fr; }

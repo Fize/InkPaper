@@ -26,7 +26,7 @@ Common failures when AI generates professional documents. Organized by failure t
 
 | # | Pattern | Bad | Fix |
 |---|---------|-----|-----|
-| 11 | Resume bullet without result | "Managed a cross-functional team" | Action + Scope + Result: "Led 8-person team to ship v2.0, reducing churn 15%" |
+| 11 | Resume bullet without result | "Managed a cross-functional team" | Action + Scope + Result: "Led 8-person team to ship v3.0, reducing churn 15%" |
 | 12 | Template slots filled with filler | Skills section listing "Communication, Teamwork, Problem-solving" | Name the specific skill and where it was applied, or cut the section |
 | 13 | Equity report without variant perception | "Company is well-positioned for growth" | State what the market gets wrong and why your thesis differs |
 | 14 | One-pager without a clear ask | Three sections of context, no "what we need from you" | The ask belongs above the fold, not implied |
@@ -36,7 +36,7 @@ Common failures when AI generates professional documents. Organized by failure t
 
 | # | Pattern | Bad | Fix |
 |---|---------|-----|-----|
-| 16 | More than 3 brand-color accents per page | Four different colored highlights on the same page | One accent color for emphasis; use weight or size for hierarchy |
+| 16 | More than 3 brand-color accents per page | Four different colored highlights on the same page | Use mineral accents sparingly (azurite ≤2, cinnabar ≤1% per page); rely on ink weight/size for hierarchy |
 | 17 | Chart with no insight title | Chart titled "Revenue by Quarter" | Title states the insight: "Revenue accelerated after Q2 price change" |
 | 18 | Decorative chart that restates the text | Bar chart showing the same three numbers the paragraph just listed | If the text already communicates it, the chart must add a dimension (comparison, trend, distribution) |
 | 19 | Icon or emoji as section marker | Sections led by decorative icons with no semantic value | Use typographic hierarchy (size, weight, spacing) instead |

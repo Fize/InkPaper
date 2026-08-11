@@ -721,7 +721,10 @@ def main(argv: list[str]) -> int:
         print(f"ERROR: {exc}")
         return 2
 
-    if not all(isinstance(k, str) and isinstance(v, str) for k, v in tokens.items()):
+    # v3 tokens.json carries a nested "dark" block for the night theme;
+    # stabilize only consumes light-mode string tokens, so skip non-strings.
+    tokens = {k: v for k, v in tokens.items() if isinstance(k, str) and isinstance(v, str)}
+    if not tokens:
         print("ERROR: invalid tokens.json, expected string->string map")
         return 2
 

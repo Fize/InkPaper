@@ -13,8 +13,29 @@ TOKENS_FILE = ROOT / "references" / "tokens.json"
 
 # Canonical parchment background color, kept here so build/stabilize/density
 # checks share one source of truth instead of redefining the RGB triple.
-PARCHMENT_HEX = "#faf8f4"
-PARCHMENT_RGB = (0xFA, 0xF8, 0xF4)
+PARCHMENT_HEX = "#faf9f5"
+PARCHMENT_RGB = (0xFA, 0xF9, 0xF5)
+
+# Approved v3 mineral-pigment system (素宣墨韵 v3). The five mineral pigments
+# are the only chromatic exceptions to the warm-neutral ink rule; cool
+# azurite/malachite are allowed as functional accents (links, indicators,
+# selection) while ochre/gamboge/cinnabar carry warm functional roles.
+MINERAL_PIGMENTS = {
+    "LIGHT": {
+        "azurite": "#2B5C8A",
+        "malachite": "#3E8E7E",
+        "cinnabar": "#B33A3A",
+        "ochre": "#A96A2E",
+        "gamboge": "#D9A620",
+    },
+    "DARK": {
+        "azurite": "#6FA3C9",
+        "malachite": "#63B5A4",
+        "cinnabar": "#D87070",
+        "ochre": "#C98A4B",
+        "gamboge": "#E0B64C",
+    },
+}
 
 _HOMEBREW_PREFIXES = (Path("/opt/homebrew"), Path("/usr/local"))
 
@@ -57,6 +78,9 @@ def configure_weasyprint_runtime() -> None:
     os.environ["DYLD_FALLBACK_LIBRARY_PATH"] = ":".join([brew_lib_str, *paths])
 
 # Cool / neutral gray hex values that violate the "warm undertone only" rule.
+# Cool NEUTRAL grays remain banned for ink tones; the five mineral pigments in
+# MINERAL_PIGMENTS are deliberate exceptions — cool azurite/malachite are
+# allowed as functional accents (not as ink/neutral tones).
 COOL_GRAY_BLOCKLIST = {
     "#888", "#888888", "#666", "#666666", "#999", "#999999",
     "#ccc", "#cccccc", "#ddd", "#dddddd", "#eee", "#eeeeee",

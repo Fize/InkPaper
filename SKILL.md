@@ -1,13 +1,13 @@
 ---
 name: inkpaper
-description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Warm parchment, ink-toned functional hierarchy, decorative seal only, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
+description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Jade-white paper, ink five-grade for text, mineral pigments for function, cinnabar signature seal, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
 ---
 
 # inkpaper · 紙
 
 **紙** - the paper your deliverables land on.
 
-Good content deserves good paper. One design language across eight document types: warm parchment canvas, ink-toned functional hierarchy, decorative seal only, serif-led hierarchy, tight editorial rhythm.
+Good content deserves good paper. One design language across eight document types: jade-white paper canvas, ink five-grade for text, mineral five for function, cinnabar signature seal, serif-led hierarchy, tight editorial rhythm.
 
 Part of `Kaku · Waza · InkPaper` - Kaku writes code, Waza drills habits, **InkPaper delivers documents**.
 
@@ -71,7 +71,7 @@ Rules:
 
 > Slides: default to `slides-weasy.html` / `slides-weasy-en.html` (WeasyPrint HTML → PDF). Use `slides.py` / `slides-en.py` only when the user explicitly requires an editable PPTX file.
 
-> Deck recipe: read design.md Section 8 before drafting slides.
+> Deck recipe: build from templates/slides-weasy.html or slides-weasy-en.html; typography per design.md 五、字体与排版.
 
 If unsure, ask a one-liner about the scenario rather than guess.
 
@@ -96,7 +96,7 @@ When the user asks for **a diagram inside** a long-doc / portfolio / slide (not 
 | "K 线 / candlestick / OHLC / 股价走势 / price history" | Candlestick | `assets/diagrams/candlestick.html` |
 | "瀑布图 / waterfall / 收入桥 / revenue bridge / decomposition" | Waterfall | `assets/diagrams/waterfall.html` |
 
-Read `references/diagrams.md` before drawing - it has the selection guide, inkpaper token map, and the AI-slop anti-pattern table. Extract the `<svg>` block from the template and drop it into a `<figure>` inside long-doc / portfolio.
+Read `references/diagrams.md` before drawing (selection guide, token map, AI-slop anti-pattern table). Extract the `<svg>` block from the template and drop it into a `<figure>` inside long-doc / portfolio.
 
 Before drawing, always ask: **would a well-written paragraph teach the reader less than this diagram?** If no, don't draw.
 
@@ -144,7 +144,7 @@ Confirm the materials that make the subject recognizable before layout:
 | Logo | Any branded document | User file or official SVG/PNG |
 | Product image | Physical product / venue / object | Official image, user image, or marked gap |
 | UI screenshot | App / SaaS / website / tool | Current screenshot, official product image, or user capture |
-| Brand colors | Branded one-pager / portfolio / deck | Official value, extracted asset value, or keep inkpaper seal color |
+| Brand colors | Branded one-pager / portfolio / deck | Official value, extracted asset value, or inkpaper default (see references/design.md §2) |
 | Fonts | Only if brand typography matters | Official font, close system fallback, or inkpaper default |
 
 If a required item is missing, use a compact gap table and ask once. Do not replace missing material with generic imagery, approximate logo drawings, or invented values.
@@ -156,7 +156,7 @@ After the material check, output a structured status block before continuing. Th
 ```
 Materials status:
 - Logo: OK assets/client-logo.svg
-- Brand colors: OK #B33A3A mapped to --seal-color (decorative only; functional hierarchy uses ink tones)
+- Brand colors: OK #B33A3A maps to --seal-color (signature: seal + danger). Functional hierarchy uses mineral pigments (azurite links, ochre quotes); brand blue/green may map to --azurite/--malachite if close in hue
 - Product screenshot: MISSING (proceeding with inkpaper default placeholder)
 - UI screenshot: not required for this doc type
 ```
@@ -265,7 +265,7 @@ Pick the tier that matches the task. Default to the lowest tier that covers the 
 | **New document** | Building from scratch or from raw content. | Full design spec + writing spec + template |
 | **Resume content** | Resume-specific bullet structure, project framing, scope-result-outcome rules. | `resume-writing.md` + template |
 | **Sources / materials** | Company, product, market, launch, funding, specs, or branded subject. | `writing.md` source rules + user/source material |
-| **Deck (>20 slides)** | Long presentation needing Part Divider, Code Cards, section headers. | Full design spec + Deck Recipe (design.md section 8) |
+| **Deck (>20 slides)** | Long presentation needing Part Divider, Code Cards, section headers. | Full design spec + slide templates (design.md 七、组件规范; templates/slides-weasy*.html) |
 | **Troubleshoot** | Rendering bug, font issue, page overflow. | `production.md` (+ design spec if CSS is the cause) |
 | **Anti-patterns** | Reviewing AI-generated drafts before shipping. | `anti-patterns.md` (six-category checklist) |
 | **Diagram** | Embedding SVG in a doc. | `diagrams.md` only (has its own token map) |
@@ -393,8 +393,8 @@ Never say "I'll adjust the spacing" without naming the exact property and its ne
 ## When not to use this skill
 
 - User explicitly wants Material / Fluent / Tailwind default - different design language
-- Need dark / cyberpunk / futurist aesthetic (this is deliberately anti-future)
-- Need saturated multi-color (this has one accent)
+- Need neon / cyberpunk / futurist aesthetic (this is deliberately anti-future)
+- Need saturated multi-color (mineral accents are capped at three spots per screen)
 - Need cartoon / animation / illustration style (this is editorial)
 - Web dynamic app UI (this is for print / static documents)
 

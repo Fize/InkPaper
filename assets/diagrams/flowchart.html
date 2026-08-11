@@ -13,12 +13,13 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:  #FAF8F4;
-    --paper-card:      rgba(245,240,230,0.7);
+    --paper:  #FAF9F5;
+    --paper-card:      rgba(249,248,243,0.75);
     --ink-deep: #2B1E14;
     --ink-light:      #9B8B7A;
     --ink-light:      #9B8B7A;
     --seal-color: #B33A3A;
+    --azurite: #2B5C8A; --malachite: #3E8E7E; --cinnabar: #B33A3A; --ochre: #A96A2E; --gamboge: #D9A620;
     --border-ink:     #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -83,7 +84,7 @@
         </marker>
       </defs>
 
-      <rect width="100%" height="100%" fill="#FAF8F4"/>
+      <rect width="100%" height="100%" fill="#FAF9F5"/>
 
       <!-- ========== Flow ========== -->
       <!-- Start → Check -->
@@ -94,12 +95,12 @@
 
       <!-- Decision → Yes branch (brand) -->
       <path d="M 360 268 L 200 268 L 200 332" fill="none" stroke="#2B1E14" stroke-width="1.4" marker-end="url(#arrow-brand)"/>
-      <rect x="170" y="284" width="34" height="14" rx="2" fill="#FAF8F4"/>
+      <rect x="170" y="284" width="34" height="14" rx="2" fill="#FAF9F5"/>
       <text x="187" y="294" fill="#2B1E14" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.12em">YES</text>
 
       <!-- Decision → No branch -->
       <path d="M 500 268 L 660 268 L 660 332" fill="none" stroke="#9B8B7A" stroke-width="1.2" marker-end="url(#arrow)"/>
-      <rect x="636" y="284" width="30" height="14" rx="2" fill="#FAF8F4"/>
+      <rect x="636" y="284" width="30" height="14" rx="2" fill="#FAF9F5"/>
       <text x="651" y="294" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.12em">NO</text>
 
       <!-- Yes outcome → End -->
@@ -111,7 +112,7 @@
       <!-- ========== Nodes ========== -->
 
       <!-- Start (pill) -->
-      <rect x="360" y="40" width="140" height="32" rx="16" fill="#E9E8E1" stroke="#9B8B7A" stroke-width="1"/>
+      <rect x="360" y="40" width="140" height="32" rx="16" fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1"/>
       <text x="430" y="58" fill="#2B1E14" font-size="11" font-family="inherit" text-anchor="middle">Start</text>
 
       <!-- Check step -->
@@ -122,7 +123,7 @@
 
       <!-- Decision diamond (FOCAL) -->
       <polygon points="430,216 500,242 500,268 430,320 360,268 360,242"
-               fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1.2"/>
+               fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1.2"/>
       <text x="430" y="266" fill="#2B1E14" font-size="11" font-weight="500" font-family="inherit" text-anchor="middle">{{Decision}}</text>
       <text x="430" y="282" fill="#2B1E14" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.15em">BRANCH</text>
 
@@ -133,29 +134,29 @@
       <text x="200" y="386" fill="#9B8B7A" font-size="9" font-family="inherit" text-anchor="middle">what happens next</text>
 
       <!-- No outcome -->
-      <rect x="580" y="332" width="160" height="64" rx="6" fill="#EEEDE6" stroke="#B2B1AC" stroke-width="1"/>
+      <rect x="580" y="332" width="160" height="64" rx="6" fill="rgba(249,248,243,0.75)" stroke="#C5B9A5" stroke-width="1"/>
       <text x="594" y="350" fill="#9B8B7A" font-size="7" font-family="'JetBrains Mono', monospace" letter-spacing="0.15em">OUTCOME B</text>
       <text x="660" y="370" fill="#2B1E14" font-size="12" font-weight="500" font-family="inherit" text-anchor="middle">{{Alt path}}</text>
       <text x="660" y="386" fill="#9B8B7A" font-size="9" font-family="inherit" text-anchor="middle">skipped / deferred</text>
 
       <!-- End (pill) -->
-      <rect x="396" y="424" width="68" height="32" rx="16" fill="#E9E8E1" stroke="#9B8B7A" stroke-width="1"/>
+      <rect x="396" y="424" width="68" height="32" rx="16" fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1"/>
       <text x="430" y="442" fill="#2B1E14" font-size="11" font-family="inherit" text-anchor="middle">End</text>
 
       <!-- Legend -->
-      <line x1="40" y1="484" x2="820" y2="484" stroke="#DEDED7" stroke-width="0.8"/>
+      <line x1="40" y1="484" x2="820" y2="484" stroke="#FAF9F5" stroke-width="0.8"/>
       <text x="40" y="500" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace" letter-spacing="0.22em">LEGEND</text>
 
-      <polygon points="180,492 192,498 180,504 168,498" fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
+      <polygon points="180,492 192,498 180,504 168,498" fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1"/>
       <text x="202" y="502" fill="#9B8B7A" font-size="8.5" font-family="inherit">Focal decision</text>
 
       <rect x="310" y="494" width="14" height="10" rx="2" fill="#faf9f5" stroke="#2B1E14" stroke-width="1"/>
       <text x="330" y="502" fill="#9B8B7A" font-size="8.5" font-family="inherit">Step · outcome</text>
 
-      <rect x="440" y="494" width="14" height="10" rx="16" fill="#E9E8E1" stroke="#9B8B7A" stroke-width="1"/>
+      <rect x="440" y="494" width="14" height="10" rx="16" fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1"/>
       <text x="460" y="502" fill="#9B8B7A" font-size="8.5" font-family="inherit">Start · end</text>
 
-      <rect x="560" y="494" width="14" height="10" rx="2" fill="#EEEDE6" stroke="#B2B1AC" stroke-width="1"/>
+      <rect x="560" y="494" width="14" height="10" rx="2" fill="rgba(249,248,243,0.75)" stroke="#C5B9A5" stroke-width="1"/>
       <text x="580" y="502" fill="#9B8B7A" font-size="8.5" font-family="inherit">Deferred branch</text>
     </svg>
 

@@ -13,16 +13,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:    #FAF8F4;
-    --paper-card:        rgba(245,240,230,0.7);
+    --paper:    #FAF9F5;
+    --paper-card:        rgba(249,248,243,0.75);
     --ink-deep:   #2B1E14;
     --ink-light:        #9B8B7A;
     --ink-light:        #9B8B7A;
     --seal-color: #B33A3A;
+    --azurite: #2B5C8A; --malachite: #3E8E7E; --cinnabar: #B33A3A; --ochre: #A96A2E; --gamboge: #D9A620;
     --border-ink:       #C5B9A5;
-    --positive:     #2B1E14;
-    --negative:     #9B8B7A;
-    --total:        #4d4c48;
+    --positive:     #2B5C8A;
+    --negative:     #3E8E7E;
+    --total:        #B33A3A;
 
     --serif: Charter, Georgia, Palatino, serif;
     --sans: var(--serif);
@@ -84,21 +85,21 @@
          bar-width=64 · gap=20 · bar-spacing=84
          Scale: max=200 · 1 unit = 1.4px (280/200)
          Y-axis: 0 / 40 / 80 / 120 / 160 / 200
-         Positive: #2B1E14 · Negative: #9B8B7A · Total: #4d4c48
-         Connector lines: dashed 0.8px #b8b7b0
+         Positive: #2B5C8A (azurite) · Negative: #3E8E7E (malachite) · Total: #B33A3A (cinnabar)
+         Connector lines: dashed 0.8px #C5B9A5
          ============================================================ -->
     <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
 
       <!-- Canvas -->
-      <rect width="100%" height="100%" fill="#FAF8F4"/>
+      <rect width="100%" height="100%" fill="#FAF9F5"/>
 
       <!-- Horizontal grid lines (y: 320=0, 264=40, 208=80, 152=120, 96=160, 40=200) -->
-      <line x1="60" y1="320" x2="660" y2="320" stroke="#e8e7e1" stroke-width="0.8"/>
-      <line x1="60" y1="264" x2="660" y2="264" stroke="#e8e7e1" stroke-width="0.8"/>
-      <line x1="60" y1="208" x2="660" y2="208" stroke="#e8e7e1" stroke-width="0.8"/>
-      <line x1="60" y1="152" x2="660" y2="152" stroke="#e8e7e1" stroke-width="0.8"/>
-      <line x1="60" y1="96"  x2="660" y2="96"  stroke="#e8e7e1" stroke-width="0.8"/>
-      <line x1="60" y1="40"  x2="660" y2="40"  stroke="#e8e7e1" stroke-width="0.8"/>
+      <line x1="60" y1="320" x2="660" y2="320" stroke="#FAF9F5" stroke-width="0.8"/>
+      <line x1="60" y1="264" x2="660" y2="264" stroke="#FAF9F5" stroke-width="0.8"/>
+      <line x1="60" y1="208" x2="660" y2="208" stroke="#FAF9F5" stroke-width="0.8"/>
+      <line x1="60" y1="152" x2="660" y2="152" stroke="#FAF9F5" stroke-width="0.8"/>
+      <line x1="60" y1="96"  x2="660" y2="96"  stroke="#FAF9F5" stroke-width="0.8"/>
+      <line x1="60" y1="40"  x2="660" y2="40"  stroke="#FAF9F5" stroke-width="0.8"/>
 
       <!-- Y-axis labels -->
       <text x="52" y="324" fill="#9B8B7A" font-size="10" text-anchor="end" font-family="Charter, Georgia, serif">0</text>
@@ -110,51 +111,51 @@
 
       <!-- Bar 1: Start value = 120 (total bar, from baseline to 120) -->
       <!-- y = 320 - 120*1.4 = 152, h = 168 -->
-      <rect x="68" y="152" width="64" height="168" fill="#4d4c48" rx="2"/>
+      <rect x="68" y="152" width="64" height="168" fill="#B33A3A" rx="2"/>
       <text x="100" y="144" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">120</text>
 
       <!-- Connector: bar1 top to bar2 -->
-      <line x1="132" y1="152" x2="152" y2="152" stroke="#b8b7b0" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="132" y1="152" x2="152" y2="152" stroke="#C5B9A5" stroke-width="0.8" stroke-dasharray="3,2"/>
 
       <!-- Bar 2: +30 (positive, floats from 120 to 150) -->
       <!-- bottom y = 152, top y = 152 - 30*1.4 = 110, h = 42 -->
-      <rect x="152" y="110" width="64" height="42" fill="#2B1E14" rx="2"/>
+      <rect x="152" y="110" width="64" height="42" fill="#2B5C8A" rx="2"/>
       <text x="184" y="102" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">+30</text>
 
       <!-- Connector: bar2 top to bar3 -->
-      <line x1="216" y1="110" x2="236" y2="110" stroke="#b8b7b0" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="216" y1="110" x2="236" y2="110" stroke="#C5B9A5" stroke-width="0.8" stroke-dasharray="3,2"/>
 
       <!-- Bar 3: +20 (positive, floats from 150 to 170) -->
       <!-- bottom y = 110, top y = 110 - 20*1.4 = 82, h = 28 -->
-      <rect x="236" y="82" width="64" height="28" fill="#2B1E14" rx="2"/>
+      <rect x="236" y="82" width="64" height="28" fill="#2B5C8A" rx="2"/>
       <text x="268" y="74" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">+20</text>
 
       <!-- Connector: bar3 top to bar4 -->
-      <line x1="300" y1="82" x2="320" y2="82" stroke="#b8b7b0" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="300" y1="82" x2="320" y2="82" stroke="#C5B9A5" stroke-width="0.8" stroke-dasharray="3,2"/>
 
       <!-- Bar 4: -40 (negative, floats from 170 down to 130) -->
       <!-- top y = 82, bottom y = 82 + 40*1.4 = 138, h = 56 -->
-      <rect x="320" y="82" width="64" height="56" fill="#9B8B7A" rx="2"/>
+      <rect x="320" y="82" width="64" height="56" fill="#3E8E7E" rx="2"/>
       <text x="352" y="148" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">-40</text>
 
       <!-- Connector: bar4 bottom to bar5 -->
-      <line x1="384" y1="138" x2="404" y2="138" stroke="#b8b7b0" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="384" y1="138" x2="404" y2="138" stroke="#C5B9A5" stroke-width="0.8" stroke-dasharray="3,2"/>
 
       <!-- Bar 5: +10 (positive, floats from 130 to 140) -->
       <!-- bottom y = 138, top y = 138 - 10*1.4 = 124, h = 14 -->
-      <rect x="404" y="124" width="64" height="14" fill="#2B1E14" rx="2"/>
+      <rect x="404" y="124" width="64" height="14" fill="#2B5C8A" rx="2"/>
       <text x="436" y="116" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">+10</text>
 
       <!-- Connector: bar5 top to bar6 -->
-      <line x1="468" y1="124" x2="488" y2="124" stroke="#b8b7b0" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="468" y1="124" x2="488" y2="124" stroke="#C5B9A5" stroke-width="0.8" stroke-dasharray="3,2"/>
 
       <!-- Bar 6: -20 (negative, floats from 140 down to 120) -->
       <!-- top y = 124, bottom y = 124 + 20*1.4 = 152, h = 28 -->
-      <rect x="488" y="124" width="64" height="28" fill="#9B8B7A" rx="2"/>
+      <rect x="488" y="124" width="64" height="28" fill="#3E8E7E" rx="2"/>
       <text x="520" y="162" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">-20</text>
 
       <!-- Bar 7: End value = 120 (total bar, from baseline to 120) -->
-      <rect x="588" y="152" width="64" height="168" fill="#4d4c48" rx="2"/>
+      <rect x="588" y="152" width="64" height="168" fill="#B33A3A" rx="2"/>
       <text x="620" y="144" fill="#2B1E14" font-size="11" font-weight="500" text-anchor="middle" font-family="Charter, Georgia, serif">120</text>
       <!-- DATA END -->
 
@@ -168,15 +169,15 @@
       <text x="620" y="340" fill="#2B1E14" font-size="10" text-anchor="middle" font-family="Charter, Georgia, serif">{{End}}</text>
 
       <!-- Legend -->
-      <line x1="60" y1="368" x2="660" y2="368" stroke="#e8e7e1" stroke-width="0.8"/>
+      <line x1="60" y1="368" x2="660" y2="368" stroke="#FAF9F5" stroke-width="0.8"/>
 
-      <rect x="60" y="380" width="12" height="12" fill="#2B1E14" rx="2"/>
+      <rect x="60" y="380" width="12" height="12" fill="#2B5C8A" rx="2"/>
       <text x="78" y="391" fill="#9B8B7A" font-size="10" font-family="Charter, Georgia, serif">Increase</text>
 
-      <rect x="180" y="380" width="12" height="12" fill="#9B8B7A" rx="2"/>
+      <rect x="180" y="380" width="12" height="12" fill="#3E8E7E" rx="2"/>
       <text x="198" y="391" fill="#9B8B7A" font-size="10" font-family="Charter, Georgia, serif">Decrease</text>
 
-      <rect x="300" y="380" width="12" height="12" fill="#4d4c48" rx="2"/>
+      <rect x="300" y="380" width="12" height="12" fill="#B33A3A" rx="2"/>
       <text x="318" y="391" fill="#9B8B7A" font-size="10" font-family="Charter, Georgia, serif">Total</text>
 
     </svg>

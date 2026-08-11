@@ -47,7 +47,7 @@ Apply when the current request is ambiguous. Use profile fields to fill in missi
 
 Apply after template content is filled, before calling `build.py`:
 
-- `brand_color`: edit the `--seal-color` CSS variable in the template `<style>` block (decorative stamp only). Warn if the hue departs significantly from seal red; the warm palette constraint (paper + neutrals) and ink-toned functional hierarchy remain in force regardless.
+- `brand_color`: edit the `--seal-color` CSS variable in the template `<style>` block (cinnabar = signature color: seal stamp + danger states). Warn if the hue departs significantly from seal red; the 玉白 paper + ink-skeleton + mineral functional hierarchy (azurite links, ochre quote lines, malachite success) remains in force regardless.
 - `logo`: insert file path into any `<img src="...">` logo slot in one-pager / portfolio / slides cover.
 
 ## Layer D: Habit notes

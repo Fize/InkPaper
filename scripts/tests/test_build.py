@@ -31,6 +31,7 @@ from build import (  # noqa: E402
 )
 from shared import (  # noqa: E402
     HTML_TEMPLATES,
+    MINERAL_PIGMENTS,
     PARCHMENT_RGB,
     build_targets,
     stabilize_targets,
@@ -92,7 +93,9 @@ def test_registry_consistency() -> None:
           f"got {len(DIAGRAM_TARGETS)}")
     check("PPTX_TARGETS has 2 entries", len(PPTX_TARGETS) == 2,
           f"got {len(PPTX_TARGETS)}")
-    check("PARCHMENT_RGB is canonical", PARCHMENT_RGB == (0xFA, 0xF8, 0xF4))
+    check("PARCHMENT_RGB is canonical", PARCHMENT_RGB == (0xFA, 0xF9, 0xF5))
+    check("MINERAL_PIGMENTS LIGHT azurite is canonical",
+          MINERAL_PIGMENTS["LIGHT"]["azurite"] == "#2B5C8A")
 
 
 # --------------------------- scan_file ---------------------------
@@ -293,7 +296,7 @@ def test_rgb_to_hex_pads_uppercase() -> None:
 def test_blend_rgba_on_parchment_alpha_zero() -> None:
     """alpha=0 returns the parchment background (overlay invisible)."""
     out = blend_rgba_on_parchment(0, 0, 0, 0.0)
-    check("blend alpha=0 -> parchment", out == "#FAF8F4", f"got {out}")
+    check("blend alpha=0 -> parchment", out == "#FAF9F5", f"got {out}")
 
 
 def test_blend_rgba_on_parchment_alpha_one() -> None:

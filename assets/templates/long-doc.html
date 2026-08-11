@@ -34,7 +34,7 @@
   @page {
     size: A4;
     margin: 20mm 22mm 22mm 22mm;
-    background: #FAF8F4;
+    background: #FAF9F5;
 
     @top-right {
       content: string(section-title);
@@ -61,19 +61,24 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:        #FAF8F4;
-    --paper-card:   rgba(245,240,230,0.7);
+    --paper:        #FAF9F5;
+    --paper-card:   rgba(249,248,243,0.75);
     --ink-deep:     #2B1E14;
     --ink-mid:      #5E4E3F;
     --ink-light:    #9B8B7A;
     --border-ink-ink:   #C5B9A5;
     --seal-color:   #B33A3A;
-    --link-color:   var(--ink-deep);
+    --azurite: #2B5C8A;
+    --malachite: #3E8E7E;
+    --cinnabar: #B33A3A;
+    --ochre: #A96A2E;
+    --gamboge: #D9A620;
+    --link-color:   var(--azurite);
     --link-hover:   var(--ink-mid);
-    --active-indicator: var(--ink-deep);
-    --quote-line:   var(--ink-light);
+    --active-indicator: var(--azurite);
+    --quote-line:   var(--ochre);
     --code-keyword: var(--ink-deep);
-    --select-bg:    #D9D1BD;
+    --select-bg:    rgba(43,92,138,0.08);
     --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
     --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
   }

@@ -12,12 +12,13 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:  #FAF8F4;
-    --paper-card:      rgba(245,240,230,0.7);
+    --paper:  #FAF9F5;
+    --paper-card:      rgba(249,248,243,0.75);
     --ink-deep: #2B1E14;
     --ink-light:      #9B8B7A;
     --ink-light:      #9B8B7A;
     --seal-color: #B33A3A;
+    --azurite: #2B5C8A; --malachite: #3E8E7E; --cinnabar: #B33A3A; --ochre: #A96A2E; --gamboge: #D9A620;
     --border-ink:     #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -75,18 +76,18 @@
     <svg viewBox="0 0 960 460" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="0.9" fill="#E3E2DC"/>
+          <circle cx="1" cy="1" r="0.9" fill="rgba(249,248,243,0.75)"/>
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="#FAF8F4"/>
+      <rect width="100%" height="100%" fill="#FAF9F5"/>
       <rect width="100%" height="100%" fill="url(#dots)" opacity="0.55"/>
 
       <!-- ── Horizontal axis ── -->
-      <line x1="60" y1="228" x2="900" y2="228" stroke="#b8b7b0" stroke-width="1.4"/>
+      <line x1="60" y1="228" x2="900" y2="228" stroke="#C5B9A5" stroke-width="1.4"/>
       <!-- Axis end arrow (right) -->
       <path d="M 894,224 L 900,228 L 894,232"
-            fill="none" stroke="#b8b7b0" stroke-width="1.5" stroke-linecap="round"/>
+            fill="none" stroke="#C5B9A5" stroke-width="1.5" stroke-linecap="round"/>
 
       <!-- ================================================================
            Events: x = 140, 292, 444, 596, 748
@@ -96,9 +97,9 @@
 
       <!-- Event 0: x=140, ABOVE, "Concept" 2019 -->
       <line x1="140" y1="220" x2="140" y2="168" stroke="#9B8B7A" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="140" cy="228" r="5" fill="#9B8B7A" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="140" cy="228" r="5" fill="#9B8B7A" stroke="#FAF9F5" stroke-width="1.5"/>
       <rect x="88" y="128" width="104" height="40" rx="4"
-            fill="#FAF8F4" stroke="#C5B9A5" stroke-width="0.8"/>
+            fill="#FAF9F5" stroke="#C5B9A5" stroke-width="0.8"/>
       <text x="140" y="143" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.15em">2019</text>
       <text x="140" y="159" fill="#2B1E14" font-size="11" font-weight="500"
@@ -106,9 +107,9 @@
 
       <!-- Event 1: x=292, BELOW, "Prototype" 2020 -->
       <line x1="292" y1="236" x2="292" y2="288" stroke="#9B8B7A" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="292" cy="228" r="5" fill="#9B8B7A" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="292" cy="228" r="5" fill="#9B8B7A" stroke="#FAF9F5" stroke-width="1.5"/>
       <rect x="236" y="288" width="112" height="40" rx="4"
-            fill="#FAF8F4" stroke="#C5B9A5" stroke-width="0.8"/>
+            fill="#FAF9F5" stroke="#C5B9A5" stroke-width="0.8"/>
       <text x="292" y="303" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.15em">2020</text>
       <text x="292" y="319" fill="#2B1E14" font-size="11" font-weight="500"
@@ -116,9 +117,9 @@
 
       <!-- Event 2: x=444, ABOVE, "Launch" 2021 FOCAL -->
       <line x1="444" y1="220" x2="444" y2="148" stroke="#2B1E14" stroke-width="1.2"/>
-      <circle cx="444" cy="228" r="6" fill="#2B1E14" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="444" cy="228" r="6" fill="#2B1E14" stroke="#FAF9F5" stroke-width="1.5"/>
       <rect x="380" y="100" width="128" height="48" rx="4"
-            fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
+            fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1"/>
       <text x="444" y="117" fill="#2B1E14" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.15em">2021 · FOCAL</text>
       <text x="444" y="138" fill="#2B1E14" font-size="13" font-weight="500"
@@ -126,9 +127,9 @@
 
       <!-- Event 3: x=596, BELOW, "Growth" 2022 -->
       <line x1="596" y1="236" x2="596" y2="288" stroke="#9B8B7A" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="596" cy="228" r="5" fill="#9B8B7A" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="596" cy="228" r="5" fill="#9B8B7A" stroke="#FAF9F5" stroke-width="1.5"/>
       <rect x="540" y="288" width="112" height="40" rx="4"
-            fill="#FAF8F4" stroke="#C5B9A5" stroke-width="0.8"/>
+            fill="#FAF9F5" stroke="#C5B9A5" stroke-width="0.8"/>
       <text x="596" y="303" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.15em">2022</text>
       <text x="596" y="319" fill="#2B1E14" font-size="11" font-weight="500"
@@ -136,23 +137,23 @@
 
       <!-- Event 4: x=748, ABOVE, "Scale" 2023 -->
       <line x1="748" y1="220" x2="748" y2="168" stroke="#9B8B7A" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="748" cy="228" r="5" fill="#9B8B7A" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="748" cy="228" r="5" fill="#9B8B7A" stroke="#FAF9F5" stroke-width="1.5"/>
       <rect x="692" y="128" width="112" height="40" rx="4"
-            fill="#FAF8F4" stroke="#C5B9A5" stroke-width="0.8"/>
+            fill="#FAF9F5" stroke="#C5B9A5" stroke-width="0.8"/>
       <text x="748" y="143" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             text-anchor="middle" letter-spacing="0.15em">2023</text>
       <text x="748" y="159" fill="#2B1E14" font-size="11" font-weight="500"
             font-family="inherit" text-anchor="middle">Scale</text>
 
       <!-- ── Legend ── -->
-      <line x1="40" y1="390" x2="920" y2="390" stroke="#DEDED7" stroke-width="0.8"/>
+      <line x1="40" y1="390" x2="920" y2="390" stroke="#FAF9F5" stroke-width="0.8"/>
       <text x="40" y="406" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace"
             letter-spacing="0.22em">LEGEND</text>
 
-      <circle cx="47" cy="424" r="6" fill="#2B1E14" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="47" cy="424" r="6" fill="#2B1E14" stroke="#FAF9F5" stroke-width="1.5"/>
       <text x="60" y="428" fill="#9B8B7A" font-size="8.5" font-family="inherit">Focal milestone</text>
 
-      <circle cx="183" cy="424" r="5" fill="#9B8B7A" stroke="#FAF8F4" stroke-width="1.5"/>
+      <circle cx="183" cy="424" r="5" fill="#9B8B7A" stroke="#FAF9F5" stroke-width="1.5"/>
       <text x="196" y="428" fill="#9B8B7A" font-size="8.5" font-family="inherit">Standard milestone</text>
 
       <line x1="360" y1="424" x2="392" y2="424" stroke="#9B8B7A" stroke-width="1" stroke-dasharray="3,3"/>

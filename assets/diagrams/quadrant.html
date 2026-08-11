@@ -12,12 +12,13 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:  #FAF8F4;
-    --paper-card:      rgba(245,240,230,0.7);
+    --paper:  #FAF9F5;
+    --paper-card:      rgba(249,248,243,0.75);
     --ink-deep: #2B1E14;
     --ink-light:      #9B8B7A;
     --ink-light:      #9B8B7A;
     --seal-color: #B33A3A;
+    --azurite: #2B5C8A; --malachite: #3E8E7E; --cinnabar: #B33A3A; --ochre: #A96A2E; --gamboge: #D9A620;
     --border-ink:     #C5B9A5;
 
     --serif: Charter, Georgia, Palatino, serif;
@@ -79,15 +80,15 @@
         </marker>
       </defs>
 
-      <rect width="100%" height="100%" fill="#FAF8F4"/>
+      <rect width="100%" height="100%" fill="#FAF9F5"/>
 
       <!-- Quadrant zones (subtle background tint on the "preferred" quadrant) -->
-      <rect x="80" y="60" width="660" height="380" fill="none" stroke="#DEDED7" stroke-width="0.8"/>
-      <rect x="410" y="60" width="330" height="190" fill="#F3EEE6"/>
+      <rect x="80" y="60" width="660" height="380" fill="none" stroke="#FAF9F5" stroke-width="0.8"/>
+      <rect x="410" y="60" width="330" height="190" fill="rgba(249,248,243,0.75)"/>
 
       <!-- Cross axes (through midpoint) -->
-      <line x1="80" y1="250" x2="740" y2="250" stroke="#CCCCC6" stroke-width="0.8"/>
-      <line x1="410" y1="60" x2="410" y2="440" stroke="#CCCCC6" stroke-width="0.8"/>
+      <line x1="80" y1="250" x2="740" y2="250" stroke="#C5B9A5" stroke-width="0.8"/>
+      <line x1="410" y1="60" x2="410" y2="440" stroke="#C5B9A5" stroke-width="0.8"/>
 
       <!-- Axis arrows + labels -->
       <line x1="80" y1="460" x2="740" y2="460" stroke="#9B8B7A" stroke-width="1.2" marker-end="url(#arrow)"/>
@@ -119,7 +120,7 @@
       <text x="562" y="145" fill="#2B1E14" font-size="11" font-family="inherit" font-weight="500">{{Item B · focal}}</text>
 
       <!-- 3: Top-right secondary -->
-      <circle cx="640" cy="200" r="5" fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
+      <circle cx="640" cy="200" r="5" fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1"/>
       <text x="650" y="204" fill="#2B1E14" font-size="10" font-family="inherit" font-weight="500">{{Item C}}</text>
 
       <!-- 4: Top-right -->
@@ -127,15 +128,15 @@
       <text x="500" y="214" fill="#2B1E14" font-size="10" font-family="inherit">{{Item D}}</text>
 
       <!-- 5: Bottom-right (delegate) -->
-      <circle cx="580" cy="350" r="4.5" fill="#EAE9E2" stroke="#9B8B7A" stroke-width="1"/>
+      <circle cx="580" cy="350" r="4.5" fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1"/>
       <text x="590" y="354" fill="#9B8B7A" font-size="10" font-family="inherit">{{Item E}}</text>
 
       <!-- 6: Bottom-left (drop) -->
-      <circle cx="180" cy="380" r="4" fill="#EEEDE6" stroke="#B2B1AC" stroke-width="1"/>
+      <circle cx="180" cy="380" r="4" fill="rgba(249,248,243,0.75)" stroke="#C5B9A5" stroke-width="1"/>
       <text x="190" y="384" fill="#9B8B7A" font-size="10" font-family="inherit">{{Item F}}</text>
 
       <!-- 7: Bottom-left -->
-      <circle cx="280" cy="340" r="4" fill="#EEEDE6" stroke="#B2B1AC" stroke-width="1"/>
+      <circle cx="280" cy="340" r="4" fill="rgba(249,248,243,0.75)" stroke="#C5B9A5" stroke-width="1"/>
       <text x="290" y="344" fill="#9B8B7A" font-size="10" font-family="inherit">{{Item G}}</text>
 
       <!-- 8: Near center -->
@@ -143,22 +144,22 @@
       <text x="390" y="274" fill="#2B1E14" font-size="10" font-family="inherit">{{Item H}}</text>
 
       <!-- Legend -->
-      <line x1="40" y1="502" x2="780" y2="502" stroke="#DEDED7" stroke-width="0.8"/>
+      <line x1="40" y1="502" x2="780" y2="502" stroke="#FAF9F5" stroke-width="0.8"/>
       <text x="40" y="518" fill="#9B8B7A" font-size="8" font-family="'JetBrains Mono', monospace" letter-spacing="0.22em">LEGEND</text>
 
       <circle cx="180" cy="514" r="5" fill="#2B1E14" stroke="#2B1E14" stroke-width="1"/>
       <text x="192" y="518" fill="#9B8B7A" font-size="8.5" font-family="inherit">Focal · do first</text>
 
-      <circle cx="328" cy="514" r="5" fill="rgba(245,240,230,0.7)" stroke="#2B1E14" stroke-width="1"/>
+      <circle cx="328" cy="514" r="5" fill="rgba(249,248,243,0.75)" stroke="#2B1E14" stroke-width="1"/>
       <text x="340" y="518" fill="#9B8B7A" font-size="8.5" font-family="inherit">Near-focal</text>
 
       <circle cx="450" cy="514" r="5" fill="#faf9f5" stroke="#2B1E14" stroke-width="1"/>
       <text x="462" y="518" fill="#9B8B7A" font-size="8.5" font-family="inherit">Standard</text>
 
-      <circle cx="555" cy="514" r="5" fill="#EAE9E2" stroke="#9B8B7A" stroke-width="1"/>
+      <circle cx="555" cy="514" r="5" fill="rgba(249,248,243,0.75)" stroke="#9B8B7A" stroke-width="1"/>
       <text x="567" y="518" fill="#9B8B7A" font-size="8.5" font-family="inherit">Secondary</text>
 
-      <circle cx="660" cy="514" r="5" fill="#EEEDE6" stroke="#B2B1AC" stroke-width="1"/>
+      <circle cx="660" cy="514" r="5" fill="rgba(249,248,243,0.75)" stroke="#C5B9A5" stroke-width="1"/>
       <text x="672" y="518" fill="#9B8B7A" font-size="8.5" font-family="inherit">Drop</text>
     </svg>
 
