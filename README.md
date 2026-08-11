@@ -2,7 +2,6 @@
   <h1>InkPaper</h1>
   <p><b>Good content deserves good paper.</b></p>
   <a href="https://github.com/Fize/inkpaper/stargazers"><img src="https://img.shields.io/github/stars/Fize/InkPaper?style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/Fize/inkpaper/releases"><img src="https://img.shields.io/github/v/tag/Fize/InkPaper?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
 </div>
 
