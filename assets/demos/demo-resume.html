@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>林墨 · 简历</title>
+<meta name="author" content="林墨">
+<meta name="description" content="墨舟创始人：独立开发者、本地检索、双语写作。">
+<meta name="keywords" content="林墨, 墨舟, 独立开发者, Rust, 本地优先, 知识库">
+<meta name="generator" content="InkPaper">
+<style>
+  /* W04 / regular face for body text */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/Fize/InkPaper@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* W05 / medium face for headings (no synthetic bold) */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/Fize/InkPaper@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+@page {
+    size: A4;
+    margin: 11mm 13mm 11mm 13mm;
+    background: #FAF9F5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper:        #FAF9F5;
+    --paper-card:   rgba(249,248,243,0.75);
+    --ink-deep:     #2B1E14;
+    --ink-mid:      #5E4E3F;
+    --ink-light:    #9B8B7A;
+    --border-ink-ink:   #C5B9A5;
+    --seal-color:   #B33A3A;
+    --azurite: #2B5C8A;
+    --malachite: #3E8E7E;
+    --cinnabar: #B33A3A;
+    --ochre: #A96A2E;
+    --gamboge: #D9A620;
+    --link-color:   var(--azurite);
+    --link-hover:   var(--ink-mid);
+    --active-indicator: var(--azurite);
+    --quote-line:   var(--ochre);
+    --code-keyword: var(--ink-deep);
+    --select-bg:    rgba(43,92,138,0.08);
+    --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
+  }
+
+  html, body { background: var(--paper); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 11mm 13mm; }
+  }
+
+  body {
+    color: var(--ink-deep);
+    font-family: var(--font);
+    font-size: 9.2pt;
+    line-height: 1.42;
+    letter-spacing: 0.3pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  .serif {
+    font-family: var(--font);
+  }
+
+  a { color: var(--link-color); text-decoration: none; }
+  a:hover { color: var(--link-hover); }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 3mm;
+    margin-bottom: 3mm;
+    border-bottom: 0.5pt solid #C5B9A5;
+  }
+  .header > div:first-child { flex-shrink: 0; }
+  .name {
+    font-family: var(--font);
+    font-size: 26.5pt;
+    font-weight: 500;
+    letter-spacing: 0.5pt;
+    color: var(--ink-deep);
+    line-height: 1;
+    margin-bottom: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 2.2mm;
+    white-space: nowrap;
+  }
+  .alias {
+    font-size: 12.5pt;
+    font-weight: 400;
+    color: var(--ink-light);
+    letter-spacing: 0.2pt;
+  }
+  .alias::before {
+    content: "";
+  }
+  .tagline { font-size: 9.5pt; color: var(--ink-light); line-height: 1.3; }
+  .tagline .accent { color: var(--ink-deep); font-weight: 500; }
+
+  .contact {
+    text-align: right;
+    font-size: 9pt;
+    color: var(--ink-light);
+    line-height: 1.5;
+    margin-bottom: -0.5mm;
+  }
+  .contact a { color: var(--ink-mid); }
+  .contact .loc { color: var(--ink-light); font-weight: 500; }
+
+  /* METRICS */
+  .metrics { display: flex; gap: 6mm; margin-bottom: 3mm; margin-left: 0; margin-right: 0; }
+  .metric {
+    flex: 1;
+    background: transparent;
+    padding: 1mm 0;
+    display: flex;
+    align-items: baseline;
+    gap: 1.8mm;
+    break-inside: avoid;
+  }
+  .metric-value {
+    font-family: var(--font);
+    font-size: 13pt;
+    font-weight: 500;
+    color: var(--ink-deep);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .metric-label { font-size: 9pt; color: var(--ink-light); line-height: 1.2; }
+
+  .metric-value .unit {
+    font-size: 10.5pt;
+    margin-left: 0.3mm;
+    font-weight: 500;
+    color: var(--ink-deep);
+  }
+
+  .metrics--stack .metric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5mm;
+    padding-bottom: 2mm;
+    border-bottom: 0.3pt dotted var(--border-ink);
+  }
+
+  /* SECTION */
+  .section-title {
+    font-family: var(--font);
+    font-size: 12.5pt;
+    font-weight: 500;
+    color: var(--ink-deep);
+    border-left: 2.5pt solid var(--active-indicator);
+    border-radius: 1.5pt;
+    padding: 0 0 0 8pt;
+    margin: 5mm 0 1.6mm 0;
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+  }
+  .section-title .sub {
+    margin-left: auto;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 9pt;
+    color: var(--ink-light);
+    letter-spacing: 0.3pt;
+  }
+
+  section:first-of-type .section-title { margin-top: 0; }
+  .page-break > .section-title { margin-top: 0; }
+
+  /* Unify gap from section-title bottom border to first content's first line = 3mm
+     (section-title margin-bottom 1.8mm + first-child top spacing 1.2mm) */
+  .section-title + .skill-row { padding-top: 1.2mm; }
+  .section-title + .edu-row { padding-top: 1.2mm; }
+
+  /* SUMMARY */
+  .summary { font-size: 9.2pt; line-height: 1.42; color: var(--ink-deep); }
+  .summary .em-brand { color: var(--ink-deep); }
+  .summary .hl { color: var(--ink-deep); }
+
+  /* TIMELINE */
+  .timeline { display: flex; gap: 6mm; margin-bottom: 2mm; margin-left: 0; margin-right: 0; }
+  .tl-step {
+    flex: 1; background: transparent;
+    padding: 0.8mm 0;
+    break-inside: avoid;
+  }
+  .tl-top {
+    display: flex; align-items: baseline; gap: 1.5mm;
+    margin-bottom: 0.5mm;
+  }
+  .tl-year {
+    font-family: var(--font);
+    font-size: 11pt; font-weight: 500;
+    color: var(--ink-deep); line-height: 1;
+  }
+  .tl-head {
+    font-size: 11pt; font-weight: 500;
+    color: var(--ink-deep);
+  }
+  .tl-body { font-size: 9pt; color: var(--ink-light); line-height: 1.40; letter-spacing: 0.3pt; }
+
+  /* PROJECTS */
+  .project {
+    padding: 1.2mm 0 1.2mm 0;
+    border-top: 0.4pt solid var(--border-ink-soft);
+    break-inside: avoid;
+  }
+  .project:first-of-type { border-top: 0.4pt solid var(--border-ink); padding-top: 1.2mm; }
+  .proj-head {
+    display: flex; align-items: baseline;
+    gap: 2mm; margin-bottom: 0.75mm;
+  }
+  .proj-name {
+    font-family: var(--font);
+    font-size: 11pt; font-weight: 500; color: var(--ink-deep);
+  }
+  .proj-kind { font-size: 11pt; color: var(--ink-light); }
+  .proj-role {
+    font-size: 9pt; color: var(--ink-mid); font-weight: 500;
+    margin-left: auto; background: rgba(249,248,243,0.75);
+    padding: 0.4mm 1.2mm; border-radius: 2pt; letter-spacing: 0.05pt;
+  }
+  .proj-lines { display: table; width: 100%; }
+  .proj-row { display: table-row; }
+  .proj-label {
+    display: table-cell; width: 11mm;
+    font-size: 9pt; color: var(--ink-mid);
+    font-weight: 500; letter-spacing: 0.2pt;
+    padding: 0.2mm 0 0.4mm 0; vertical-align: top;
+  }
+  .proj-text {
+    display: table-cell; font-size: 9pt;
+    color: var(--ink-deep); line-height: 1.40; letter-spacing: 0.3pt;
+    padding: 0 0 0.4mm 0.5mm;
+  }
+  .proj-text .hl { color: var(--ink-deep); }
+
+  .team-culture {
+    margin-top: 2mm; padding: 1.5mm 2.5mm;
+    background: transparent;
+    border-left: 1.4pt solid var(--quote-line);
+    border-radius: 2pt;
+    font-size: 9pt; color: var(--ink-light); line-height: 1.40;
+    break-inside: avoid;
+  }
+  .team-culture .hl { color: var(--ink-deep); }
+
+  /* PAGE 2 FORCE BREAK */
+  .page-break { break-before: page; }
+
+  /* OPEN SOURCE - NEW ENHANCED LAYOUT */
+  .os-intro {
+    font-size: 9.2pt; line-height: 1.40; letter-spacing: 0.3pt;
+    color: var(--ink-deep);
+    padding: 0; margin: 1.2mm 0 2mm 0;
+    background: transparent;
+    break-inside: avoid;
+  }
+  .os-intro .hl { color: var(--ink-deep); }
+  .os-intro .strong { color: var(--ink-deep); }
+
+  .os-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8mm; row-gap: 1mm;
+  }
+  .os-item {
+    display: flex; align-items: baseline;
+    gap: 2mm; padding: 1mm 0 1mm 0;
+    border-bottom: 0.3pt dotted var(--border-ink);
+    break-inside: avoid;
+  }
+  .os-item:last-child,
+  .os-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+  .os-name {
+    font-family: var(--font);
+    font-size: 10pt; font-weight: 500;
+    flex-shrink: 0; min-width: 14mm;
+  }
+  .os-name a { color: var(--link-color); }
+  .os-desc { font-size: 9pt; color: var(--ink-light); line-height: 1.40; flex: 1; }
+  .os-star {
+    font-size: 9pt; color: var(--ink-mid);
+    font-weight: 500; white-space: nowrap; flex-shrink: 0; min-width: 7.5mm; text-align: right;
+  }
+  .os-star.big { color: var(--ink-deep); font-size: 9.2pt; }
+
+  .os-highlight {
+    margin-top: 2.5mm;
+    padding: 1.8mm 2.8mm;
+    background: var(--paper-card);
+    border-left: 1.4pt solid var(--quote-line);
+    font-size: 9pt; line-height: 1.40;
+    color: var(--ink-deep);
+    letter-spacing: 0.3pt;
+    break-inside: avoid;
+  }
+  .os-highlight .hl { color: var(--ink-deep); }
+  .os-highlight .tag {
+    display: inline-block;
+    background: var(--seal-color); color: var(--paper-card);
+    font-size: 9pt; font-weight: 500;
+    padding: 0.2mm 1.5mm; border-radius: 2pt;
+    margin-right: 1.2mm; letter-spacing: 0.2pt;
+    transform: translateY(-0.2mm);
+  }
+
+  /* AI CONVICTION - NEW SECTION */
+  .convictions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5mm;
+    margin-top: 1.2mm;
+  }
+  .conv-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0 2mm 0 0;
+    break-inside: avoid;
+  }
+  .conv-head, .ai-card-head {
+    font-family: var(--font);
+    font-size: 9.8pt; font-weight: 500;
+    color: var(--ink-deep); margin-bottom: 0.9mm;
+    display: flex; align-items: baseline; gap: 1.5mm;
+  }
+  .conv-head .year, .ai-card-head .year {
+    color: var(--ink-deep); font-weight: 500;
+    font-size: 9pt;
+  }
+  .conv-body, .ai-card-body {
+    font-size: 9pt; color: var(--ink-light);
+    line-height: 1.40; letter-spacing: 0.3pt;
+  }
+  .conv-body .hl, .ai-card-body .hl { color: var(--ink-deep); }
+  .conv-body .em-brand, .ai-card-body .em-brand { color: var(--ink-deep); }
+
+  /* INFLUENCE */
+  .handle-strip {
+    background: transparent;
+    padding: 0; margin: 1.2mm 0 2mm 0;
+    display: flex; align-items: baseline; gap: 3mm;
+    break-inside: avoid;
+  }
+  .handle-strip .handle {
+    font-family: var(--font);
+    font-size: 9.8pt; font-weight: 500; color: var(--ink-mid);
+    flex-shrink: 0;
+  }
+  .handle-strip .follower { font-size: 9pt; color: var(--ink-light); flex-shrink: 0; }
+  .handle-strip .desc { font-size: 9pt; color: var(--ink-light); line-height: 1.40; letter-spacing: 0.3pt; flex: 1; }
+
+  .impact-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 5.5mm; }
+  .inf-block-title {
+    margin-top: 2.5mm;
+    font-family: var(--font);
+    font-size: 9.8pt; font-weight: 500;
+    color: var(--ink-deep);
+    margin-bottom: 1.5mm; padding-bottom: 0.5mm;
+    border-bottom: 0.3pt dotted var(--border-ink);
+    display: flex; align-items: baseline; gap: 2mm;
+  }
+  .inf-block-title .small {
+    font-family: var(--font);
+    font-size: 9pt; color: var(--ink-light);
+    font-weight: 400; margin-left: 0; letter-spacing: 0.2pt;
+  }
+  .art-row {
+    padding: 1.6mm 0;
+    border-bottom: 0.3pt dotted var(--border-ink-soft);
+  }
+  .talk-row {
+    display: flex; justify-content: space-between;
+    align-items: flex-start;
+    gap: 2mm; padding: 1.6mm 0;
+    border-bottom: 0.3pt dotted var(--border-ink-soft);
+  }
+  .art-row:last-of-type, .talk-row:last-of-type { border-bottom: none; }
+  .art-header {
+    display: flex; align-items: baseline;
+    justify-content: space-between;
+    gap: 2mm; padding-right: 3mm;
+  }
+  .art-title, .talk-title {
+    font-size: 9pt; color: var(--ink-deep);
+    font-weight: 500; line-height: 1.40;
+    flex: 1 1 auto; min-width: 0;
+  }
+  .art-stats, .talk-venue {
+    font-size: 9pt; color: var(--ink-light);
+    line-height: 1.40; margin-top: 0.5mm; padding-left: 0; letter-spacing: 0.3pt;
+    white-space: nowrap;
+  }
+  .art-stats .em-brand {
+    color: var(--ink-deep);
+  }
+  .art-date {
+    font-size: 9pt; color: var(--ink-light);
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+  }
+  .art-stats .lang-cn, .art-stats .lang-en {
+    display: inline-block;
+    font-size: 9pt; font-weight: 500;
+    margin-right: 0.5mm;
+    letter-spacing: 0.2pt;
+    color: var(--ink-light);
+  }
+  .talk-date {
+    font-size: 9pt; color: var(--ink-light); font-weight: 500;
+    white-space: nowrap; font-variant-numeric: tabular-nums;
+    padding-top: 0.3mm;
+  }
+
+  /* SKILLS */
+  .skill-row {
+    display: flex; gap: 2.5mm; padding: 1.7mm 0;
+    border-bottom: 0.3pt dotted var(--border-ink);
+    align-items: baseline;
+  }
+  .skill-row:last-of-type { border-bottom: none; }
+  .skill-label {
+    font-size: 9pt; font-weight: 500;
+    color: var(--ink-mid); letter-spacing: 0.3pt;
+    width: 22mm; flex-shrink: 0;
+    line-height: 1.36;
+  }
+  .skill-body { font-size: 9pt; color: var(--ink-deep); line-height: 1.40; letter-spacing: 0.3pt; flex: 1; }
+  .skill-body .em-brand { color: var(--ink-deep); }
+
+  .no-break { break-inside: avoid; }
+
+  /* EDUCATION */
+  .edu-row {
+    display: flex; justify-content: space-between;
+    align-items: baseline; font-size: 9.5pt; padding: 1.7mm 0;
+  }
+  .edu-row .school {
+    font-family: var(--font);
+    font-weight: 500; font-size: 10.7pt;
+  }
+  .edu-row .major { color: var(--ink-light); font-size: 9.5pt; }
+  .edu-row .date { color: var(--ink-light); font-variant-numeric: tabular-nums; font-size: 9pt; }
+
+  /* TABLE (inkpaper-table) */
+  table, .inkpaper-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin: 6pt 0;
+    break-inside: avoid;
+  }
+  table th, .inkpaper-table th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--ink-mid);
+    padding: 3pt 6pt;
+    border-bottom: 1pt solid var(--border-ink);
+    background: transparent;
+  }
+  table td, .inkpaper-table td {
+    padding: 2pt 6pt;
+    border-bottom: 0.3pt solid var(--border-ink-soft);
+    vertical-align: top;
+  }
+  table.compact th, .inkpaper-table.compact th { padding: 2pt 4pt; font-size: 8pt; }
+  table.compact td, .inkpaper-table.compact td { padding: 1pt 4pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .inkpaper-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums;
+  }
+  table.financial th:not(:first-child), .inkpaper-table.financial th:not(:first-child) { text-align: right; }
+  table.striped tbody tr:nth-child(even) td, .inkpaper-table.striped tbody tr:nth-child(even) td {
+    background: var(--paper-card);
+  }
+  table .total td, .inkpaper-table .total td {
+    font-weight: 500; border-top: 1pt solid var(--ink-deep); border-bottom: none; color: var(--ink-deep);
+  }
+
+  /* DENSE VARIANT: add class="resume--dense" to <body> when 5+ projects overflow */
+  body.resume--dense { font-size: 9pt; }
+  body.resume--dense .proj-text { line-height: 1.38; }
+  body.resume--dense .tl-body { font-size: 8.5pt; }
+  body.resume--dense .section-title { margin-top: 3.5mm; margin-bottom: 1.2mm; }
+
+  .seal-stamp {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .seal-stamp-sm {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     使用说明：
+ - 所有 变量 替换为实际内容
+ - 删除不适用的 section（如无开源/AI判断/对外影响力）
+ - 项目可加减，每个严格遵守 角色/动作/结果 三段式
+ - 改完验证：必须 2 页
+       python3 -c "from weasyprint import HTML; HTML('resume.html').write_pdf('out.pdf')"
+ - 内容策略详见 references/writing.md
+     ===================================================================== -->
+
+
+<!-- ═══════════ PAGE 1 ═══════════ -->
+
+<div class="header">
+  <div>
+    <div class="name serif">林墨<span class="alias">Lin Mo</span><span class="seal-stamp" style="margin-left: 3mm;">
+      <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/><text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text></svg>
+    </span></div>
+  </div>
+  <div class="contact">
+    <span style="color: var(--ink-deep); font-size: 10.5pt; font-weight: 500;">独立开发者 · 产品工程</span>　·　<a href="https://github.com/linmo">GitHub @linmo</a>　·　<a href="https://x.com/lin_mo">X @lin_mo</a>　·　<a href="tel:138-5710-2828">138-5710-2828</a>　·　<a href="mailto:linmo@mozhou.app">linmo@mozhou.app</a>　·　32 岁在杭州
+  </div>
+</div>
+
+<!-- 4 个最强的数字标签 -->
+<div class="metrics">
+  <div class="metric"><span class="metric-value serif">3.2万<span class="unit">注册用户</span></span><span class="metric-label">墨舟用户</span></div>
+  <div class="metric"><span class="metric-value serif">12.8k<span class="unit">GitHub Stars</span></span><span class="metric-label">开源影响力</span></div>
+  <div class="metric"><span class="metric-value serif">8<span class="unit">年</span></span><span class="metric-label">全栈与 AI 经验</span></div>
+  <div class="metric"><span class="metric-value serif">2<span class="unit">款</span></span><span class="metric-label">独立产品</span></div>
+</div>
+
+<section>
+  <div class="section-title">个人简介</div>
+  <div class="summary">
+    墨舟创始人兼产品负责人，独立完成产品、设计与核心工程，8 年全栈与 AI 工程经验；核心沉淀：本地检索、离线架构、内容型产品设计、双语写作、开源运营。
+  </div>
+</section>
+
+<section>
+  <div class="section-title">工作经历<span class="sub">2018 - 至今（8 年独立开发，3 次方向迭代，1 次产品创立）</span></div>
+
+  <!-- Timeline 3 步：长期演进信号 -->
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-top"><div class="tl-year serif">2018</div><div class="tl-head">从全栈工程师到独立开发者</div></div>
+      <div class="tl-body">离职后以个人项目验证「小团队 + 高审美」的可行性，确立独立开发路线。</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-top"><div class="tl-year serif">2021</div><div class="tl-head">AI 工程转型</div></div>
+      <div class="tl-body">专注检索与语义理解方向，为墨舟的混合检索埋下技术伏笔。</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-top"><div class="tl-year serif">2024</div><div class="tl-head">创立墨舟</div></div>
+      <div class="tl-body">以 MVP 验证本地优先知识库的真实需求，8 周获得 3.2 万注册用户。</div>
+    </div>
+  </div>
+
+  <!-- 项目模板 - 重复此块 3-5 次 -->
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">墨舟</span>
+      <span class="proj-kind">· 个人知识库</span>
+      <span class="proj-role">方向主导</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">角色</div>
+        <div class="proj-text">墨舟是一款本地优先、离线可用的个人知识库；定位「记录回归记录本身」，我负责产品方向与核心检索工程。</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">动作</div>
+        <div class="proj-text">自研 Rust 全文索引 + 语义检索双通道，落地双向链接与 Markdown 原生编辑；用 SQLite 分片方案解决万级笔记的增量同步。</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">结果</div>
+        <div class="proj-text">公测 8 周积累 <span class="hl">3.2 万注册用户</span>、周活 1.8 万，次月留存 41%，<span class="hl">付费转化率 6.8%</span>，NPS 62。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">ink-search</span>
+      <span class="proj-kind">· 开源检索引擎</span>
+      <span class="proj-role">方向主导</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">角色</div>
+        <div class="proj-text">为墨舟检索层开源的嵌入式检索引擎，支持 10 万篇文档的毫秒级 BM25 + 向量混合检索。</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">动作</div>
+        <div class="proj-text">设计内存映射索引与增量合并策略，把全量建索引时间从 40 秒压到 1.8 秒；提供 Rust / Python 双语言绑定。</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">结果</div>
+        <div class="proj-text">上线 6 个月获得 <span class="hl">2,300+ stars</span>，被 17 个独立项目引用，入选 GitHub Trending Rust 周榜。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">mozhou-importer</span>
+      <span class="proj-kind">· 开源迁移工具</span>
+      <span class="proj-role">独立开发</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">角色</div>
+        <div class="proj-text">一键迁移 Notion / 语雀 / Apple Notes 到墨舟的开源导入器，解决用户迁移成本最高的痛点。</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">动作</div>
+        <div class="proj-text">实现增量断点续传与双向链接重映射，1.2 万条嵌套笔记迁移零丢失；发布后保持两周一次迭代。</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">结果</div>
+        <div class="proj-text"><span class="hl">3,900+ stars</span>，迁移成功率 99.2%，成为墨舟自然增长的第二入口。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ PAGE 2 ═══════════ -->
+
+<section class="page-break">
+  <div class="section-title">开源项目 &amp; 独立开发者<span class="sub">2018 – 2026 · 以开源养产品，以产品养开源</span></div>
+
+  <div class="os-intro">
+    <span class="hl">相信工具应该小而美、快而稳</span>，独立完成从产品定义、界面设计到跨语言工程的全流程，重视用户反馈并保持周更。GitHub 累计 <span class="strong">18,400 stars · 2,100 forks · 3,600 followers</span>。
+  </div>
+
+  <div class="os-grid">
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://github.com/mozhou/ink-search">ink-search</a></span>
+      <span class="os-desc">Rust · 本地语义检索引擎 · GitHub</span>
+      <span class="os-star big">★ 2.3k</span>
+    </div>
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://github.com/mozhou/importer">importer</a></span>
+      <span class="os-desc">一键迁移 Notion / 语雀 / Apple Notes · TypeScript</span>
+      <span class="os-star big">★ 3.9k</span>
+    </div>
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://github.com/mozhou/markdown-lens">markdown-lens</a></span>
+      <span class="os-desc">Markdown 大纲与双向链接可视化 · TypeScript</span>
+      <span class="os-star">★ 1.6k</span>
+    </div>
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://github.com/mozhou/mozhou">mozhou</a></span>
+      <span class="os-desc">本地优先个人知识库 · Rust + Tauri</span>
+      <span class="os-star">★ 4.8k</span>
+    </div>
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://github.com/linmo/timeline.css">timeline.css</a></span>
+      <span class="os-desc">极简时间线排版方案 · CSS</span>
+      <span class="os-star">★ 1.1k</span>
+    </div>
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://github.com/mozhou/pack-notebook">pack-notebook</a></span>
+      <span class="os-desc">离线笔记本容器格式 · Rust</span>
+      <span class="os-star">★ 4.7k</span>
+    </div>
+  </div>
+
+  <div class="os-highlight">
+    <span class="tag">开源放大器</span>ink-search 发布后一周内被 3 位知名开发者转发，单周新增 1,400 stars，间接带动墨舟 18% 的自然新增用户。
+  </div>
+</section>
+
+<section>
+  <div class="section-title">AI 判断与行动</div>
+  <div class="convictions">
+    <div class="conv-card">
+      <div class="conv-head"><span class="year">2024.03</span>All-in 本地优先</div>
+      <div class="conv-body">
+        在云端笔记工具集体融资扩张时，坚持本地优先、拒绝云同步依赖。事后验证：63% 的用户把「数据主权」列为选择墨舟的首要原因。
+      </div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-head"><span class="year">2025.06</span>主动下线协作功能</div>
+      <div class="conv-body">
+        墨舟 beta 上线协作功能后主动下线，专注单机体验，周活反而提升 22%——克制比堆功能重要。
+      </div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-head"><span class="year">2026.01</span>押注混合检索</div>
+      <div class="conv-body">
+        提前投入 BM25 + 向量混合检索，语义召回准确率比纯向量方案高 9.4 个百分点，成为差异化卖点。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">对外影响力</div>
+
+  <div class="handle-strip">
+    <span class="handle serif">即刻 · <a href="https://web.okjike.com/users/linmo">@墨舟笔记</a></span>
+    <span class="follower">1.2万 粉丝</span>
+    <span class="desc">《墨舟周报》——每周一篇关于本地优先工具与独立开发的深度思考。</span>
+  </div>
+
+  <div class="impact-grid">
+    <div>
+      <div class="inf-block-title">代表性技术长文<span class="small">2025 – 2026 · 3 篇 10w+</span></div>
+      <div class="art-row">
+        <div class="art-header">
+          <a class="art-title" href="https://linmo.me/posts/rust-search">《我用 Rust 重写了笔记检索：延迟从 200ms 降到 3ms》</a>
+          <span class="art-date">2026.03.18</span>
+        </div>
+        <div class="art-stats">52,000 阅读 · 1,800 赞 · 被 12 家媒体转载</div>
+      </div>
+      <div class="art-row">
+        <div class="art-header">
+          <a class="art-title" href="https://linmo.me/posts/local-first-business">《本地优先软件的商业模型》</a>
+          <span class="art-date">2025.11.02</span>
+        </div>
+        <div class="art-stats">31,000 阅读 · 950 赞</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="inf-block-title">受邀演讲<span class="small">2025 – 2026 · 2 场</span></div>
+      <div class="talk-row">
+        <div>
+          <div class="talk-title">《小工具的长期主义》</div>
+          <div class="talk-venue">独立开发者大会 · 杭州</div>
+        </div>
+        <div class="talk-date">2026.05.16</div>
+      </div>
+      <div class="talk-row">
+        <div>
+          <div class="talk-title">《检索技术选型实录》</div>
+          <div class="talk-venue">Rust Meetup · 上海</div>
+        </div>
+        <div class="talk-date">2025.12.07</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">核心能力</div>
+  <!-- 5 项固定结构，每项至少 1 处橙色高亮 -->
+  <div class="skill-row">
+    <div class="skill-label">产品设计<br>与审美</div>
+    <div class="skill-body">以版式与动效作为产品语言，<span class="em-brand">坚持内容优先的界面原则</span>，墨舟界面两年未加底栏。</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">本地检索<br>工程</div>
+    <div class="skill-body">Rust 全文索引与向量检索双通道落地，<span class="em-brand">10 万笔记毫秒级召回</span>，索引体积压缩 62%。</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">独立开发<br>全流程</div>
+    <div class="skill-body">从需求、设计、编码到发布运营<span class="em-brand">一人闭环</span>，保持 8 年周更节奏。</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">AI 应用<br>落地</div>
+    <div class="skill-body">把 RAG 用进真实产品：语义检索、自动标签、摘要生成，<span class="em-brand">上线即被 40% 用户启用</span>。</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">双语写作<br>与传播</div>
+    <div class="skill-body">中英文技术写作累计 12 万字，<span class="em-brand">文章被翻译成 4 种语言</span>，持续为产品带来海外用户。</div>
+  </div>
+</section>
+
+<section class="no-break">
+  <div class="section-title">教育背景</div>
+  <div class="edu-row">
+    <div>
+      <span class="school serif">浙江大学</span>
+      <span class="major">　· 计算机科学与技术学院 · 软件工程 · 放弃保研，大四入职创业公司</span>
+    </div>
+    <div class="date">2014 – 2018</div>
+  </div>
+</section>
+
+</body>
+</html>

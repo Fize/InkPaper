@@ -7,6 +7,29 @@
 
 > InkPaper 源自 [kami](https://github.com/tw93/Kami) 项目，在原作基础上重构演进而来。
 
+## See it
+
+<div align="center">
+  <figure style="display:inline-block; margin:10px; width:45%; vertical-align:top;">
+    <a href="assets/demos/demo.png"><img src="assets/demos/demo.png" alt="InkPaper one-pager demo" width="100%"></a>
+    <figcaption><b>One-Pager</b> · 产品发布方案</figcaption>
+  </figure>
+  <figure style="display:inline-block; margin:10px; width:45%; vertical-align:top;">
+    <a href="assets/demos/demo-resume.png"><img src="assets/demos/demo-resume.png" alt="InkPaper resume demo" width="100%"></a>
+    <figcaption><b>Resume</b> · 中文简历</figcaption>
+  </figure>
+  <br>
+  <figure style="display:inline-block; margin:10px; width:45%; vertical-align:top;">
+    <a href="assets/demos/demo-equity-report.png"><img src="assets/demos/demo-equity-report.png" alt="InkPaper equity report demo" width="100%"></a>
+    <figcaption><b>Equity Report</b> · 个股研报</figcaption>
+  </figure>
+  <figure style="display:inline-block; margin:10px; width:45%; vertical-align:top;">
+    <a href="assets/demos/demo-letter.png"><img src="assets/demos/demo-letter.png" alt="InkPaper letter demo" width="100%"></a>
+    <figcaption><b>Letter</b> · 商务信函</figcaption>
+  </figure>
+  <br><sub>素宣墨韵 · 以墨为魂，朱砂仅为印痕</sub>
+</div>
+
 ## Design
 
 Jade-white xuan paper canvas (#FAF9F5), ink-skeleton typographic hierarchy, mineral-pigment functional colors (azurite links, ochre quotes, cinnabar seal/danger), serif carries hierarchy, no hard shadows or flashy palettes. Not a UI framework; a constraint system for printed matter. Documents should read as composed pages, not dashboards.

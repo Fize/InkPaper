@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     LETTER TEMPLATE · parchment design system
+     A4 正式信件 / 备忘录 / 推荐信 / 辞职信 / 个人声明
+     特点：极简，serif 主导，字号稍大，段距宽松
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>关于墨舟 Pre-A 轮融资交流的来信</title>
+<meta name="author" content="林墨">
+<meta name="description" content="墨舟科技产品负责人林墨致远山创投陈聿明先生的正式商务信函，寻求 Pre-A 轮融资交流与产品演示。">
+<meta name="keywords" content="墨舟, Pre-A, 融资, 远山创投, 本地优先知识库">
+<meta name="generator" content="InkPaper">
+<style>
+  /* Regular weight */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/Fize/InkPaper@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Bold weight - W05 for all bold variants */
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W05.ttf") format("truetype"),
+       url("https://cdn.jsdelivr.net/gh/Fize/InkPaper@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 25mm 25mm 25mm 25mm;
+    background: #FAF9F5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper:        #FAF9F5;
+    --paper-card:   rgba(249,248,243,0.75);
+    --ink-deep:     #2B1E14;
+    --ink-mid:      #5E4E3F;
+    --ink-light:    #9B8B7A;
+    --border-ink-ink:   #C5B9A5;
+    --seal-color:   #B33A3A;
+    --azurite: #2B5C8A;
+    --malachite: #3E8E7E;
+    --cinnabar: #B33A3A;
+    --ochre: #A96A2E;
+    --gamboge: #D9A620;
+    --link-color:   var(--azurite);
+    --link-hover:   var(--ink-mid);
+    --active-indicator: var(--azurite);
+    --quote-line:   var(--ochre);
+    --code-keyword: var(--ink-deep);
+    --select-bg:    rgba(43,92,138,0.08);
+    --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    --mono: "FangSong", "LXGW WenKai Mono", "Fira Code", monospace;
+  }
+
+  html, body { background: var(--paper); }
+
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 25mm; }
+  }
+
+  body {
+    color: var(--ink-deep);
+    font-family: var(--font);
+    font-size: 11.5pt;
+    line-height: 1.55;
+    letter-spacing: 0.3pt;
+  }
+
+  /* ========== LETTERHEAD 信头 ========== */
+  .letterhead {
+    text-align: right;
+    margin-bottom: 30pt;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--ink-light);
+  }
+  .letterhead .sender-name {
+    font-size: 13pt;
+    font-weight: 500;
+    color: var(--ink-deep);
+    margin-bottom: 4pt;
+  }
+  .letterhead a {
+    color: var(--ink-mid);
+    text-decoration: none;
+  }
+
+  /* ========== META ========== */
+  .date {
+    text-align: right;
+    font-size: 10.5pt;
+    color: var(--ink-light);
+    margin-bottom: 24pt;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .recipient {
+    margin-bottom: 24pt;
+    line-height: 1.5;
+  }
+  .recipient .to {
+    font-size: 10pt;
+    color: var(--ink-light);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 3pt;
+  }
+  .recipient .name {
+    font-size: 12pt;
+    font-weight: 500;
+    color: var(--ink-deep);
+  }
+  .recipient .org {
+    font-size: 10.5pt;
+    color: var(--ink-light);
+  }
+
+  /* ========== SUBJECT ========== */
+  .subject {
+    margin-bottom: 24pt;
+    border-left: 2.5pt solid var(--active-indicator);
+    border-radius: 1.5pt;
+    padding-left: 8pt;
+  }
+  .subject .label {
+    font-family: var(--font);
+    font-size: 9pt;
+    color: var(--ink-deep);
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    margin-bottom: 3pt;
+  }
+  /* CN locale tuning: TsangerJinKai glyphs read denser, so the subject title
+     sits one step smaller than EN (15pt vs 16pt) with looser leading. */
+  .subject .title {
+    font-size: 15pt;
+    font-weight: 500;
+    color: var(--ink-deep);
+    line-height: 1.3;
+  }
+
+  /* ========== SALUTATION ========== */
+  .salutation {
+    margin-bottom: 18pt;
+    font-size: 12pt;
+    color: var(--ink-deep);
+  }
+
+  /* ========== BODY ========== */
+  .body-content p {
+    margin-bottom: 14pt;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    line-height: 1.55;
+    text-indent: 2em;    /* 中文段落首行缩进 */
+  }
+  .body-content p:first-child { text-indent: 2em; }
+  .body-content p.no-indent { text-indent: 0; }
+
+  .body-content .hl {
+    color: var(--ink-deep);
+    font-weight: 500;
+  }
+
+  /* ========== CLOSING ========== */
+  .closing {
+    margin-top: 30pt;
+    line-height: 1.55;
+  }
+  .closing .regards {
+    margin-bottom: 30pt;
+    color: var(--ink-deep);
+  }
+  .closing .signature {
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--ink-deep);
+    margin-bottom: 3pt;
+  }
+  .closing .signoff-meta {
+    font-size: 10pt;
+    color: var(--ink-light);
+  }
+
+  /* ========== ATTACHMENT ========== */
+  .attachments {
+    margin-top: 36pt;
+    padding-top: 10pt;
+    border-top: 0.5pt dotted var(--border-ink);
+    font-size: 9.5pt;
+    color: var(--ink-light);
+    font-family: var(--font);
+    line-height: 1.55;
+  }
+  .attachments .label {
+    color: var(--ink-deep);
+    margin-right: 6pt;
+    font-weight: 500;
+  }
+
+  /* ========== 一些特殊变体 ========== */
+  /* 如果是 memo（备忘录），用 sans 字体，去掉首行缩进 */
+  body.memo {
+    font-family: var(--font);
+    line-height: 1.55;
+  }
+  body.memo .body-content p { text-indent: 0; margin-bottom: 10pt; }
+
+  /* ========== TABLE (inkpaper-table) ========== */
+  table, .inkpaper-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin: 10pt 0;
+    break-inside: avoid;
+  }
+  table th, .inkpaper-table th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--ink-mid);
+    padding: 5pt 8pt;
+    border-bottom: 1pt solid var(--border-ink);
+    background: transparent;
+  }
+  table td, .inkpaper-table td {
+    padding: 4pt 8pt;
+    border-bottom: 0.3pt solid var(--border-ink-soft);
+    vertical-align: top;
+  }
+  table.compact th, .inkpaper-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .inkpaper-table.compact td { padding: 2pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .inkpaper-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums;
+  }
+  table.financial th:not(:first-child), .inkpaper-table.financial th:not(:first-child) { text-align: right; }
+  table.striped tbody tr:nth-child(even) td, .inkpaper-table.striped tbody tr:nth-child(even) td {
+    background: var(--paper-card);
+  }
+  table .total td, .inkpaper-table .total td {
+    font-weight: 500; border-top: 1pt solid var(--ink-deep); border-bottom: none; color: var(--ink-deep);
+  }
+
+  .seal-stamp {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .seal-stamp-sm {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    color: var(--seal-color);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== LETTERHEAD（寄件人） ========== -->
+<div class="letterhead">
+  <div class="sender-name">墨舟科技 · 林墨</div>
+  <div>杭州市余杭区文一西路 998 号 · 产品部</div>
+  <div>138-5710-2828　·　<a href="mailto:hello@mozhou.app">hello@mozhou.app</a></div>
+</div>
+
+<!-- ========== 日期 ========== -->
+<div class="date">2026 年 8 月 11 日</div>
+
+<!-- ========== 收件人 ========== -->
+<div class="recipient">
+  <div class="to">致</div>
+  <div class="name">陈聿明 先生</div>
+  <div class="org">远山创投 · 投资部</div>
+</div>
+
+<!-- ========== 主题 ========== -->
+<div class="subject">
+  <div class="label">关于</div>
+  <div class="title">墨舟 Pre-A 轮融资交流与产品演示邀请<span class="seal-stamp" style="margin-left: 6pt;">
+    <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="19" height="19" rx="3" stroke="currentColor" stroke-width="1.5" transform="rotate(-4, 11, 11)"/><text x="11" y="15" text-anchor="middle" fill="currentColor" font-size="11" font-weight="500" font-family="Georgia, 'Noto Serif SC', serif" transform="rotate(-4, 11, 11)">墨</text></svg>
+  </span></div>
+</div>
+
+<!-- ========== 称呼 ========== -->
+<div class="salutation">尊敬的陈聿明先生：</div>
+
+<!-- ========== 正文 ========== -->
+<div class="body-content">
+
+<p>
+冒昧来信。我是墨舟科技的产品负责人林墨，从朋友处了解到远山创投长期关注本地优先与 AI 效率工具，希望借这封信向您介绍我们的产品，并争取一次 Pre-A 轮融资的交流机会。
+</p>
+
+<p>
+墨舟是一款<span class="hl">本地优先、离线可用</span>的个人知识库，主打秒级检索与双向链接。目前已有 <span class="hl">3.2 万注册用户</span>、周活 1.8 万、次月留存 41%，其中 63% 的用户将「数据主权」列为选择我们的首要原因——这正是我们与云端笔记工具的差异化所在。
+</p>
+
+<p>
+若您时间方便，我们希望在 <span class="hl">8 月底前</span>安排一次 30 分钟的线上交流，向您演示产品并汇报数据与融资计划。您可通过下方电话或邮箱直接联系我，我会在当天回复。
+</p>
+
+<p>
+无论是否有合作机会，都感谢您拨冗阅读。附件中附上产品演示文稿与数据附录，供您参考。
+</p>
+
+</div>
+
+<!-- ========== 敬语 ========== -->
+<div class="closing">
+  <div class="regards">
+    此致 / 敬礼！
+  </div>
+
+  <div class="signature">林墨</div>
+  <div class="signoff-meta">
+    产品负责人 · 墨舟科技<br>
+    2026 年 8 月 11 日
+  </div>
+</div>
+
+<!-- ========== 附件（可选） ========== -->
+<div class="attachments">
+  <span class="label">附件</span>
+  ① 墨舟产品演示文稿（PDF） · ② 用户与财务数据附录（CSV）
+</div>
+
+</body>
+</html>
