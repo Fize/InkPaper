@@ -1,0 +1,45 @@
+{
+  "skill_name": "inkpaper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "请把下面资料做成一份个股研报 demo，格式你来决定，适合我直接在电脑上阅读。公司：星河算力（虚构）；现价 42 元，目标价 55 元；FY24/FY25E/FY26E 收入 18/27/39 亿元；毛利率 31%/35%/38%；核心观点：推理需求增长、液冷机柜放量；风险：客户集中、资本开支放缓。不要联网，不要补造数据。",
+      "expected_output": "A continuous screen-first equity-report HTML artifact and browser PNG preview, with no PDF generated because the user did not request print or PDF.",
+      "files": [],
+      "expectations": [
+        "The run produces a non-empty HTML equity report and a non-empty PNG browser preview.",
+        "The run does not produce a PDF or PPTX file.",
+        "The default HTML is a continuous screen layout and does not simulate A4 sheets or force screen page breaks.",
+        "Print-specific page geometry, if present, is isolated from the default screen layout.",
+        "The report uses only the supplied fictional facts and visibly labels the company as fictional or demo data."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "做一份 6 页的中文投资人路演 deck，用于会议室投屏。项目叫「潮汐数据库」（虚构），内容依次是：问题、产品、市场、商业模式、里程碑、融资用途。只需要适合投屏和浏览器预览的版本，不需要可编辑文件，也没有要求 PDF。不要联网。",
+      "expected_output": "A 16:9 browser-rendered HTML slide deck and PNG preview, without PDF or PPTX because neither export was requested.",
+      "files": [],
+      "expectations": [
+        "The run produces a non-empty 6-slide HTML deck and at least one non-empty PNG browser preview.",
+        "The run does not produce a PDF or PPTX file.",
+        "The deck uses a 16:9 screen presentation geometry suitable for projection.",
+        "All six requested narrative sections appear in the deck in the requested order.",
+        "The output does not invent market numbers, funding amounts, or other unsupported facts."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "把下面内容排成可打印的 A4 中文白皮书 PDF，不限制页数，不要为了压页缩小正文。主题：本地优先 AI 工作流。章节：摘要、为什么本地优先、权限边界、可审计执行、部署建议。正文可以用占位式说明，但必须明确标为示例，不要伪造数据。输出 HTML 源文件和 PDF。",
+      "expected_output": "An HTML source and naturally paginated A4 PDF with readable typography and efficient page utilization; no PNG or PPTX is required.",
+      "files": [],
+      "expectations": [
+        "The run produces a non-empty HTML source and a non-empty A4 PDF.",
+        "The run does not produce a PPTX file.",
+        "The PDF uses natural pagination rather than forcing a fixed page count.",
+        "Body and table text is at least 8.5pt and auxiliary text is at least 7pt.",
+        "Every PDF page has at most 12% trailing body whitespace unless an intentional cover is explicitly documented.",
+        "All five requested chapters appear and placeholder-style content is clearly identified as example material."
+      ]
+    }
+  ]
+}

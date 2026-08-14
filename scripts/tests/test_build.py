@@ -26,6 +26,7 @@ from build import (  # noqa: E402
     _BG_R,
     _last_content_y,
     _parse_slide_sequence,
+    _trailing_whitespace_ratio,
     check_placeholders,
     scan_file,
 )
@@ -386,6 +387,13 @@ def test_last_content_y_blank_page() -> None:
     check("_last_content_y blank page returns 0", y == 0, f"got {y}")
 
 
+def test_trailing_whitespace_ratio_uses_inclusive_content_row() -> None:
+    """The content row itself is not counted as trailing whitespace."""
+    ratio = _trailing_whitespace_ratio(last_content_y=87, h=100)
+    check("_trailing_whitespace_ratio counts 12 blank rows",
+          abs(ratio - 0.12) < 1e-6, f"got {ratio}")
+
+
 # --------------------------- runner ---------------------------
 
 def main() -> int:
@@ -413,6 +421,7 @@ def main() -> int:
     test_last_content_y_dense_page()
     test_last_content_y_sparse_page()
     test_last_content_y_blank_page()
+    test_trailing_whitespace_ratio_uses_inclusive_content_row()
     print()
     print(f"Passed: {_PASS} | Failed: {_FAIL}")
     return 0 if _FAIL == 0 else 1

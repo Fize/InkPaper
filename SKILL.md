@@ -1,6 +1,6 @@
 ---
 name: inkpaper
-description: 'Typeset professional documents: resumes, one-pagers, white papers, letters, portfolios, slide decks. Jade-white paper, ink five-grade for text, mineral pigments for function, cinnabar signature seal, serif-led hierarchy. CN uses TsangerJinKai02, EN uses Charter. Triggers on "做 PDF / 排版 / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
+description: 'Design professional static documents for screen or print: resumes, one-pagers, white papers, letters, portfolios, slide decks, and reports. Default to a visually balanced screen-first HTML artifact when the user does not request a medium; switch to print/PDF pagination only when explicitly requested. Jade-white paper, ink five-grade for text, mineral pigments for function, cinnabar signature seal, serif-led hierarchy. Triggers on "排版 / 做 PDF / 一页纸 / 白皮书 / 作品集 / 简历 / PPT / slides", or "build me a resume / make a one-pager / design a slide deck / turn this into a PDF / make this presentable".'
 ---
 
 # inkpaper · 紙
@@ -25,13 +25,13 @@ Key rule: explicit prompt > editorial judgment > habit notes > frontmatter defau
 
 When ambiguous (e.g. a one-word command like "resume"), ask a one-liner rather than guess.
 
-| User language | HTML templates | Slides (PDF default) | Slides (PPTX fallback) |
+| User language | HTML templates | Slides (screen default) | Editable fallback |
 |---|---|---|---|
 | Chinese (primary) | `*.html` | `slides-weasy.html` | `slides.py` |
 | English | `*-en.html` | `slides-weasy-en.html` | `slides-en.py` |
 | Other languages (best-effort) | choose CJK or EN path by script coverage, then verify manually | choose `slides-weasy.html` or `slides-weasy-en.html`, then verify manually | use `slides.py` / `slides-en.py` only if PPTX is required |
 
-> Default to the WeasyPrint HTML path; fall back to PPTX (`slides*.py`) only when the user explicitly needs an editable deck.
+> Default to browser-rendered HTML. Use the WeasyPrint path only for an explicit print/PDF request, and use `slides*.py` only when the user explicitly needs an editable deck.
 
 Always use `CHEATSHEET.md` and `references/*.md` for design, writing, production, and diagram guidance.
 
@@ -52,6 +52,21 @@ Rules:
 - If 2+ dimensions are genuinely unclear, ask in a single compact question (max 2 sub-questions).
 - Never ask all four as a checklist. This is a background verification, not a form.
 
+### Output-medium routing
+
+Choose the medium before choosing page geometry because screen and print optimize for different reading conditions.
+
+| User signal | Layout mode | Default deliverables |
+|---|---|---|
+| No format or delivery signal | **Screen-first** continuous layout | HTML + browser PNG preview |
+| "网页" / "屏幕" / "在线阅读" / "web" / "screen" | **Screen-first** continuous layout | HTML + browser PNG preview |
+| "打印" / "PDF" / "A4" / "纸张" / explicit page count | **Print** pagination | HTML source + PDF |
+| Slides / deck without export requirement | **Screen presentation** at 16:9 | HTML + browser PNG preview |
+| Explicit PPTX / editable request | **Editable presentation** | PPTX, plus only the explicitly requested previews |
+| Explicit format request | Follow the request | The named format wins |
+
+Screen-first means the document uses the available viewport naturally; do not simulate sheets of paper, force page breaks, or reserve print margins. Print rules belong in an isolated `@media print` block and must not shape the default browser layout.
+
 ---
 
 ## Step 2 · Pick the document type
@@ -69,7 +84,7 @@ Rules:
 
 > **Changelog vs. release notes**: The changelog template above is for styled document output. GitHub release notes are a separate deliverable; use `/write` with Release Note Template Mode.
 
-> Slides: default to `slides-weasy.html` / `slides-weasy-en.html` (WeasyPrint HTML → PDF). Use `slides.py` / `slides-en.py` only when the user explicitly requires an editable PPTX file.
+> Slides: default to the HTML 16:9 screen presentation. Export PDF only when requested; use `slides.py` / `slides-en.py` only when the user explicitly requires an editable PPTX file.
 
 > Deck recipe: build from templates/slides-weasy.html or slides-weasy-en.html; typography per design.md 五、字体与排版.
 
@@ -200,12 +215,13 @@ Skip this step for every doc type except slides.
 
 ### Path selection
 
-Default to the WeasyPrint HTML path. Switch to pptx only if the user explicitly requires an editable PPTX file.
+Default to the browser-rendered HTML path at 16:9. Export that HTML through WeasyPrint only when the user explicitly requests PDF; switch to python-pptx only when the user explicitly requires an editable PPTX file.
 
 | Path | Template | When |
 |---|---|---|
-| WeasyPrint HTML → PDF (default) | `slides-weasy.html` / `slides-weasy-en.html` | All cases unless PPTX is required |
-| python-pptx → PPTX (fallback) | `slides.py` / `slides-en.py` | User explicitly requires editable PPTX |
+| Browser HTML (default) | `slides-weasy.html` / `slides-weasy-en.html` | Screen presentation and browser preview |
+| WeasyPrint HTML → PDF | `slides-weasy.html` / `slides-weasy-en.html` | User explicitly requests PDF export |
+| python-pptx → PPTX | `slides.py` / `slides-en.py` | User explicitly requires editable PPTX |
 
 ### Page size
 
@@ -244,11 +260,11 @@ Before loading specs and filling the template, write a short editor-style note s
 
 Example (CN):
 
-> 排版意图：Equity Report 中文版，2 页 A4。先立论与目标价，进入估值 (DCF 与可比公司)，落于催化剂与风险。中段嵌一张营收趋势折线和 FY26 收入桥瀑布。Logo 已就位，产品图暂缺，header 改走纯文字。输出 HTML 与 PDF。
+> 排版意图：Equity Report 中文版，采用屏幕优先的连续阅读布局。先立论与目标价，进入估值 (DCF 与可比公司)，落于催化剂与风险。中段嵌一张营收趋势折线和 FY26 收入桥瀑布。Logo 已就位，产品图暂缺，header 改走纯文字。输出 HTML 与浏览器预览图。
 
 Example (EN):
 
-> Layout intent: Equity Report (EN), two pages A4. Open with thesis and price target, run through valuation (DCF and comparables), close on catalysts and risks. A revenue line chart and an FY26 waterfall sit mid-doc. Logo is in hand; product image is absent, so the header stays text-only. Output: HTML and PDF.
+> Layout intent: Equity Report (EN), using a screen-first continuous reading layout. Open with thesis and price target, run through valuation (DCF and comparables), close on catalysts and risks. A revenue line chart and an FY26 waterfall sit mid-doc. Logo is in hand; product image is absent, so the header stays text-only. Output: HTML and a browser preview.
 
 The note is for transparency, not approval. If the user pushes back, adjust; otherwise proceed to Step 3.
 
@@ -283,7 +299,7 @@ The full spec files for reference:
 ## Step 4 · Fill content into the template
 
 - Copy the template into your working directory; don't write HTML from scratch
-- **CSS stays untouched**, only edit the body
+- For content-only fills, keep CSS untouched and edit only the body. For a layout task or medium change, adjust the smallest necessary CSS surface and keep print rules isolated from the default screen layout.
 - Content follows `writing.md`: data over adjectives, distinctive phrasing over industry clichés
 - Avoid patterns listed in `references/anti-patterns.md`: emptiness, fabrication, mimicry, excess, source gaps, tone contamination
 - **Before filling, read the quality bar for your document type** in `writing.md` section "Quality bars by document type". Structure is necessary but not sufficient: a resume bullet needs Action + Scope + Result + Business Outcome; an equity report needs variant perception + quantified catalysts; slides need assertion-evidence titles. Meeting the quality bar is as important as filling every placeholder.
@@ -298,7 +314,7 @@ These are the most common AI document failures. Cross-reference `references/anti
 - Do not pad content to fill template slots (a resume with 3 real projects does not need 5 fabricated ones)
 - Do not write a paragraph that merely restates its own heading in sentence form
 
-### Fill PDF metadata (WeasyPrint reads these into the PDF)
+### Fill document metadata (WeasyPrint also reads it into PDF exports)
 
 Every template has meta placeholders in `<head>`. Fill all four before building:
 
@@ -318,34 +334,39 @@ Every template has meta placeholders in `<head>`. Fill all four before building:
 
 For personal documents (resume/letter/portfolio), the HTML `<meta name="author">` should match the person's name in the content. For non-personal documents (one-pager/long-doc), leave the placeholder as-is and let the build script infer it.
 
-## Step 4.5 · Auto-select output format
+## Step 4.5 · Select output format
 
 Do not ask the user which format to export. Decide from context:
 
 | Signal | Output | Why |
 |---|---|---|
-| Any document request | HTML + PDF | PDF is the default deliverable, HTML is the source |
-| Slides / PPT / deck | HTML + PDF + PPTX | Presentations need a projectable format |
-| "分享" / "发朋友圈" / "share" / "post" / "preview" | + PNG | Social platforms and messaging need images |
+| No explicit medium | HTML + browser PNG | Screen-first is the most visually useful default |
+| "打印" / "PDF" / "A4" / page count | HTML + PDF | Print constraints were explicitly requested |
+| Slides / PPT / deck | HTML + browser PNG | Presentations are screen media unless export/editability is requested |
+| "分享" / "发朋友圈" / "share" / "post" / "preview" | HTML + PNG | Social platforms and messaging need images |
 | "嵌入" / "插图" / "embed in another doc" | PNG only | Used as material inside other documents |
 | User explicitly says a format | Follow the user | Explicit request overrides auto-selection |
 
-PDF always ships. PPTX follows slides. PNG follows sharing context. The user should never need to think about formats.
+Do not generate PDF merely because the artifact is a document. PDF follows an explicit print/PDF request; PPTX follows an explicit editable-deck request. The default browser layout remains visually complete without either export.
 
 ## Step 5 · Build & verify
 
+**Screen-first verification (default):** render the real HTML in a browser at 1440px, 900px, and 390px widths. Confirm no root horizontal overflow, no clipped content, a bottom gap no larger than 48px, and no large unused region inside a column, card, chart slot, or section. Save a full-page PNG at the primary desktop width.
+
+**Print verification (only when requested):** render PDF, inspect every page, and run the density scanner. Preserve readable type (body/table text at least 8.5pt; auxiliary text at least 7pt), let content paginate naturally, and keep trailing whitespace at or below 12% per page. During visual inspection, a shorter parallel column or panel must not end more than 18% of page height above its peer. Treat an intentional cover as a visual exception, not as a reason to skip first-page scanning. Never shrink content merely to hit a fixed page count.
+
 ```bash
-python3 scripts/build.py --verify           # build all templates + page count + font check + slides
-python3 scripts/build.py --verify resume-en # single target full verification
-python3 scripts/build.py --verify slides    # single slide deck verification
+python3 scripts/build.py --verify [target]  # explicit print/PDF path
 python3 scripts/build.py --check-placeholders path/to/filled.html
-python3 scripts/build.py --check-density              # page whitespace scanner (skips cover)
+python3 scripts/build.py --check-density path/to/output.pdf
 python3 scripts/build.py --check            # CSS rule violations only (fast, no build)
 ```
 
 Source templates intentionally keep `{{...}}` fields. Run placeholder checks on completed documents, not on the template library.
 
-Visual anomalies (tag double rectangle, font fallback, page break issues) -> `production.md` Part 4.
+Visual anomalies (large unused regions, tag double rectangle, font fallback, page break issues) -> `production.md` Part 4.
+
+The density command measures page-level trailing whitespace only. Local voids depend on layout semantics that a whole-page pixel heuristic cannot infer reliably, so verify the 18% parallel-region limit visually from the rendered pages.
 
 ## Fonts
 
@@ -382,6 +403,7 @@ When the user gives **vague visual feedback** ("looks off", "太挤了", "not el
 | "太松了" / "too loose" | Same direction, reversed |
 | "颜色不对" / "color feels wrong" | Which element? Brand blue overused? A gray reading too cool? |
 | "不够好看" / "not polished" | Font rendering? Alignment? Whitespace distribution? Hierarchy unclear? |
+| "留白太多" / "too much whitespace" | Is it bottom trailing space, a local column/card void, or content compressed into a small region? Measure the affected region before changing type size. |
 | "看着不专业" / "unprofessional" | Content wording? Or layout (alignment, consistency)? |
 
 Template response: "X is currently set to Y. Would you like (a) [specific alternative within spec] or (b) [another option]?"
@@ -396,7 +418,7 @@ Never say "I'll adjust the spacing" without naming the exact property and its ne
 - Need neon / cyberpunk / futurist aesthetic (this is deliberately anti-future)
 - Need saturated multi-color (mineral accents are capped at three spots per screen)
 - Need cartoon / animation / illustration style (this is editorial)
-- Web dynamic app UI (this is for print / static documents)
+- Dynamic application UI with interactive state (this skill is for static editorial artifacts on screen or in print)
 
 ---
 

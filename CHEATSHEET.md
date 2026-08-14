@@ -44,7 +44,7 @@ One-page quick reference — scan before filling a template or tweaking a detail
 
 **Discipline (十戒)**: ink ≥85% of page · azurite ≤2 per screen · cinnabar ≤1% · gamboge never text · ≤3 colors per view. Text never takes mineral color; one mineral per job (一色一职).
 
-## Type (print pt)
+## Type (pt tokens; convert to px for screen)
 
 | Role | Size | Weight | Line-height |
 | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ One-page quick reference — scan before filling a template or tweaking a detail
 | Label | 9 | 600 | 1.35 |
 | Tiny | 9 | 400 | 1.40 |
 
-Screen (px) ≈ pt × 1.33. Floor: web ≥12px, PDF ≥9pt.
+Screen (px) ≈ pt × 1.33. Floor: screen body ≥12px; print body/table ≥8.5pt and auxiliary text ≥7pt. Do not reduce type to force a page count.
 
 ## Font stacks
 
@@ -95,7 +95,13 @@ Any font-family that may render Chinese needs a CJK fallback — `@page` footer,
 | 2xl | 40-60pt | Between major sections |
 | 3xl | 80-120pt | Between chapters |
 
-**Page margins (A4)**
+**Screen-first container (default)**
+
+- Use a continuous document surface, not simulated paper sheets.
+- Set a readable `max-width` from the content and viewport; remove forced page heights and page breaks.
+- Verify at 1440px, 900px, and 390px: no root horizontal overflow, no clipping, bottom gap ≤48px, and no large local void inside columns, cards, charts, or sections.
+
+**Print margins (A4, only when requested)**
 
 | Document | T · R · B · L |
 | --- | --- |
@@ -205,7 +211,7 @@ Alternate light/dark rhythm: add `.sd-alt` to any section container.
 
 ## Verification checks
 
-`python3 scripts/build.py --verify [target]` checks source templates and slides in sequence:
+For an explicit print/PDF deliverable, `python3 scripts/build.py --verify [target]` checks source templates and slides in sequence:
 
 1. Source file exists
 2. WeasyPrint render to PDF for HTML / diagram targets
@@ -213,7 +219,7 @@ Alternate light/dark rhythm: add `.sd-alt` to any section container.
 4. Font embedding check
 5. PPTX generation for `slides` / `slides-en`
 
-Source templates intentionally keep `{{...}}` fields. Run `python3 scripts/build.py --check-placeholders path/to/filled.html` on completed documents. Run `python3 scripts/build.py --check-density` to warn on pages with >25% trailing whitespace (skips cover).
+Source templates intentionally keep `{{...}}` fields. Run `python3 scripts/build.py --check-placeholders path/to/filled.html` on completed documents. For explicit print/PDF output, run `python3 scripts/build.py --check-density path/to/output.pdf`; it flags pages with >12% trailing body whitespace. Visually verify that parallel columns or panels differ in content depth by no more than 18%, because a whole-page pixel scan cannot reliably infer layout regions. An intentional cover is a visual exception, not an automatically skipped page.
 
 ## Content quality (one rule per type)
 

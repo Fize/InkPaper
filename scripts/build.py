@@ -12,7 +12,7 @@ Usage:
     python3 scripts/build.py --check-placeholders path/to/doc.html
     python3 scripts/build.py --check-orphans      # scan example PDFs for orphan text
     python3 scripts/build.py --check-orphans path/to/doc.pdf
-    python3 scripts/build.py --check-density       # warn on pages with >25% trailing whitespace
+    python3 scripts/build.py --check-density       # flag excessive trailing whitespace
     python3 scripts/build.py --check-density path/to/doc.pdf
     python3 scripts/build.py --check-rhythm       # warn on monotonous slide sequences
     python3 scripts/build.py --check-rhythm slides slides-en
@@ -602,18 +602,23 @@ _BG_R, _BG_G, _BG_B = PARCHMENT_RGB
 _BG_TOLERANCE = 10
 
 
-def _last_content_y(samples: bytes, w: int, h: int, stride: int, n: int) -> int:
+def _last_content_y(samples: bytes, w: int, h: int, stride: int, n: int,
+                    y_end: int | None = None) -> int:
     """Return the highest y row index that contains non-parchment content.
 
     Uses numpy when available (vectorized scan, ~50-100x faster on multi-page
     PDFs); falls back to a pure Python loop otherwise. Both paths sample every
     fourth column for parity, so the result is identical.
     """
+    y_end = h if y_end is None else min(h, y_end)
+    if y_end <= 0:
+        return 0
+
     try:
         import numpy as np
     except ImportError:
         last_y = 0
-        for y in range(h - 1, -1, -1):
+        for y in range(y_end - 1, -1, -1):
             row_start = y * stride
             is_bg = True
             for x in range(0, w, 4):
@@ -630,11 +635,18 @@ def _last_content_y(samples: bytes, w: int, h: int, stride: int, n: int) -> int:
 
     arr = np.frombuffer(samples, dtype=np.uint8).reshape((h, stride))
     pixels = arr[:, : w * n].reshape((h, w, n))
-    rgb = pixels[:, ::4, :3].astype(np.int16)
+    rgb = pixels[:y_end, ::4, :3].astype(np.int16)
     bg = np.array([_BG_R, _BG_G, _BG_B], dtype=np.int16)
     row_is_bg = (np.abs(rgb - bg).max(axis=2) <= _BG_TOLERANCE).all(axis=1)
     non_bg = np.where(~row_is_bg)[0]
     return int(non_bg[-1]) if non_bg.size else 0
+
+
+def _trailing_whitespace_ratio(last_content_y: int, h: int) -> float:
+    """Return the fraction of rows below the inclusive last content row."""
+    if h <= 0:
+        return 0.0
+    return max(0, h - last_content_y - 1) / h
 
 
 def check_density(paths: list[str]) -> int:
@@ -666,20 +678,20 @@ def check_density(paths: list[str]) -> int:
         doc = fitz.open(str(path))
         rel = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
         for page_num in range(len(doc)):
-            if page_num == 0:
-                continue
             page = doc[page_num]
             pix = page.get_pixmap(dpi=36)
             w, h = pix.width, pix.height
             if h == 0:
                 continue
-            last_content_y = _last_content_y(pix.samples, w, h, pix.stride, pix.n)
+            body_end = max(1, int(h * 0.92))
+            last_content_y = _last_content_y(
+                pix.samples, w, h, pix.stride, pix.n, y_end=body_end)
 
-            empty = (h - last_content_y) / h
-            if empty > 0.50:
+            empty = _trailing_whitespace_ratio(last_content_y, h)
+            if empty > 0.30:
                 print(f"  SPARSE: {rel} p{page_num + 1}: {empty:.0%} trailing whitespace")
                 warnings += 1
-            elif empty > 0.25:
+            elif empty > 0.12:
                 print(f"  WARN: {rel} p{page_num + 1}: {empty:.0%} trailing whitespace")
                 warnings += 1
         doc.close()

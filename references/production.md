@@ -1,6 +1,8 @@
 # Production (Build · Verify · Troubleshoot)
 
-The engineering runbook for inkpaper: from HTML / Python templates to PDF / PPTX deliverables. Four parts: **HTML -> PDF** · **Python -> PPTX** · **Verify & Debug** · **16 known pitfalls**.
+The engineering runbook for inkpaper: from browser-first HTML to optional PDF / PPTX deliverables. Four parts: **HTML -> PDF** · **Python -> PPTX** · **Verify & Debug** · **known pitfalls**.
+
+Default to browser-rendered HTML and a PNG preview when the user does not name a medium. Enter the PDF workflow only for an explicit print, PDF, paper-size, or page-count request. Keep print CSS isolated in `@media print` so print geometry cannot create blank paper-like regions in the screen layout.
 
 ---
 
@@ -58,11 +60,11 @@ font-family: "TsangerJinKai02", "Source Han Serif SC",
              "Noto Serif CJK SC", "Songti SC", Georgia, serif;
 ```
 
-**Font fallback affects page count**. Any font swap requires re-running the page-count check. If it overflows: lower `font-size` first, then tighten margins, then cut content.
+**Font fallback affects page count**. Any font swap requires re-running the page-count check. If it overflows, fix font loading first, then reflow or paginate naturally, and edit non-essential content only when a hard limit exists. Reduce type only as a last resort for an explicit hard page limit, never below 8.5pt for body/table text or 7pt for auxiliary text.
 
 **Claude Desktop skill ZIPs do not bundle large Chinese font files**: `TsangerJinKai02-W04.ttf` and `TsangerJinKai02-W05.ttf` are close to 19MB each and can make Claude.ai / Desktop skill upload or execution time out. Release ZIPs must be generated with `scripts/package-skill.sh`, which excludes both TTF files. Templates still keep local-first and jsDelivr fallback `@font-face` paths.
 
-**Standalone HTML export** (sending a filled HTML file to someone else): this is not guaranteed to work outside the project tree. If the recipient cannot set up the font environment, use the PDF output instead.
+**Standalone HTML export** (sending a filled HTML file to someone else): this is not guaranteed to work outside the project tree. Bundle the required font beside the HTML; if that is impractical, explain the limitation and offer PDF as an option rather than switching media silently.
 
 If you do need to share HTML: the font file and the HTML must live in the same directory, and the `@font-face src` must use a bare filename with no path prefix:
 
@@ -73,7 +75,7 @@ If you do need to share HTML: the font file and the HTML must live in the same d
 }
 ```
 
-Remove the `../fonts/` prefix that templates use when fonts are in the project tree. The recipient must place the `.ttf` file alongside the `.html` file before running WeasyPrint. When in doubt, deliver the PDF.
+Remove the `../fonts/` prefix that templates use when fonts are in the project tree. The recipient must place the `.ttf` file alongside the `.html` file before running WeasyPrint. If the user explicitly requested PDF or print, prefer the PDF over a fragile standalone HTML bundle.
 
 ### Page spec
 
@@ -269,20 +271,26 @@ One rule covers most adjustments: **macro spacing x1.6, micro details x0.5** (le
 
 ## Part 3 · Verify & Debug
 
-### The three-step loop (mandatory after every change)
+### Screen-first verification loop (default)
+
+Render the real HTML in a browser at 1440px, 900px, and 390px widths. At every width verify root `scrollWidth <= clientWidth`, no clipping or overlap, and no large unused region inside a column, card, chart slot, or section. At the primary desktop width, save a full-page PNG and keep the final content within 48px of the document bottom.
+
+### Print verification loop (only when requested)
 
 ```bash
 # 1. Generate
 python3 -c "from weasyprint import HTML; HTML('doc.html').write_pdf('out.pdf')"
 
-# 2. Page count
+# 2. Page count (observation, not a compression target)
 python3 -c "from pypdf import PdfReader; print(len(PdfReader('out.pdf').pages))"
 
-# 3. Visual inspect (when in doubt)
+# 3. Visual inspect every page
 pdftoppm -png -r 300 out.pdf inspect
 ```
 
-**Not verified = not done.**
+Keep body and table text at or above 8.5pt and auxiliary text at or above 7pt. Let content paginate naturally. On each page, trailing body whitespace should be at most 12%. During visual inspection, parallel left/right regions should not differ in content depth by more than 18% of page height. Treat an intentional cover as a visual exception rather than skipping the first page automatically. Do not shrink content merely to hit a fixed page count.
+
+**Not verified in the intended medium = not done.**
 
 ### Did the font actually load?
 
@@ -300,7 +308,7 @@ Project script `scripts/build.py` is the productized version of the three-step l
 python3 scripts/build.py               # all 12 examples
 python3 scripts/build.py resume-en     # one target + page count + fonts
 python3 scripts/build.py --check       # scan for CSS rule violations
-python3 scripts/build.py --check-density       # warn on pages with >25% trailing whitespace
+python3 scripts/build.py --check-density out.pdf  # >12% trailing body whitespace
 ```
 
 ### Layout stabilizer (HTML templates)
@@ -324,7 +332,7 @@ pdftoppm -png -r 300 output.pdf preview      # detail bugs
 pdftoppm -png -r 400 output.pdf preview      # extreme detail (tag double-rect check)
 ```
 
-### 5-point pre-ship review
+### Pre-ship review
 
 A successful render is not enough. Scan these before delivery:
 
@@ -334,7 +342,8 @@ A successful render is not enough. Scan these before delivery:
 | Content structure | Headlines read as a summary; each paragraph opens with a claim; no ceremonial filler |
 | Material coverage | Branded docs include logo, product image, or UI screenshot coverage; missing materials are clearly marked |
 | Typographic detail | Fonts load correctly, line-height stays in spec, emphasis only marks numbers or distinctive phrases, tag backgrounds are solid hex |
-| PDF readiness | Page count fits, placeholders are replaced, visual inspection shows no overflow, overlap, or broken page breaks |
+| Screen readiness | At 1440px, 900px, and 390px there is no root overflow, clipping, overlap, excessive bottom gap, or large local void |
+| Print readiness (when requested) | Type floors hold, pagination is natural, placeholders are replaced, automated trailing whitespace is ≤12%, visually checked parallel-region imbalance is ≤18%, and every page is inspected |
 
 If any row fails, fix it before delivery.
 
@@ -726,7 +735,7 @@ Print docs (long-doc, equity-report) keep the editorial en-dash style; slides sw
 
 ## Part 5 · HTML -> DOCX (pandoc + SVG-to-PNG)
 
-PDF is the delivery format; DOCX is the collaboration format. For proposal / report scenarios where the recipient needs to edit, comment, or forward to their team, ship a `.docx` alongside the PDF.
+Within an explicit print/PDF workflow, PDF is the delivery format and DOCX is the collaboration format. For proposal / report scenarios where the recipient also needs to edit, comment, or forward to their team, ship a `.docx` alongside the requested PDF.
 
 ### Why two-step
 
